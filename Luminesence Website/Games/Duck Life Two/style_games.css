@@ -1,0 +1,175 @@
+h1 {
+    color: white;
+    font-size: larger;
+    
+    }
+    body {
+    background-color: #050216;
+    }
+    
+    a {
+    color: #a2a1f1;
+    
+    }
+    
+    
+    h3 {
+    color: white;
+    text-align: center;
+    
+    }
+    
+    p {
+    color: gray;
+    
+    
+    }
+    
+    h1 {
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    }
+    
+    iframe {
+    width: 500px;
+    height: 500px;
+    
+    
+    
+    }
+    
+    
+    ol {
+    color: #989897;
+    
+    }
+    
+    ul {
+    top: 0%;
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    width: 100%;
+    }
+    
+    li {
+    float: left;
+    
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover {
+    background-color: #782bd4;
+    opacity: .85;
+    
+    
+    }
+    
+    
+    
+    html {
+    scroll-behavior: smooth;
+    
+    }
+    
+    html ::-webkit-scrollbar {
+    width: 20px;
+    
+    }
+    html ::-webkit-scrollbar-track {
+    background-color: 255,0,0,0,.1;
+    border-radius: 25px;
+    }html::-webkit-scrollbar-thumb {
+    background: #363434;
+    border-radius: 25px;
+        }
+    
+    
+    .divfloatright {
+        display: block;
+        background-color: #050216;
+        opacity: .9;
+        border: 1px solid;
+        width: 50%;
+        height: fit-content;
+        overflow: auto;
+        margin: 0% auto;
+        position: fixed;
+    
+    }
+    
+    
+      .text-center {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    
+    
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+      
+      /* Clear floats after image containers */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    
+    
+      @media screen and (max-width: 500px) {
+        .column {
+          width: 100%;
+        }
+      }
+    
+    
+    .column img {
+    width: 800px;
+    height: 400px;
+    
+    }
+    
+    
+    .row img {
+        width: 500px;
+        height: 400px;
+    
+    }
+   
+      .grid-container {
+        display: grid;
+        column-gap: 50px;
+        row-gap: 50px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        align-content: center;
+      }
+
+    title {
+      color: darkgray;
+    }
+    
+    title text {
+      color: white;
+    }
+
+    title:hover {
+      color: gray;
+    }
+    
