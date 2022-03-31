@@ -5,6 +5,6 @@ warning: pls do not notify any school administrators about this website.
 
 snitches. get. stiches
 
-contact wafflepancake9@gmail.com or jstdam0210@gmail.com for any questions
+contact wafflepancakecake9@gmail.com or jstdam0210@gmail.com for any questions
 
 
