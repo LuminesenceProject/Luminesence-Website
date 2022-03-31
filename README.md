@@ -1,6 +1,8 @@
 # Luminesence-Website
-This is a website that gives people the chance to play video games. It also has hacks.
+This website gives people the chance to play unblocked video games during school. It also has hacks.
 
-New games have been recently added! Check them out!
+warning: pls do not notify any school administrators about this website. snitches. get. stiches
 
-contact wafflepancake9@gmail.com or jstdam0210@gmail.com
+contact wafflepancake9@gmail.com or jstdam0210@gmail.com for any questions
+
+
