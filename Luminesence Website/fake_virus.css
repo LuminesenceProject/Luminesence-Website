@@ -1,0 +1,92 @@
+body {
+    background-color: black;
+
+}
+
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-image {
+    background-image: url(Images/fake_virus_image.jpg);
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    height: 100%;
+  
+ 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+ 
+  .bg-text {
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4); 
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+ul {
+    white-space: nowrap;
+
+}
+  
+
+  li {
+    margin: auto;
+    display: inline;
+    
+    }
+    
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    li a:hover {
+    background-color: #782bd4;
+    opacity: .85;
+    
+    
+    }
+
+    img {
+        width: auto;
+        height: auto;
+    }
+
+b {
+    text: bold;
+}
+
+
+a {
+    color: white;
+}
+
+.center {
+   text-align: center;
+  }
+
+.textbox {
+    padding: 10px;
+    border: 10cm solid gray;
+
+}
