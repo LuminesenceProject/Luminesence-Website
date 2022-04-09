@@ -1,13 +1,11 @@
 # Luminesence-Website
-This website gives people the chance to play unblocked video games during school. It also has hacks.
+The luminesence website is a website whos primary goal is to provide games.
+We beleve that everybody should have the chance to play games, and we 
+give them it.
 
-only kool people know abt this
+It also has hacks, which can be plugged in as javascript files onto the F12 menu.
 
-if u know about this website, u r automaticlly considered kool
-
-warning: pls do not notify any school administrators about this website. 
-
-snitches. get. stiches
+This is all written in HTML and javascript, meaning it can run on most machines.
 
 contact wafflepancakecake9@gmail.com or jstdam0210@gmail.com for any questions
 
