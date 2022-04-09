@@ -11,6 +11,6 @@ also, dont tell school admin about this
 
 snitches. get. stiches. 
 
-contact wafflepancakecake9@gmail.com or jstdam0210@gmail.com for any questions
+contact wafflepancake9@gmail.com or jstdam0210@gmail.com for any questions
 
 
