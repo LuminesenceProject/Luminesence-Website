@@ -3,11 +3,11 @@ the luminesence website is a site dedicated to letting u play games during schoo
 
 everyone should have access to games, even if it's during school
 
-it also has hacks, which u can plug in when inspecting a website
+it also has hacks, which can be plugged into a websites inspect mode console. (F12)
 
-everything is written in either html of java, so it is pretty easy to run
+everything is written in either html of javascript, so it should always run.
 
-also, dont tell school admin about this
+Also, dont tell any school admins about this.
 
 snitches. get. stiches. 
 
