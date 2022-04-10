@@ -1,11 +1,11 @@
 # Luminesence-Website
-the luminesence website is a site dedicated to letting u play games during school
+The luminesence website is a site dedicated to letting a user play games during school.
 
-everyone should have access to games, even if it's during school
+Everyone should have access to games, even if it's during school
 
-it also has hacks, which can be plugged into a websites inspect mode console. (F12)
+It also has hacks, which can be plugged into a websites inspect mode console. (F12)
 
-everything is written in either html of javascript, so it should always run.
+Everything is written in either html of javascript, so it should always run.
 
 Also, dont tell any school admins about this.
 
