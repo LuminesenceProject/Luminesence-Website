@@ -1,6 +1,7 @@
 body{
-  height: 100vh;
+  height: 100px;
   display: flex;
+  width: 1666px;
   align-items: center;
   justify-content: center;
   background: #004C99;
@@ -8,6 +9,7 @@ body{
 .container{
   width: 60px;
   height: 60px;
+  float: left;
   border-radius: 50px;
   background: white;
   position: relative;
