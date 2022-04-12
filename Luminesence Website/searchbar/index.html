@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+  <div class="icon">
+    <i class="search fa fa-search"></i>
+  </div>
+  <div class="input">
+    <input type="text" placeholder="search" id="search">
+    <i class="clear fa fa-times"></i>
+  </div>
+</div>
+  <script src="script.js"></script>
+  <script>
+    let search = document.querySelector(".search");
+    let clear = document.querySelector(".clear");
+    
+    search.onclick = function(){
+      document.querySelector(".container").classList.toggle('active');
+    }
+    clear.onclick = function(){
+      document.getElementById("search").value = "";
+    }
+  </script>
+</body>
+
+</html>
