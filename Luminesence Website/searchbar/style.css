@@ -1,10 +1,12 @@
 body{
   height: 100px;
   display: flex;
-  width: 1666px;
   align-items: center;
   justify-content: center;
   background: #004C99;
+  position:relative; 
+  left:400px; 
+  top:-8px; 
 }
 .container{
   width: 60px;
@@ -28,7 +30,7 @@ body{
   color: #444
 }
 .container.active{
-  width: 350px;
+  width: 200px;
 }
 .container .input{
   position: relative;
