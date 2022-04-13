@@ -21,7 +21,78 @@
     
    
 </head>
-<div class="background">
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style1.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+  <div class="icon">
+    <i class="search fa fa-search"></i>
+  </div>
+  <div class="input">
+    <input type="search" placeholder="search" id="search" onchange="openPage()">
+    
+  </div>
+</div>
+  <script src="script.js"></script>
+  <script>
+    let search = document.querySelector(".search");
+    let clear = document.querySelector(".clear");
+    
+    search.onclick = function(){
+      document.querySelector(".container").classList.toggle('active');
+    }
+    clear.onclick = function(){
+      document.getElementById("search").value = "";
+    }
+
+    function openPage(){
+    var x = document.getElementById("search").value;
+      if (x === "cookie clicker", "cookie", " clicker"){
+      window.open("Games/cookie-clicker-master/index.html");}
+      
+      if (x === "duck", "ducklife", "Ducklife"){
+      window.open("Games/Duck Life Two/ducklife.html");}
+
+      if (x === "FNAF", "FNAF3", "five nights", "freddy"){
+      window.open("Games/FNAF3/fnaf3-main/index.html");  }
+
+      if (x === "sandbox", "sandboxgame", "sandbox game", "sand box game"){
+      window.open("Games/sandgame/index.html");   } 
+
+      if (x === "radius", "radius raid", "Radius raid"){
+      window.open("Games/radius-raid-js13k-master/index.html");   }     
+
+      if (x === "tower", "tower defence", "Tower defence"){
+      window.open("Games/canvas_tower_defense-master/index.html");   } 
+
+      if (x === "racer", "javascript racer"){
+      window.open("Games/javascript-racer-master/index.html");   } 
+
+      if (x === "geo dash", "geometry dash", "Geometry dash"){
+      window.open("geodash.html");   } 
+      
+    
+  };
+  </script>
+</body>
+
+</html>    
+    
+    
+    
+    
+    
+    <div class="background">
 <div class="transbox">
 <body class="text-center">
     <br>
