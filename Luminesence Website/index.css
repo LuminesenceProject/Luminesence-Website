@@ -1,7 +1,6 @@
  /* Navbar container */
  .navbar {
     overflow: hidden;
-     height: 50px;
     background-color: #333;
     font-family: Arial;
   }
