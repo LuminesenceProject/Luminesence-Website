@@ -34,27 +34,8 @@ li a:hover {
     
 }
     
-    
-    
-html {
-    scroll-behavior: smooth;
-    
-}
-    
-html ::-webkit-scrollbar {
-    width: 20px;
-    
-}
+   
 
-html ::-webkit-scrollbar-track {
-    background-color: 255,0,0,0,.1;
-    border-radius: 25px;
-}
-
-html::-webkit-scrollbar-thumb {
-    background: #4e4e4e;
-    border-radius: 25px;
-}
 
 h1 {
 font-size: x-large;

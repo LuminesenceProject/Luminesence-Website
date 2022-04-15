@@ -43,29 +43,28 @@ height: 500px;
 
 }
 
-
-ol {
+/*NAVBAR*/
+ol.navbar {
 color: #989897;
 
 }
 
-ul {
+ul.navbar {
 top: 0%;
 list-style-type: none;
 margin: 0%;
 padding: 0%;
-overflow: hidden;
 background-color: #333;
 position: sticky;
 width: 100%;
 }
 
-li {
+li.navbar {
 float: left;
 
 }
 
-li a {
+li a.navbar {
 display: block;
 color: white;
 text-align: center;
@@ -73,7 +72,7 @@ padding: 14px 16px;
 text-decoration: none;
 }
 
-li a:hover {
+li a:hover.navbar {
 background-color: #782bd4;
 opacity: .85;
 
@@ -81,24 +80,75 @@ opacity: .85;
 }
 
 
-
-html {
-scroll-behavior: smooth;
-
+.navbar {
+  
+  background-color: #333;
+  font-family: Arial;
 }
 
-html ::-webkit-scrollbar {
-width: 20px;
 
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-html ::-webkit-scrollbar-track {
-background-color: 255,0,0,0,.1;
-border-radius: 25px;
-}html::-webkit-scrollbar-thumb {
-background: #363434;
-border-radius: 25px;
-    }
 
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; 
+  margin: 0; 
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #782bd4;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+END OF NAVBAR*/
 
 .divfloatright {
     display: block;
@@ -113,13 +163,28 @@ border-radius: 25px;
 
 }
 
-
+/*Scroll Bar*/
   .text-center {
     text-align: center;
     padding: 10px;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  opacity: .5;
+}
 
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+::-webkit-scrollbar-track {
+  color: slategrey;
+  opacity: .2;
+}
+
+/*End of scroll bar*/
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {

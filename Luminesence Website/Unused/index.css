@@ -1,0 +1,178 @@
+/* Redone CSS file (C)me 
+Nice job looking at this!*/ 
+ 
+ 
+ 
+ /* Navbar container */
+ .navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+    display: inline;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  
+  li.navbar {
+    display: -webkit-flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  /* Links inside the navbar */
+
+
+  .navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    color: white;
+    height: 25%;
+  }
+
+  .dropdown p {
+    color: white;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    height: 25%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #782bd4;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color: white;
+  }
+  .dropdown p {
+      color: white;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: white;
+   
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #782bd4;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /*end of navbar*/
+
+body {
+    background-image: url(Images/purpleBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    color: #a2a1f1;
+    
+}
+    
+    
+h3 {
+color: white;
+text-align: center;
+    
+}
+    
+p {
+color: gray;
+    
+    
+ }
+    
+h1 {
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+}
+    
+iframe {
+    width: 500px;
+    height: 500px;
+    
+    
+    
+}
+
+/*Scroll Bar*/
+.text-center {
+    text-align: center;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  opacity: .5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+::-webkit-scrollbar-track {
+  color: slategrey;
+  opacity: .2;
+}
+
+/*End of scroll bar*/
+
+div.transbox {
+    background-color: #000;
+    color: #fff;
+    opacity: .5;
+    width: 75%;
+    margin: auto;
+  }
+  
+  div.transbox p {
+    color: white;
+    opacity: 1;
+  }
+  
+  div.transbox h1 {
+    color: white;
+    opacity: 1;
+  }
+  
+  div.transbox h3 {
+    color: white;
+    opacity: 1;
+  }

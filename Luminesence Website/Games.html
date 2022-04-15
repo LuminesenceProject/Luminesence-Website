@@ -6,84 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
-    <link rel="icon" href="Images/coolL.jpg">
+    <link rel="favicon" href="Images/logo.JPG">
     <link rel="stylesheet" href="style_games.css">
-    <ul>
-        <li><a href="LuminesenceHomepage.html" rel="noopener noreferrer">Home</a></li>
-        <li><a href="Cheats.html" rel="noopener noreferrer">Cheats</a></li>
-        <li style="float: right;"><a href="sources.html" rel="noopener noreferrer">Sources</a></li>
-    </ul>
-</head>
-<body>
-    <!DOCTYPE html>
-<html>
+    <link rel="stylesheet" href="index.css">
+    <!--Navbar-->
+<div class="sticky">
+    <div class="navbar">
+        <a href="index.html" rel="noopener noreferrer" class="navbar">Home</a>
+        <a href="Games.html" rel="noopener noreferrer" class="navbar">Games</a>
+        <a href="PRXY.html">Proxys</a>
+        <a href="sources.html" rel="noopener noreferrer" style="float: right;">Sources</a>
+        <a href="signin.html" rel="noopener noreferrer" class="navbar" style="float: right;"><span>&#9729;</span></a>
+        <div class="navbar">
+            <div class="dropdown navbar">
+              <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats</a>
+              </button>
+              <div class="dropdown-content">
+                <a href="Kahoothacks.html">Kahoot</a>
+                <a href="Blookethacks.html">Blooket</a>
+                <a href="miscellaneoushacks.html">Miscellaneous</a>
+              </div>
+            </div>
+        </div>
+        
+    </div>    
+    </ul> 
+</div>
 <br>
 <br>
-<head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="style1.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div class="container">
+<div class="container" style="float: right;">
   <div class="icon">
     <i class="search fa fa-search"></i>
   </div>
   <div class="input">
     <input type="search" placeholder="search" id="search" onchange="openPage()">
-    
   </div>
 </div>
+
+<!--Auto Correct Script-->
   <script src="script.js"></script>
-  <script>
-    let search = document.querySelector(".search");
-    let clear = document.querySelector(".clear");
+  <script src="autocorrect.js"></script>
+
+    <h1 style="text-align: left;" >Avalible Games</h1>
     
-    search.onclick = function(){
-      document.querySelector(".container").classList.toggle('active');
-    }
-    clear.onclick = function(){
-      document.getElementById("search").value = "";
-    }
-
-    function openPage(){
-    var x = document.getElementById("search").value;
-      
-      if (x === "cookie clicker"){
-      window.open("Games/cookie-clicker-master/index.html");}
-      
-      if (x === "ducklife"){
-      window.open("https://www.google.com/");}
-
-      if (x === "FNAF"){
-      window.open("Games/FNAF3/fnaf3-main/index.html");  }
-
-      if (x === "sandbox game"){
-      window.open("Games/sandgame/index.html");   } 
-
-      if (x === "radius raid"){
-      window.open("Games/radius-raid-js13k-master/index.html");   }     
-
-      if (x === "tower defence"){
-      window.open("Games/canvas_tower_defense-master/index.html");   } 
-
-      if (x === "javascript racer"){
-      window.open("Games/javascript-racer-master/index.html");   } 
-
-      if (x === "geometry dash"){
-      window.open("geodash.html");   } 
-      
     
-  };
-  </script>
-</body>
-
-</html>
-    
-    <h1>Avalible Games</h1>
+ 
     <hr>
     <div class="grid-container">
         <div class="item">
@@ -107,7 +82,7 @@
 
         <div class="item">
         <a href="Games/FNAF3/fnaf3-main/index.html" target="blank" rel="noopener noreferrer">
-            <img src="Images/fnaf3.jpg" alt="Failed to load" width="100%" title="Fnaf3" height="500px">
+            <img src="Images/fnaf3.jpg" alt="Failed to load" width="100%" title="Fnaf3" height="75%">
         </a>
         <h3 class="caption">FNAF3</h3>
         <p>Five Nights at Freddy's is a survival game where <br>
@@ -151,7 +126,7 @@
         The farther you progress, the harder it gets.</p>
         </div>
 
-        <div class="item"
+        <div class="item">
         <a href="Games/canvas_tower_defense-master/index.html" target="_blank" rel="noopener noreferrer">
             <img src="Images/towercanvas.PNG" alt="Failed to load" width="95%" height="80%" title="Tower Defence">
         </a>
@@ -169,7 +144,8 @@
         </div>
         <div class="item">
         <a href="geodash.html" target="_blank" rel="noopener noreferrer">
-            <img src="https://assets-prd.ignimgs.com/2021/12/14/geometrydash-1639510868467.jpg" alt="Failed to load" width="100%" title="geo dash">
+            <img src="data:image/jpeg;base64,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" alt="Failed to load" width="90%" height="75%" title="geo dash">
         </a>
         <h3 class="caption">geometry dash ++</h3>
         <p>a kool geometry dash that doesn't use scratch</p>
@@ -179,7 +155,8 @@
             <img src="https://pngset.com/images/chrome-icon-google-chrome-logo-symbol-trademark-label-transparent-png-2548390.png" alt="Failed to load" width="100%" title="omfg">
         </a>
         <h3 class="caption">chrome unblocked</h3>
-        <p>go to free trial and get 30 minutes of free games</p>
+        <p>Chrome unblocked is a website containing many diffrent games. <br>
+        Some do not work, and likely won't.</p>
         </div>
     
     </div>

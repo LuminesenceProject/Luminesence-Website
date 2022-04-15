@@ -83,18 +83,7 @@ h1 {
     
     }
     
-    html ::-webkit-scrollbar {
-    width: 20px;
-    
-    }
-    html ::-webkit-scrollbar-track {
-    background-color: 255,0,0,0,.1;
-    border-radius: 25px;
-    }html::-webkit-scrollbar-thumb {
-    background: #363434;
-    border-radius: 25px;
-        }
-    
+ 
     
     .divfloatright {
         display: block;
