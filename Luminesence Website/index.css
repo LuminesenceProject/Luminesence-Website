@@ -1,6 +1,7 @@
  /* Navbar container */
  .navbar {
     overflow: hidden;
+     height: 50px;
     background-color: #333;
     font-family: Arial;
   }
@@ -35,7 +36,6 @@
     border: none;
     outline: none;
     color: white;
-   height: 50px;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
