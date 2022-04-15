@@ -27,7 +27,6 @@
   .dropdown {
     float: left;
    margin: auto;
-   height: 50px;
   }
   
   /* Dropdown button */
@@ -36,6 +35,7 @@
     border: none;
     outline: none;
     color: white;
+   height: 80px;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
