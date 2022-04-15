@@ -27,6 +27,7 @@
   .dropdown {
     float: left;
    margin: auto;
+   height: 50px;
   }
   
   /* Dropdown button */
