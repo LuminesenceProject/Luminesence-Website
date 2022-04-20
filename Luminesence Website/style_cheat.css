@@ -83,5 +83,11 @@ video:hover {
 
 /*Code to Copy Text*/
 
-
+.box {
+    overflow: auto;
+    padding: .1%;
+    width: 24.9%;
+    border: 5px solid gray;
+    margin: auto;
+}
 

@@ -11,7 +11,7 @@ clear.onclick = function(){
 function openPage(){
 var x = document.getElementById("search").value;
   
-  if (x === "cookie clicker; cookie clickerr; cookie clickeer, cookie clickker, cookie cliccker, cookie cliicker, cookie cllicker, cookie cclicker, cookie  clicker, cookiee clicker, cookiie clicker, cookkie clicker, coookie clicker, coookie clicker, ccookie clicker,"){
+  if (x === "cookie clicker" "cookie clickerr" "cookie clickeer");{
   window.open("Games/cookie-clicker-master/index.html");}
   
   if (x === "ducklife"){

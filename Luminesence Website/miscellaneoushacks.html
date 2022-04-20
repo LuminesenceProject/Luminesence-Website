@@ -41,31 +41,48 @@ The text that describes the command is on the left, and <br>
 on the right is the command. Paste it onto the page's console.</p>
 
 
-<p style="text-align: center;"><iframe src="Cheats/extrahacks/cookieclickerhacks.html" alt="Failed to load" style="height: 750px; width: 65%; text-align: center; background-color: black;" framing: 0px></iframe></p>
+<p style="text-align: center;"><iframe src="Cheats/extrahacks/cookieclickerhacks.html" alt="Failed to load" class="box" framing: 0px></iframe></p>
 
 <h3>Tab Rename</h3>
 <p>Here is a code snipit that you can copy <br>
 into the F12 menu to rename the current tab!</p>
 <br>
 
-<p style="padding: 10px; border: 5px solid gray; width: 25%; margin: auto;">var tab_name = window.prompt("Enter tab name"); <br>
-    document.title = tab_name; // &#60 3 echo!</p><br>
-
+<p class="box">
+    <code>
+    var tab_name = window.prompt("Enter tab name"); 
+    document.title = tab_name; // &#60 3 echo!
+    </code>
+</p>
+<br>
 <h3>Tab Icon Change</h3>
 <p>Hate the icon of a tab? Just copy this code <br>
 into the F12 box and than click enter! <br>
 Paste the wanted image address into the pop-up.<br></p>
 
-<p style="padding: 10px; border: 5px solid gray; width: 25%; margin: auto;">
-    var icon_href = window.prompt("Image adress for tab icon")<br>
-    var link = document.querySelector("link[rel~='icon']");<br>
-    if (!link) {<br>
-        link = document.createElement('link');<br>
-        link.rel = 'icon';<br>
-        document.getElementsByTagName('head')[0].appendChild(link);<br>
-    }<br>
-    link.href = icon_href;    
+<p class="box">
+    <code>
+    var icon_href = window.prompt("Image adress for tab icon")
+    var link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    link.href = icon_href;
+    </code>    
 </p><br>
+
+
+<h3>History Flood</h3>
+<p>
+Want to flood your history with useless stuff? Make a bookmark <br>
+and paste this code the page you want to show in your history.</p>
+<p class="box">
+    <code>
+    javascript:var num=prompt("How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats");done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert("Flooding Successful!\n "+window.location.href+" \nIs Now In Your History "+num+(num==1?" time.":" Times. \nMade by Schoolcheats"))}
+    </code>
+</p>
 
 <h3>Fake Virus Screen</h3>
 <p>Try this fake virus screen on your friends! <br>
