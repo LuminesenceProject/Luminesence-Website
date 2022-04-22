@@ -10,14 +10,14 @@ function Enemy(x,y) {
 //common to all Emeny objects
 Enemy.prototype.maxLife = 40;
 Enemy.prototype.speed = baseSpeed;
-Enemy.prototype.color = 'red';
+Enemy.prototype.color = 'green';
 
 Enemy.prototype.draw = function() {
   context.beginPath();
   context.fillStyle = this.color;
   context.fillRect(this.x,this.y,rectWidth,rectWidth);
   //life bar
-  context.fillStyle='orange';
+  context.fillStyle='red';
   context.fillRect(this.x,this.y+rectWidth/3,rectWidth*this.life/(this.maxLife+addedLife),rectWidth/3);
 };
 
@@ -70,7 +70,8 @@ var FastEnemy = function(x,y) {
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
 
-FastEnemy.prototype.speed = Enemy.prototype.speed*1.4;
+FastEnemy.
+prototype.speed = Enemy.prototype.speed*1.4;
 FastEnemy.prototype.color = 'DarkRed';
 
 //stronger enemy
@@ -80,9 +81,37 @@ var StrongEnemy = function(x,y) {
 StrongEnemy.prototype = Object.create(Enemy.prototype);
 StrongEnemy.prototype.constructor = StrongEnemy;
 
-StrongEnemy.prototype.color = 'FireBrick';
+StrongEnemy.prototype.color = 'yellow';
 StrongEnemy.prototype.maxLife = Enemy.prototype.maxLife*2;
 
 
+//GODLY ENEMY
+var godEnemy = function(x,y) {
+  Enemy.call(this,x,y);
+};
+godEnemy.prototype.maxLife = Enemy.prototype.maxLife*6;
+
+godEnemy.prototype = Object.create(Enemy.prototype);
+godEnemy.prototype.constructor = godEnemy;
+
+godEnemy.prototype.speed = Enemy.prototype.speed*.2;
+godEnemy.prototype.color = 'purple';
+
+//Unique Enemy
+var UEnemy = function(x,y) {
+  Enemy.call(this,x,y);
+};
+UEnemy.prototype.maxLife = Math.floor(Math.random() * 2) + 1;
+
+UEnemy.prototype = Object.create(Enemy.prototype);
+UEnemy.prototype.constructor = UEnemy;
+
+UEnemy.prototype.speed = Math.floor(Math.random() * 5) + 1;
+UEnemy.prototype.color = 'cyan';
+
+
+
+
+
 //list of enemy types
-var enemyTypes = [Enemy,FastEnemy,StrongEnemy];
+var enemyTypes = [Enemy,FastEnemy,StrongEnemy,godEnemy,UEnemy];

@@ -10,7 +10,7 @@ function Tower(x,y) {
 Tower.prototype.r = rectWidth; //radius
 Tower.prototype.rateOfFire = FPS; //smaller means more bullets per second
 Tower.prototype.range = rectWidth*5;
-Tower.prototype.hurt = Enemy.prototype.maxLife/6;;
+Tower.prototype.hurt = Enemy.prototype.maxLife/5;;
 Tower.prototype.color = 'green';
 Tower.prototype.cost = 50;
 
@@ -68,7 +68,12 @@ Tower.prototype.fire = function() {
   };
 };
 
+// area of splash damage
+
+
+
 //other types of towers
+
 //long range tower:
 
 var Tower2 = function(x,y) {
@@ -77,10 +82,11 @@ var Tower2 = function(x,y) {
 Tower2.prototype = Object.create(Tower.prototype);
 Tower2.prototype.constructor = Tower2;
 
-Tower2.prototype.range = Tower.prototype.range*1.4;//looking to double area, not radius or range
-Tower2.prototype.color = 'brown';
+Tower2.prototype.range = Tower.prototype.range*4;//looking to double area, not radius or range
+Tower2.prototype.color = 'red';
 Tower2.prototype.cost = Tower.prototype.cost * 1.5;
-Tower2.prototype.rateOfFire = Tower.prototype.rateOfFire / 2;
+Tower2.prototype.rateOfFire = Tower.prototype.rateOfFire * 2;
+Tower2.prototype.hurt = Tower.prototype.hurt*2;
 
 //short range high damage tower
 var Tower3 = function(x,y) {
@@ -90,13 +96,43 @@ Tower3.prototype = Object.create(Tower.prototype);
 Tower3.prototype.constructor = Tower3;
 
 Tower3.prototype.range = Tower.prototype.range * 0.7; //0.7 rather than 0.5 because looking at area
-Tower3.prototype.hurt = Tower.prototype.hurt*2;
-Tower3.prototype.color = 'aqua';
-Tower3.prototype.cost = Tower.prototype.cost * 1.5;
+Tower3.prototype.hurt = Tower.prototype.hurt*3;
+Tower3.prototype.color = 'yellow';
+Tower3.prototype.cost = 100;
+
+
+//tank
+var Tower4 = function(x,y) {
+  Tower.call(this,x,y);
+}
+Tower4.prototype = Object.create(Tower.prototype);
+Tower4.prototype.constructor = Tower4;
+
+Tower4.prototype.range = Tower.prototype.range * 1.2; //og .7
+Tower4.prototype.hurt = Tower.prototype.hurt*2.5;
+Tower4.prototype.color = 'purple';
+Tower4.prototype.cost = Tower.prototype.cost * 5;
+Tower4.prototype.rateOfFire = Tower.prototype.rateOfFire / .42;
+
+//slow tower
+var Tower5 = function(x,y) {
+  Tower.call(this,x,y);
+}
+Tower5.prototype = Object.create(Tower.prototype);
+Tower5.prototype.constructor = Tower5;
+
+
+Tower5.prototype.range = Tower.prototype.range * .5; //og .7
+Tower5.prototype.hurt = 0;
+Tower5.prototype.color = 'cyan';
+Tower5.prototype.cost = Tower.prototype.cost * 2;
+
+
+
 
 
 //populate array of towers
 //this is used to figure out which 
 //class of tower to add when mouse is clicked
-var towerClasses = [Tower,Tower2,Tower3];
+var towerClasses = [Tower,Tower2,Tower3,Tower4,Tower5];
 

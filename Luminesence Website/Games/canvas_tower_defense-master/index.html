@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>HTML5/Canvas/Javascript tower defense game</title>
- <meta name="description" content="A tower defense game made with JavaScript and Canvas.">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Defence</title>
+    <!--This game is not my work, and was originnaly open source on github-->
 <style>
 .right {
  float:right;
@@ -10,58 +13,200 @@
 .canvas {
  float:left;
  margin-right: 10px;
- background:url(tower_background.png);
+background-image: url("overlay.png");
+background-size:cover;
+background-repeat: no-repeat;
 }
 .tower {
  display:inline-block;
  padding: 5px;
  border: 1px solid;
 }
+
+body {
+    background-color: black;
+}
+
+p {
+    color: white;
+}
+
+
+
+div.item {
+      vertical-align: top;
+      display: inline-block;
+}
+
+.caption {
+  display: block;
+}
+
+
+.button {
+    text-align: center;
+    display: inline-block;
+    border: none;
+    background-color: #32CD32;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10;
+}
+
+.button :hover {
+    text-align: center;
+    display: inline-block;
+    border: none;
+    padding: 15px 12px;
+    background-color: #69966c;
+    opacity: .9;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 16px;
+}
+.belowtext {
+    display: block;
+    background-color: gray;
+    color: white;
+    padding: 2px;
+}
+
+   
+.grid-container {
+        display: grid;
+        column-gap: 50px;
+        row-gap: 50px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        align-content: center;
+      }
+
+
 </style>
+
 </head>
 <body>
-<canvas id='canvas' class='canvas' width='600' height='600' style='border:1px solid #000;'>Looks like HTML% canvas is turned off. Sorry, this tower defense game needs canvas to work</canvas> 
-<div class='tower' style='background-color: green;' onclick='changeTower(0);'>
-Tower 1
-<br>
-Range: med
-<br>
-Damage: med
-<br>
-Rate: med
-<br>
-Cost: 50
-</div>
+    <!--Avalible Units-->
+
+<canvas id='canvas' class='canvas' width='640' height='640' style="border:1px solid #000;">HTML5 is turned off. Please enable to play.</canvas> 
 <p>
-<div class='tower' style='background-color: brown;' onclick='changeTower(1);'>
-Tower 2
-<br>
-Range: long
-<br>
-Damage: med
-<br>
-Rate: high
-<br>
-Cost: 75 
+<div>
+<div class="item">
+    <div class='tower' style='background-color: green;' onclick='changeTower(0);'>
+        <div class="caption">
+            Soldier
+            <br>
+            Range: med
+            <br>
+            Damage: med
+            <br>
+            Rate: med
+            <br>
+            Cost: 50
+        </div>
+    </div>
 </div>
+</p>
+
 <p>
-<div class='tower' style='background-color:aqua;' onclick='changeTower(2);'>
-Tower 3
-<br>
-Range: short
-<br>
-Damage: high
-<br>
-Rate: med
-<br>
-Cost: 75 
+<div class="item">
+    <div class='tower' style='background-color: red;' onclick='changeTower(1);'>
+        <div class="caption">
+            Sniper
+            <br>
+            Range: long
+            <br>
+            Damage: med
+            <br>
+            Rate: slow
+            <br>
+            Cost: 75 
+        </div>
+    </div>
+</div>
+</p>
+
+<p>
+<div class="item">
+    <div class='tower' style='background-color:yellow;' onclick='changeTower(2);'>
+        <div class="caption">
+            Fragger
+            <br>
+            Range: short
+            <br>
+            Damage: high
+            <br>
+            Rate: med
+            <br>
+            Cost: 100
+        </div>
+    </div>
 </div>
 <br>
-<div style='width:600px;'>
+</p>
+
+<p>
+<div class="item">
+    <div class="tower" style="background-color:purple;" onclick='changeTower(3);'>
+        <div class="caption">
+            Tank
+            <br>
+            range: long
+            <br>
+            Damage: high
+            <br>
+            Rate: Slow
+            <br>
+            Cost: 250
+        </div>
+    </div>
+</div>
+</p>
+
+<p>
+<div class="item">
+    <div class="tower" style="background-color:cyan;" onclick='changeTower(4);'>
+        <div class="caption">
+            Barbed wire
+            <br>
+            range: short
+            <br>
+            Damage: none
+            <br>
+            Rate: Slow
+            <br>
+            Cost: 50
+        </div>
+    </div>
+</div>
+</p>
+<br>
+
+<div class="item">
+    <div class="caption">
+        <button class="button" onclick="window.location.reload();">Restart</button>
+        
+    </div>
+    <br>
+    <div class="caption">
+    </div>
+</div>
+</div>
+<script>
+
+</script>
+
+<div style='width:600px;' class="belowtext">
 Attackers Score: <span id='attackersScore'>0</span>
-<span class='right'>Money: <span id='money'>250</span></span>
+<span class='right'>Money: <span id='money'>225</span></span>
 <br>
 Attackers Stopped: <span id='stopped'>0</span>
+</div>
+<div style="width: 600px;" class="caption; belowtext">
+    <p>
+        If you get stuck, click the restart button.<br>
+        Remade by luminesence
+    </p>
 </div>
 <script type='text/javascript' src='mainLoop.js'></script>
 <script type='text/javascript' src='attackerUnits.js'></script>

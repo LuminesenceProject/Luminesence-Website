@@ -1,3 +1,5 @@
+//this will be fixed soon
+
 let search = document.querySelector(".search");
 let clear = document.querySelector(".clear");
 

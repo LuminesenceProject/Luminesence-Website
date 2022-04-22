@@ -18,8 +18,9 @@ attackerPoints = 0,
 stopped = 0,
 //counter for when to add enemy units
 addEnemyTimer = 60,
-money = 250,
+money = 225,
 moneyIncrement = 5;
+
 
 
 //draw stuff
