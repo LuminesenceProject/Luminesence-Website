@@ -114,7 +114,7 @@ Tower4.prototype.color = 'purple';
 Tower4.prototype.cost = Tower.prototype.cost * 5;
 Tower4.prototype.rateOfFire = Tower.prototype.rateOfFire * 1.15;
 
-//slow tower
+//maschine gunner
 var Tower5 = function(x,y) {
   Tower.call(this,x,y);
 }
@@ -125,7 +125,7 @@ Tower5.prototype.rateOfFire = 1.5;
 Tower5.prototype.range = Tower.prototype.range * .5; //og .7
 Tower5.prototype.hurt = 1.5;
 Tower5.prototype.color = 'cyan';
-Tower5.prototype.cost = 75;
+Tower5.prototype.cost = 100;
 
 
 
