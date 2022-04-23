@@ -84,7 +84,7 @@ Tower2.prototype.constructor = Tower2;
 
 Tower2.prototype.range = Tower.prototype.range*4;//looking to double area, not radius or range
 Tower2.prototype.color = 'red';
-Tower2.prototype.cost = Tower.prototype.cost * 1.5;
+Tower2.prototype.cost = 75;
 Tower2.prototype.rateOfFire = Tower.prototype.rateOfFire * 2;
 Tower2.prototype.hurt = Tower.prototype.hurt*2;
 
@@ -98,7 +98,7 @@ Tower3.prototype.constructor = Tower3;
 Tower3.prototype.range = Tower.prototype.range * 0.7; //0.7 rather than 0.5 because looking at area
 Tower3.prototype.hurt = Tower.prototype.hurt*3;
 Tower3.prototype.color = 'yellow';
-Tower3.prototype.cost = 100;
+Tower3.prototype.cost = 125;
 
 
 //tank
@@ -112,7 +112,7 @@ Tower4.prototype.range = Tower.prototype.range * 1.2; //og .7
 Tower4.prototype.hurt = Tower.prototype.hurt*2.5;
 Tower4.prototype.color = 'purple';
 Tower4.prototype.cost = Tower.prototype.cost * 5;
-Tower4.prototype.rateOfFire = Tower.prototype.rateOfFire / .42;
+Tower4.prototype.rateOfFire = Tower.prototype.rateOfFire * 1.15;
 
 //slow tower
 var Tower5 = function(x,y) {
@@ -121,11 +121,11 @@ var Tower5 = function(x,y) {
 Tower5.prototype = Object.create(Tower.prototype);
 Tower5.prototype.constructor = Tower5;
 
-
+Tower5.prototype.rateOfFire = 1.5;
 Tower5.prototype.range = Tower.prototype.range * .5; //og .7
-Tower5.prototype.hurt = 0;
+Tower5.prototype.hurt = 1.5;
 Tower5.prototype.color = 'cyan';
-Tower5.prototype.cost = Tower.prototype.cost * 2;
+Tower5.prototype.cost = 75;
 
 
 

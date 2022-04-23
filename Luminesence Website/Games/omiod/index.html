@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fastkat Navigation</title>
+    <link rel="stylesheet" href="../../index.css">
+</head>
+<style>
+ body {
+  background-image: url("neon.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+}
+
+
+</style>
+<body>
+<div class="background-image"></div>
+    <div class="content">
+    <div class="transbox">
+        <br>
+    <h1>Fastkat Navigation</h1>
+    <br>
+    <p>Fastkat is a game that requires you to dodge bullets. <br>
+    There are 3 diffrent versions of fastkat.  <br>
+    None of them were made by me, and I take no credit.</p>
+    <br>
+    <ul> 
+        <li><button class="button-3" onclick=" window.open('fastkatremastered.html','_blank')">Fastkat</button></li>
+        <br>
+        <li><button class="button-3" onclick=" window.open('fastkat.html','_blank')">Fastkat</button></li>
+    </ul>
+    <br>
+    <br>
+    <style>
+        br {
+            display: block;
+            size: 30px;
+        }
+    </style>
+    <br>
+    </div>
+    </div>
+</div>
+</body>
+</html>
