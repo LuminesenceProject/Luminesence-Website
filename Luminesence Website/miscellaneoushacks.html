@@ -42,6 +42,61 @@ on the right is the command. Paste it onto the page's console.</p>
 
 
 <p style="text-align: center;"><iframe src="Cheats/extrahacks/cookieclickerhacks.html" alt="Failed to load" class="box" framing: 0px></iframe></p>
+<br>
+<h3>Quizlet match Hacks</h3>
+<p>Put this into a page <br>
+dev console, (Inspect console)<br>
+Copy the code below!</p>
+<p class="box">
+<code>
+    (function () {
+        const matches = {};
+        Quizlet.matchModeData.terms.forEach((term) => {
+          matches[term.word] = term.definition;
+        });
+        let css = "FormattedText notranslate TermText MatchModeQuestionGridTile-text";
+        if (document.getElementsByClassName(css).length === 0)
+          css = "MatchModeQuestionScatterTile";
+        const tiles = Array.from(document.getElementsByClassName(css));
+        const colors = [
+          "#f93640",
+          "#f98836",
+          "#f9e936",
+          "#3df936",
+          "#36f9d9",
+          "#3650f9",
+          "#7e36f9",
+          "#dc36f9",
+          "#ffffff",
+          "#a3a3a3",
+          "#424242",
+        ];
+        Array.from(
+          document.getElementsByClassName("MatchModeQuestionGridTile-image")
+        ).forEach((image) => {
+          image.style.display = "none";
+        });
+      
+        let colorIndex = 0;
+        for (const term in matches) {
+          const definition = matches[term];
+          tiles.forEach((tile) => {
+            if (tile.textContent === term) {
+              tiles.forEach((box) => {
+                if (box.textContent === definition) {
+                  box.style.background = colors[colorIndex];
+                  box.style.color = "black";
+                }
+              });
+              tile.style.background = colors[colorIndex];
+              tile.style.color = "black";
+              colorIndex++;
+            }
+          });
+        }
+      })();
+</code>
+</p>
 
 <h3>Tab Rename</h3>
 <p>Here is a code snipit that you can copy <br>
@@ -62,7 +117,7 @@ Paste the wanted image address into the pop-up.<br></p>
 
 <p class="box">
     <code>
-    var icon_href = window.prompt("Image adress for tab icon")
+    var icon_href = window.prompt("Image adress for tab icon");
     var link = document.querySelector("link[rel~='icon']");
     if (!link) {
         link = document.createElement('link');
