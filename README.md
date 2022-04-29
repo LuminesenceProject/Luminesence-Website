@@ -20,5 +20,7 @@ as long as proper credit is given.
 And just to prove credit, put a <3 after
 the given credit.
 
+note: without proper credit, we will sue!
+
 since:
 4/28/2022
