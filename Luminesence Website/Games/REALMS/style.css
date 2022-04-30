@@ -1,0 +1,324 @@
+:root {
+  --root-clr: dimgray;
+  --tile-line-height: 30px;
+  --tile-size: 10px;
+  --clr: gray;
+  --pl-clr: 
+    radial-gradient(circle at 75% 50%, white 1px, transparent 2px),
+    radial-gradient(circle at 25% 50%, white 1px, transparent 2px),
+    radial-gradient(circle at 75% 40%, black 3px, transparent 4px),
+    radial-gradient(circle at 25% 40%, black 3px, transparent 4px),
+    white;
+}
+html,
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #111;  
+}
+
+#game_console {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,1)),    
+    var(--root-clr);  
+  text-align: center;
+  line-height: var(--tile-line-height);
+  font-size: 0;
+  color: transparent;
+  user-select: none;
+  box-shadow: 
+    0 20px 20px black;
+  /*   overflow: hidden; */
+}
+
+#deaths_counter,
+#time_counter {
+  padding: 0rem 1rem;
+  font-size: 16px; 
+  font-family: system-ui, serif;
+  line-height: 100%;
+  color: white;
+/*   background: rgba(0,0,0,.75); */
+  position: absolute;
+  
+}
+#deaths_counter {
+  top: 0;
+  left: 0;
+  transform: translate(0%,-125%);
+/*   text-align: left; */
+}
+#time_counter {
+  top: 0;
+  right: 0;
+  transform: translate(0%,-125%);
+/*   text-align: right; */
+}
+
+#game_alert {
+  padding: 1rem 2rem;
+  font-size: 16px; 
+  font-family: system-ui, serif;
+  line-height: 100%;
+  color: white;
+  background: rgba(0,0,0,.75);
+  border: 1px dashed white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,125%);
+  z-index: 99999;
+  border-radius: 50px;
+  transition: .5s;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.tile {
+  /*   outline: 1px dashed rgba(0,0,0,.5); */
+}
+
+.ground {
+  background: var(--root-clr);
+  box-sizing: border-box;
+  border-top: 5px solid rgba(0,0,0,.25);
+  border-right: 5px solid rgba(0,0,0,.65);
+  border-bottom: 5px solid rgba(0,0,0,.65);
+  border-left: 5px solid rgba(0,0,0,.25);
+  outline: 0;
+  z-index: 2;
+  /*   filter: brightness(.75); */
+}
+
+.innerwall {
+  background: var(--root-clr);
+  outline: 0;
+}
+
+/* lava spikes */
+.lava {
+  background:
+    conic-gradient(at 50% 0%, transparent 0deg 153deg, rgba(0,0,0,.5) 155deg 190deg, rgba(255,255,255,.5) 192deg 205deg, transparent 207deg 360deg),
+    conic-gradient(at 50% 0%, transparent 0deg 153deg, var(--root-clr) 155deg 195deg, var(--root-clr) 197deg 205deg, transparent 207deg 360deg);
+}
+.spleft {
+  transform: rotate(-90deg);
+}
+.sptop {
+  transform: rotate(180deg);
+}
+.spright {
+  transform: rotate(90deg);
+}
+
+.portal1:after,
+.portal2:after {
+  content:'';
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  top: -25%;
+  left: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, 
+      rgba(0,0,0,1) 3px, 
+      rgba(0,0,0,.75) 6px, 
+      rgba(0,0,0,.75) 10px, 
+      rgba(0,0,0,.5) 11px, 
+      rgba(0,0,0,.5) 15px, 
+      rgba(0,0,0,.25) 16px, 
+      rgba(0,0,0,.25) 20px),
+    var(--root-clr);
+  animation: portal 2s linear infinite;
+  /*   box-shadow: 
+  inset 3px 0 0 3px rgb(0 0 0 / 25%), 
+  3px 0px 0 2px rgb(255 255 255 / 50%); */
+  pointer-events: none;
+  border-radius: 50%;
+}
+@keyframes portal {
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.nextlevel {
+  /*   background:
+  linear-gradient(to bottom right, transparent 10%, var(--root-clr) 10% 30%, transparent 30% 60%, var(--root-clr) 60% 80%, transparent 80%);
+  background-size: 25px 25px; */
+}
+
+#player,
+#player:after {
+  content:'';
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  position: absolute;
+  z-index: 10000;
+  pointer-events: none;
+}
+#player:before {
+  content:'';
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background:
+    radial-gradient(circle at 85% 15%, LightSeaGreen 3px, transparent 4px),
+    radial-gradient(circle at 15% 15%, LightSeaGreen 3px, transparent 4px),
+    radial-gradient(circle at 65% 90%, LightSeaGreen 2px, transparent 3px),
+    radial-gradient(circle at 35% 90%, LightSeaGreen 2px, transparent 3px);
+}
+
+#player:after {
+  width: 20px;
+  height: 25px;
+  background: 
+    linear-gradient(to top, LightSeaGreen 0%, transparent 0%),
+    radial-gradient(circle at 60% 40%, PaleTurquoise 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, black 5px, transparent 6px),
+    DarkTurquoise;
+  position: absolute;
+  top: -2.5px;
+  left: 2.5px;
+  z-index: 10000;
+  border-radius: 50% 60% 50% 50% / 70% 70% 40% 40%;
+  pointer-events: none;
+  box-shadow: 
+    inset 2px 2px 3px 3px rgba(255,255,255,.5),
+    inset -2px -2px 3px 3px rgba(0,0,0,.33);
+  animation: blink 4s linear infinite;
+}
+
+@keyframes blink {
+  5% {
+    background: 
+    linear-gradient(to bottom, LightSeaGreen 35%, transparent 35%),
+    radial-gradient(circle at 60% 40%, PaleTurquoise 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, black 5px, transparent 6px),
+    DarkTurquoise;
+  }
+  10% {
+    background: 
+    linear-gradient(to bottom, LightSeaGreen 60%, transparent 60%),
+    radial-gradient(circle at 60% 40%, PaleTurquoise 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, black 5px, transparent 6px),
+    DarkTurquoise;
+  }
+  15% {
+    background: 
+    linear-gradient(to bottom, LightSeaGreen 0%, transparent 0%),
+    radial-gradient(circle at 60% 40%, PaleTurquoise 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, black 5px, transparent 6px),
+    DarkTurquoise;
+  }
+}
+
+/* player 2 player 2 player 2 */
+#player2,
+#player2:after {
+  content:'';
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  position: relative;
+  z-index: 10000;
+  pointer-events: none;
+}
+#player2:before {
+  content:'';
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background:
+    radial-gradient(circle at 65% 90%, white 2px, transparent 3px),
+    radial-gradient(circle at 35% 90%, white 2px, transparent 3px);
+  z-index: 10001;
+}
+
+#player2:after {
+  width: 20px;
+  height: 25px;
+  background: 
+    radial-gradient(circle at 60% 30%, white 2px, transparent 3px),
+    radial-gradient(circle at 50% 40%, black 5px, transparent 6px),
+    linear-gradient(to top, white, gold, orangered 50%),
+    orangered;
+  position: absolute;
+  top: -4px;
+  left: 2.5px;
+  z-index: 10000;
+  border-radius: 4px;
+  pointer-events: none;
+  animation: blink2 4s linear infinite;
+}
+@keyframes blink2 {
+  5% {
+    background:       
+      linear-gradient(to top, transparent 75%, orangered 75%),
+      radial-gradient(circle at 60% 30%, white 2px, transparent 3px),
+      radial-gradient(circle at 50% 40%, black 5px, transparent 6px),
+      linear-gradient(to top, white, gold, orangered 50%),
+      orangered;
+  }
+  10% {
+    background:      
+      linear-gradient(to top, transparent 50%, orangered 50%),
+      radial-gradient(circle at 60% 30%, white 2px, transparent 3px),
+      radial-gradient(circle at 50% 40%, black 5px, transparent 6px),
+      linear-gradient(to top, white, gold, orangered 50%),
+      orangered;
+  }
+  15% {
+    background: 
+      linear-gradient(to top, transparent 100%, orangered 100%),
+      radial-gradient(circle at 60% 30%, white 2px, transparent 3px),
+      radial-gradient(circle at 50% 40%, black 5px, transparent 6px),
+      linear-gradient(to top, white, gold, orangered 50%),
+      orangered;
+  }
+}
+
+.goleft:after {
+  transform: skewX(10deg);
+}
+.goright:after {
+  transform: skewX(-10deg);  
+}
+.goleft:before,
+.goright:before {
+
+}
+
+.trailBall {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: darkorange;
+  border-radius: 50%;
+  opacity: .75;
+  pointer-events: none;
+  opacity: 1;
+  animation: trail .75s linear forwards;
+}
+@keyframes trail {
+  100% { transform: translateY(-25px); opacity: 0; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Wordle</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+  <section id="game">
+    <h1 id="title">Wordle</h1>
+  </section>
+  <section id="keyboard"></section>
+</main>
+<nav>
+  <div id="intro-btn" onclick="showInstructions()"></div>
+  <div id="stats-btn" onclick="showStatistics()"></div>
+</nav>
+<div id="instructions" class="modal modal-shown">
+  <div class="modal-inner">
+    <h2>How to Play</h2>
+    <p>Guess the WORDLE in six tries.</p>
+    <p>Each guess must be a valid five-letter word. Hit the enter button to submit.</p>
+    <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+    <div id="wordle-examples">
+      <p>Examples</p>
+      <p><span class="wordle-game-spot wordle-game-correct" title="W"></span><span class="wordle-game-spot" title="E"></span><span class="wordle-game-spot" title="A"></span><span class="wordle-game-spot" title="R"></span><span class="wordle-game-spot" title="Y"></span></p>
+      <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>
+      <p><span class="wordle-game-spot" title="P"></span><span class="wordle-game-spot wordle-game-present" title="I"></span><span class="wordle-game-spot" title="L"></span><span class="wordle-game-spot" title="L"></span><span class="wordle-game-spot" title="S"></span></p>
+      <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>
+      <p><span class="wordle-game-spot" title="V"></span><span class="wordle-game-spot" title="A"></span><span class="wordle-game-spot" title="G"></span><span class="wordle-game-spot wordle-game-absent" title="U"></span><span class="wordle-game-spot" title="E"></span></p>
+      <p>The letter <strong>U</strong> is not in the word in any spot.</p>
+    </div>
+    <p>A new WORDLE will be available each day!</p>
+  </div>
+</div>
+<div id="statistics" class="modal">
+  <div class="modal-inner">
+    <h2>Statistics</h2>
+    <p class="text-center">
+      <span class="title-after" id="stats-played" title="Played">0</span>
+      <span class="title-after" id="stats-win-perc" title="Win %">0%</span>
+      <span class="title-after" id="stats-current-streak" title="Current Streak">0</span>
+      <span class="title-after" id="stats-max-streak" title="Max Streak">0</span>
+    </p>
+    <h2>Guess Distribution</h2>
+    <div id="dist">
+      <div title="0" id="bar-0"><span>1</span></div>
+      <div title="0" id="bar-1"><span>2</span></div>
+      <div title="0" id="bar-2"><span>3</span></div>
+      <div title="0" id="bar-3"><span>4</span></div>
+      <div title="0" id="bar-4"><span>5</span></div>
+      <div title="0" id="bar-5"><span>6</span></div>
+    </div>
+    <div class="clearfix">
+      <div class="float-left"><h2>Next Wordle</h2><h1 id="wordle-countdown">00:00:00</h1></div>  
+      <div class="float-right"><span id="share">Share </span></div>
+    </div>
+    <div id="output"></div>
+  </div>
+</div>
+<!-- partial -->
+<script src='https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js'></script><script  src="script.js"></script>
+
+
+</body>
+</html>
