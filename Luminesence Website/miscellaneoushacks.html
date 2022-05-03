@@ -97,6 +97,40 @@ Copy the code below!</p>
       })();
 </code>
 </p>
+<a id="darkmode"></a>
+<h3>Darkmode.js</h3>
+<p>Put this onto any page console <br>
+on order to add a dark mode to any <br>
+bland page that you might need to <br>
+be on!</p>
+
+<p class="box">
+  <code>
+    //THIS CODE MAY BE USED ON ANY WEBSITE<br>
+    //AS LONG AS CREDIT IS CLEARLY GIVEN<br>
+
+    window.alert("This will break some websites");
+
+    function toggle() {
+        let q = document.querySelectorAll('#nightify')
+        if(q.length) {
+            q[0].parentNode.removeChild(q[0])
+            return false
+        }
+        var h = document.getElementsByTagName('head')[0],
+            s = document.createElement('style');
+        s.setAttribute('type', 'text/css');
+        s.setAttribute('id', 'nightify');
+        s.appendChild(document.createTextNode('html{-webkit-filter:invert(100%) hue-rotate(180deg) contrast(70%) !important; background: #fff;} .line-content {background-color: #fefefe;}'));
+        h.appendChild(s); 
+        return true
+    }
+
+    var result = toggle();
+
+    localStorage.toggle = true;
+  </code>
+</p>
 
 <h3>Tab Rename</h3>
 <p>Here is a code snipit that you can copy <br>
