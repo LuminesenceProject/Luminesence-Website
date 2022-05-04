@@ -86,7 +86,7 @@ video:hover {
 .box {
     overflow: auto;
     padding: .1%;
-    width: 40%;
+    width: 10%;
     border: 5px solid gray;
     margin: auto;
 }

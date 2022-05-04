@@ -112,9 +112,9 @@ be on!</p>
     window.alert("This will break some websites");
 
     function toggle() {
-        let q = document.querySelectorAll('#nightify')
+        let q = document.querySelectorAll('#nightify');
         if(q.length) {
-            q[0].parentNode.removeChild(q[0])
+            q[0].parentNode.removeChild(q[0]);
             return false
         }
         var h = document.getElementsByTagName('head')[0],
