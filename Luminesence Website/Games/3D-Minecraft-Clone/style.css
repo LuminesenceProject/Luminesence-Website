@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #000;
+}
+
+canvas {
+	position: absolute;
+	display: block;
+	height: 50%;
+	transition: all 0.5s;
+}
+#cursor {
+  position : absolute;
+  z-index: 100;
+  width : 3%;
+}
