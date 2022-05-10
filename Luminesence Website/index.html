@@ -17,7 +17,7 @@
             <a href="signin.html" rel="noopener noreferrer" class="navbar" style="float: right;"><span>&#9729;</span></a>
             <div class="navbar">
                 <div class="dropdown navbar">
-                  <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats</a>
+                  <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats &#8964</a>
                   </button>
                   <div class="dropdown-content">
                     <a href="Kahoothacks.html">Kahoot</a>
@@ -47,101 +47,15 @@ h1 {
   font-weight:300;
   letter-spacing: 2px;
   font-size:48px;
+  text-align: center;
 }
 p {
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   font-size:14px;
   color: #333333;
-}
-
-.header {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-  color:white;
-}
-.logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
-}
-
-.inner-header {
-  height:65vh;
-  width:100%;
-  margin: 0;
-  padding: 0;
-}
-
-.flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
-
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-}
-
-.content {
-  position:relative;
-  height:20vh;
-  text-align:center;
-  background-color: white;
-}
-
-/* Animation */
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
-}
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .content {
-    height:30vh;
-  }
-  h1 {
-    font-size:24px;
-  }
-}
-/*Glowing icons*/
 
 * {
   margin: 0;
@@ -152,49 +66,6 @@ body {
   width: 100vw;
   background: #18191f;
 }
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-#apple,
-#twitter,
-#github,
-#facebook {
-  font-size: 8em;
-  background-color: #18191f;
-  color: #fff;
-  box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
-    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
-    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
-    inset 2px 2px 10px #00000080;
-  border-radius: 10px;
-  padding: 11px 19px;
-  margin: 0 40px;
-  animation: animate 3s linear infinite;
-  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
-    0 0 200px #0072ff;
-}
-#twitter {
-  animation-delay: 0.3s;
-}
-#facebook {
-  animation-delay: 0.7s;
-}
-#github {
-  animation-delay: 0.1s;
-}
-
-@keyframes animate {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
 
 </style>
 <body>
@@ -204,28 +75,50 @@ body {
 <!--Content before waves-->
 <div class="inner-header flex">
 
-<h1>Luminesence Website</h1><br>
-
-
+  <h1>Luminesence</h1><br>
+  <style>
+    p {
+        color: white;
+    }
+</style>
 <div>
-<h3>Featured!</h3><br>
-<p style="color:white;">Minecraft has been added! <br>
-you can play it <a href="Games.html#minecraft">here</a>.</p>
-</div>
-<p style="color:white;">Github link for download</p>
-    <div class="container">
-        <a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip">
-        <i class="fa fa-github-square github" id="github"></i>
-        </a>
-    </div>
+<h3>Featured!</h3>
+
+<p style="text-align: center;"> 
+Minecraft is now officially added! It can <br>
+be played clicking the image below and <br>
+is used with WASD controls, with Q being <br>
+able to place cobblestone! </p>
 <br>
-</div>
+<a href="Games.html#minecraft">
+  <img src="Images/minecraft.jpg">
+</a>
+
+<br>
+<br>
+<br>
+<p style="text-align: center;">The latest version of <br>
+the website can be downloaded clicking this icon!</p>
 <div>
-    <a href="FAQ.html">
-        <button class="glow-on-hover">FAQ</button>
-    </a>
+  <a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip"><i class="fa fa-github-square github" id="github"></i></a>
+  
+</div>
+<br>
+<br>
+<a href="FAQ.html">
+<button class="glow-on-hover">FAQ</button>
+</a>
+<br>
+<br>
+</p>
+</div>
+<br>
+
+
+
 </div>
 <!--Waves Container-->
+<br>
 <div>
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">

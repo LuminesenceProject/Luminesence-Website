@@ -36,7 +36,6 @@
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
     background-color: inherit;
     font-family: inherit; 
     margin: 0; 
@@ -55,6 +54,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    color:white;
   }
   .dropdown p {
       color: white;
@@ -101,7 +101,10 @@ a {
     color: #a2a1f1;
     
 }
-    
+   
+body {
+  background-color: black;
+}
     
 h3 {
 color: white;
@@ -154,6 +157,7 @@ div.transbox {
   width: 75%;
   margin: auto;
   backdrop-filter: blur(5px);
+  border-radius: 2%;
 }
 
 div.transbox p {
@@ -186,12 +190,13 @@ html {
 width: 10px;
 height: 10px;
 opacity: 0;
-
+visibility: collapse;
 
 }
 
 ::-webkit-scrollbar-thumb {
 background: rgba(90, 90, 90);
+opacity: .2;
 }
 
 ::-webkit-scrollbar-track {
@@ -505,3 +510,62 @@ p {
     font-size:24px;
   }
 }
+
+
+/* glowing icons */
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #18191f;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#apple,
+#twitter,
+#github,
+#facebook {
+  font-size: 8em;
+  background-color: #18191f;
+  color: #fff;
+  box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080;
+  border-radius: 10px;
+  padding: 11px 19px;
+  margin: 0 40px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+}
+#twitter {
+  animation-delay: 0.3s;
+}
+#facebook {
+  animation-delay: 0.7s;
+}
+#github {
+  animation-delay: 0.1s;
+}
+
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+
