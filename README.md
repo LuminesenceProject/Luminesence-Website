@@ -6,7 +6,7 @@ Everything is written in either html of javascript, so it should always run.
 Also, dont tell any school admins about this.
 
 
-INSTALTION PROCESS:
+installation process:
 
 1) Click on "code" and click download zip
 2) Than after installing, click extract.
