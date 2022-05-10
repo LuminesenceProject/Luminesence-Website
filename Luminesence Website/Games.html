@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>Luminesence | Games</title>
     <link rel="favicon" href="Images/logo.JPG">
     <link rel="stylesheet" href="style_games.css">
     <link rel="stylesheet" href="index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style1.css" rel="stylesheet" type="text/css" />
+
     <!--Navbar-->
 <div class="sticky">
     <div class="navbar">
@@ -34,14 +39,21 @@
 </div>
 <br>
 <br>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="style1.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
+    body {
+        background: linear-gradient(0deg, #202356, #040d30 90%) no-repeat #040d30;
+        min-height: 100%;
+        margin: 0;
+    }
 
+    p {
+        color:lightgray;
+    }
+  
+</style>
 <body>
+    <!-- this does not work sadly, and may never
 <div class="container" style="float: right;">
   <div class="icon">
     <i class="search fa fa-search"></i>
@@ -50,8 +62,18 @@
     <input type="search" placeholder="search" id="search" onchange="openPage()">
   </div>
 </div>
+-->
+<!--layer script for stars-->
+<div id="layers">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+</div>
 
 <!--Auto Correct Script-->
+
   <script src="script.js"></script>
   <script src="autocorrect.js"></script>
 
@@ -240,6 +262,7 @@ JST the website got blocked for the actually science-->
                     <img src="data:image/jpeg;base64,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"
                     alt="Failed to load" width="100%" height="70%" title="minecraft">
                 </a>
+                <a id="minecraft"></a>
                 <h3 class="caption">Webcraft</h3>
                 <p>This is a simple version of <br>
                 minecraft and was not made by me.<br>

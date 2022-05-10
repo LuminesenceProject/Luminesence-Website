@@ -16,8 +16,7 @@ body, html {
     filter: blur(4px);
     -webkit-filter: blur(4px);
     height: 100%;
-  
- 
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -72,21 +71,18 @@ ul {
         height: auto;
     }
 
-b {
-    text: bold;
-}
 
 
-a {
-    color: white;
-}
+    a {
+        color: white;
+    }
 
-.center {
-   text-align: center;
-  }
+    .center {
+      text-align: center;
+      }
 
-.textbox {
-    padding: 10px;
-    border: 10cm solid gray;
+    .textbox {
+        padding: 10px;
+        border: 10cm solid gray;
 
-}
+    }

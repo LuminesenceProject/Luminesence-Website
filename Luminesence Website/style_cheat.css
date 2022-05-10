@@ -51,7 +51,7 @@ text-align: center;
 }
 
 p {
-    color: gray;
+    color: white;
     text-align: center;
 }
 
@@ -86,8 +86,16 @@ video:hover {
 .box {
     overflow: auto;
     padding: .1%;
-    width: 10%;
+    width: 50%;
     border: 5px solid gray;
     margin: auto;
 }
 
+.box p {
+    color:white;
+}
+
+
+code {
+    color:white;
+}

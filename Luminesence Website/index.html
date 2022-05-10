@@ -1,109 +1,254 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="description" content="Free Webgames, Free Hacks">
-    <meta name="keywords" content="Webgames, Cheats, School Cheats, kahoot hacks, FNAF2, Blooket Hacks">
-    <meta name="author" content="Luminesence, jstdam">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="Images/logo.JPG">
+    <title>Luminesence | Home</title>
     <link rel="stylesheet" href="index.css">
-    <title>Luminesence Project</title>
-    <link rel="favicon" href="Images/logo.JPG">
-</head>
-<body>
-<div class="sticky">
-    <div class="navbar">
-        <a href="index.html" rel="noopener noreferrer" class="navbar">Home</a>
-        <a href="Games.html" rel="noopener noreferrer" class="navbar">Games</a>
-        <a href="PRXY.html">Proxys</a>
-        <a href="sources.html" rel="noopener noreferrer" style="float: right;">Sources</a>
-        <a href="signin.html" rel="noopener noreferrer" class="navbar" style="float: right;"><span>&#9729;</span></a>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--head-->
+    <div class="sticky">
         <div class="navbar">
-            <div class="dropdown navbar">
-              <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats</a>
-              </button>
-              <div class="dropdown-content">
-                <a href="Kahoothacks.html">Kahoot</a>
-                <a href="Blookethacks.html">Blooket</a>
-                <a href="miscellaneoushacks.html">Miscellaneous</a>
-              </div>
+            <a href="index.html" rel="noopener noreferrer" class="navbar">Home</a>
+            <a href="Games.html" rel="noopener noreferrer" class="navbar">Games</a>
+            <a href="PRXY.html">Proxys</a>
+            <a href="sources.html" rel="noopener noreferrer" style="float: right;">Sources</a>
+            <a href="signin.html" rel="noopener noreferrer" class="navbar" style="float: right;"><span>&#9729;</span></a>
+            <div class="navbar">
+                <div class="dropdown navbar">
+                  <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats</a>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="Kahoothacks.html">Kahoot</a>
+                    <a href="Blookethacks.html">Blooket</a>
+                    <a href="miscellaneoushacks.html">Miscellaneous</a>
+                  </div>
+                </div>
             </div>
-        </div>
-        
-    </div>    
-    </ul> 
+            
+        </div>    
+        </ul> 
+    </div>
+</head>
+<script>
+    window.alert("There may be slow loading times")
+</script>
+
+<style>
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+/*Glowing icons*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #18191f;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#apple,
+#twitter,
+#github,
+#facebook {
+  font-size: 8em;
+  background-color: #18191f;
+  color: #fff;
+  box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080;
+  border-radius: 10px;
+  padding: 11px 19px;
+  margin: 0 40px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+}
+#twitter {
+  animation-delay: 0.3s;
+}
+#facebook {
+  animation-delay: 0.7s;
+}
+#github {
+  animation-delay: 0.1s;
+}
+
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+</style>
+<body>
+    <!--CSS waves-->
+<div class="header">
+
+<!--Content before waves-->
+<div class="inner-header flex">
+
+<h1>Luminesence Website</h1><br>
+
+
+<div>
+<h3>Featured!</h3><br>
+<p style="color:white;">Minecraft has been added! <br>
+you can play it <a href="Games.html#minecraft">here</a>.</p>
 </div>
-    <style>
-        body {
-            background-image: url(Images/purpleBackground.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: 1;
-        }
-    </style>
-
-    <div class="background">
-<div class="transbox">
-<body class="text-center">
-    <br>
-    <h1 style="text-align: center; font-size: 200%;">What is the Luminesence Project?</h1>
-    
-<div class="text-center">
-    <img src="Images/coolL.jpg" style="float: right;">
-</div>
-
-<p style="text-align: center;">The Luminesence Project is a website dedicated to <br>
-creating the oportunity to play video games on school computers.<br>
-The goal of the project is to create an oppertunity for people to <br>
-play video games when they are not normally allowed to.<br>
-Everybody should get the opportunity to do it.</p>
-<hr>
-
-<h1 style="font-size: x-large;">Featured!</h1>
-
-<h3>More Games!</h3>
-<p>More games have been added. including 2048!<br>
-<a href="Games.html#moregames" target="_blank" rel="noopener noreferrer">
-    <img src="Images/2048.jpg">
-</a></p>
-
-<h3>Darkmode.js</h3>
-<p><a href="miscellaneoushacks.html#darkmode">Darkmode.js</a> is a dark mode program!<br>
-put it onto any page!</p>
-
-<br>
-
-<h1 style="font-size: x-large;">FAQ</h1>
-
-<h3>Can you add your own games?</h3>
-<br>
-<p style="text-align: center;">Yes you can! You can email us at wafflepancakecake9@gmail.com <br> or jstdam0210@gmail.com</p>
-<br>
-<h3>Can I share this with friends?</h3>
-    <p style="text-align: center;">If you have friends, than you can share this <br>
-    file with them. Or access my github to download, <a href="https://github.com/LuminesenceProject/Luminesence-Website" target="_blank"> "LuminesenceProject"</a>. </p>
-
-<h3>Can we Help?
-</h3>
-<p style="text-align: center;">While you can suggest games, 
-<br>
-if you want a job you are out of luck. im broke lol <br>
-(but help would be nice pls)</p>
-    
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p style="color:white;">Github link for download</p>
+    <div class="container">
+        <a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip">
+        <i class="fa fa-github-square github" id="github"></i>
+        </a>
+    </div>
 <br>
 </div>
+<div>
+    <a href="FAQ.html">
+        <button class="glow-on-hover">FAQ</button>
+    </a>
 </div>
+<!--Waves Container-->
+<div>
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+</g>
+</svg>
+</div>
+<!--Waves end-->
+
+</div>
+<!--Header ends-->
+
+<!--Content starts-->
+<div class="content flex">
+  <p>Luminesence website</p>
+</div>
+<!--Content ends-->
 </body>
-</div>
-
-
-</html>
 </html>

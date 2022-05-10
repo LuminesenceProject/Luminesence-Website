@@ -1,11 +1,13 @@
- /* Navbar container */
+/*generic styles that are default for every page*/
+
+/*NAVBAR*/
  .navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
+    position: -webkit-sticky;
   }
-  
-  /* Links inside the navbar */
+
   .navbar a {
     float: left;
     font-size: 16px;
@@ -23,13 +25,12 @@
     background-color: hotpink;
   }
 
-  /* The dropdown container */
+
   .dropdown {
     float: left;
    margin: auto;
   }
-  
-  /* Dropdown button */
+
   .dropdown .dropbtn {
     font-size: 16px;
     border: none;
@@ -37,16 +38,16 @@
     color: white;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit; 
+    margin: 0; 
   }
   
-  /* Add a red background color to navbar links on hover */
+
   .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #782bd4;
   }
   
-  /* Dropdown content (hidden by default) */
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -59,7 +60,7 @@
       color: white;
   }
   
-  /* Links inside the dropdown */
+
   .dropdown-content a {
     float: none;
     color: black;
@@ -114,7 +115,7 @@ h6 {
 }
     
 p {
-color: gray;
+color: white;
 text-align: center;
     
     
@@ -143,9 +144,6 @@ ul {
   text-align: center;
 }
 
-.favicon {
-  image: url(Images/logo.JPG);
-}
 
 /*Transbox USE FOR STUFF*/
 
@@ -209,3 +207,301 @@ z-index: -1;
 }
 
 /*dark mode config*/
+
+
+/*css button*/
+
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* stars that can be hrefed for later use */
+
+
+#layers {
+  height: 200px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+#layers .layer {
+  background-size: auto 100%;
+  background-position: 50% 0;
+  background-repeat: repeat-x;
+  height: 200px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, 0, 0);
+  width: 200vw;
+}
+
+@keyframes twinkle {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+@keyframes layer-1 {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-689px, 0, 0); }
+}
+#layers .layer:nth-child(1) {
+  animation: twinkle 10s ease-in -5s infinite alternate, layer-1 344s linear infinite;
+  background-image: url('http://imgur.com/9beLKl9.png');
+}
+
+@keyframes layer-2 {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-699px, 0, 0); }
+}
+#layers .layer:nth-child(2) {
+  animation: twinkle 3s ease-in -3s infinite alternate, layer-2 349s linear infinite;
+  background-image: url('http://imgur.com/46MRYFa.png');
+}
+
+@keyframes layer-3 {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-699px, 0, 0); }
+}
+#layers .layer:nth-child(3) {
+  animation: twinkle 3.5s ease-in infinite alternate, layer-3 349s linear infinite;
+  background-image: url('http://imgur.com/46MRYFa.png');
+}
+
+@keyframes layer-4 {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-480px, 0, 0); }
+}
+#layers .layer:nth-child(4) {
+  animation: twinkle 4s ease-in -2s infinite alternate, layer-4 240s linear infinite;
+  background-image: url('http://imgur.com/BqkETyl.png');
+}
+
+@keyframes layer-5 {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-486px, 0, 0); }
+}
+#layers .layer:nth-child(5) {
+  animation: twinkle 5.5s ease-in infinite alternate, layer-5 243s linear infinite;
+  background-image: url('http://imgur.com/x1GB77K.png');
+}
+
+@keyframes shooting-star {
+  0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+  25% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: translate3d(-270px, 180px, 0);
+  }
+}
+
+#layers:before {
+  animation: 500ms linear 3s shooting-star;
+  background-image: url('http://imgur.com/ilhrli3.png');
+  background-size: 72px 50px;
+  content: ' ';
+  height: 50px;
+  left: 80%;
+  position: absolute;
+  top: -50px;
+  width: 72px;
+  z-index: 100;
+}
+
+
+/*
+body styleing for stars
+
+  body {
+      background: linear-gradient(0deg, #383d95, #040d30 90%) no-repeat #383d95;
+    min-height: 100%;
+    margin: 0;
+  }
+  
+  on page styleing for stars
+  
+    <div id="layers">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+      </div>
+
+
+*/
+
+
+/* CSS waves */
+
+
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
