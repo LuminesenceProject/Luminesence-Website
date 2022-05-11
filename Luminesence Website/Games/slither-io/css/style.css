@@ -1,0 +1,41 @@
+body{
+	text-align: center;
+	overflow: auto;
+	padding: 5px;
+	background-color: black;
+}
+
+canvas {
+	width: max-content;
+	height: max-content;
+	margin: auto auto;
+}
+
+
+#game{	
+	position: relative;	
+	margin:0 auto;	
+	margin-top: 100px;		
+}
+
+.cnv{
+	position: absolute;	
+	border-style: solid;	
+}
+
+#canvasFood{
+	background-color: transparent;
+	z-index: 2;
+}
+
+#canvasHex{
+	background-color: black;
+	z-index: 1;	
+}
+
+#canvasSnake{	
+	background-color: transparent;
+	z-index: 3;
+}
+
+
