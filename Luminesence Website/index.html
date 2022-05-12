@@ -14,8 +14,7 @@
             <a href="Games.html" rel="noopener noreferrer" class="navbar">Games</a>
             <a href="PRXY.html">Proxys</a>
             <a href="sources.html" rel="noopener noreferrer" style="float: right;">Sources</a>
-            <a href="https://deadsimplechat.com/RQSoabv5S" rel="noopener noreferrer" style="float: right;">Chat</a>
-            <a href="signin.html" rel="noopener noreferrer" class="navbar" style="float: right;"><span>&#9729;</span></a>
+            <a onclick="var tab_name = window.prompt('Enter tab name'); document.title = tab_name;" rel="noopener noreferrer" style="float: right;">&#8851;</a>
             <div class="navbar">
                 <div class="dropdown navbar">
                   <button class="dropbtn"><a href="Cheats.html" rel="noopener noreferrer">Cheats &#8964</a>
@@ -32,58 +31,45 @@
         </ul> 
     </div>
 </head>
-<script>
-    window.alert("There may be slow loading times")
-</script>
-
-<style>
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-body {
-  margin:0;
-}
-
-h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight:300;
-  letter-spacing: 2px;
-  font-size:48px;
-  text-align: center;
-}
-p {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size:14px;
-  color: #333333;
-  text-align: center;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  height: 100vh;
-  width: 100vw;
-  background: #18191f;
-}
-
-</style>
 <body>
-    <!--CSS waves-->
+
+
+
+<!--waves don't mid this-->
 <div class="header">
 
-<!--Content before waves-->
-<div class="inner-header flex">
-
-  <h1>Luminesence</h1><br>
+  <!--Content before waves-->
+  <div class="inner-header flex">
+    <br>
+    <br>
+  <h1>Luminesence</h1>
+  </div>
+  
+  <!--Waves Container-->
+  <div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+  <defs>
+  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+  </defs>
+  <g class="parallax">
+  <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+  </g>
+  </svg>
+  </div>
+  </div>
   <style>
-    p {
-        color: white;
+    h3 {
+      color:black;
     }
-</style>
-<div>
-<h3>Featured!</h3>
+  </style>
+  <!--Content starts-->
+  <div class="content flex">
+    <!--this is the content of the page!-->
+    <h3><b>Featured!</b></h3>
 
 <p style="text-align: center;"> 
 Minecraft is now officially added! It can <br>
@@ -98,51 +84,32 @@ able to place cobblestone! </p>
 <br>
 <br>
 <br>
-<p style="text-align: center;">The latest version of <br>
-the website can be downloaded clicking this icon!</p>
+<p style="text-align: center;">The latest version of the website<br>
+ can be downloaded clicking this icon!</p><br>
 <div>
   <a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip"><i class="fa fa-github-square github" id="github"></i></a>
   
 </div>
-<br>
-<br>
+<br><br><br>
+<br><br><br>
 <a href="FAQ.html">
-<button class="glow-on-hover">FAQ</button>
+  <button class="glow-on-hover">FAQ</button>
 </a>
 <br>
 <br>
-</p>
-</div>
 <br>
+<a href="https://deadsimplechat.com/RQSoabv5S">
+  <button class="glow-on-hover">Chat</button>
+</a>
 
+<span class="br-big"></span>
 
-
-</div>
-<!--Waves Container-->
-<br>
-<div>
-<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-<defs>
-<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-</defs>
-<g class="parallax">
-<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-</g>
-</svg>
-</div>
-<!--Waves end-->
+<div class="content-flex">
+<p style="color: lightgray; text-align: center;">Luminesence-Website</p>
 
 </div>
-<!--Header ends-->
-
-<!--Content starts-->
-<div class="content flex">
-  <p>Luminesence website</p>
 </div>
+
+
+
 <!--Content ends-->
-</body>
-</html>

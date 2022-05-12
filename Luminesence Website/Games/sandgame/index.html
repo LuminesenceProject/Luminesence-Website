@@ -1,87 +1,88 @@
+
 <!DOCTYPE html>
+
 <html lang="en-US">
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-        <title>Sandgame</title>
-        <meta name="keywords" content="sand, falling, game" />
-        <meta name="description" content="Project Sand: A modern version of the classic Hell of Sand Falling Game" />
-        <meta name="subject" content="Project Sand" />
-        <meta charset="UTF-8" />
-        <meta name="google" content="notranslate" />
-        <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-        <script type="application/javascript" src="/js/main.js"></script>
-    </head>
-    <body>
-        <div class="wrapper" id="gameWrapper">
-            <div id="titleWrapper">
-                <h1 class="title">Sandgame</h1>
-                <div class="subheader">
-                    <div class="column-left">
-                        <a href="https://github.com/3kh0" target="_blank">Original Site</a>
-                    </div>
-                    <div class="column-center">
-                        Luminesence 
-                    </div>
-                    <div class="column-right">
-                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank">More Games</a>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <canvas id="mainCanvas">Your browser doesn't support HTML5 canvas. :((</canvas>
-            <div id="menuWrapper">
-                <table id="elementTable"></table>
-                <div id="optionsCol1" class="optionsCol">
-                    <div id="penSizeDiv">
-                        <label for="pensize">Pen Size</label>
-                        <select id="pensize"></select>
-                    </div>
-                    <div>
-                        <select id="spigot1Type" class="spigotType"></select>
-                        <select id="spigot1Size"></select>
-                    </div>
-                    <div>
-                        <select id="spigot2Type" class="spigotType"></select>
-                        <select id="spigot2Size"></select>
-                    </div>
-                    <div>
-                        <select id="spigot3Type" class="spigotType"></select>
-                        <select id="spigot3Size"></select>
-                    </div>
-                    <div>
-                        <select id="spigot4Type" class="spigotType"></select>
-                        <select id="spigot4Size"></select>
-                    </div>
-                </div>
-                <div id="optionsCol2" class="optionsCol">
-                    <div>
-                        <label for="overwriteCheckbox">Overwrite</label>
-                        <input type="checkbox" id="overwriteCheckbox" />
-                    </div>
-                    <div id="speedSliderDiv">
-                        <label for="speedSlider">Speed</label>
-                        <input type="range" id="speedSlider" />
-                    </div>
-                    <div class="optionButtonContainer">
-                        <input id="saveButton" class="optionButton" type="button" value="Save" />
-                        <input id="loadButton" class="optionButton" type="button" value="Load" />
-                    </div>
-                    <div id="clearButtonDiv" class="optionButtonContainer">
-                        <input id="clearButton" class="optionButton" type="button" value="Clear" />
-                    </div>
-                </div>
-                <div id="fps-counter"></div>
-            </div>
-        </div>
-        <br />
-        <script type="text/javascript" src="util.js"></script>
-        <script type="text/javascript" src="canvasConfig.js"></script>
-        <script type="text/javascript" src="cursor.js"></script>
-        <script type="text/javascript" src="particles.js"></script>
-        <script type="text/javascript" src="elements.js"></script>
-        <script type="text/javascript" src="spigots.js"></script>
-        <script type="text/javascript" src="menu.js"></script>
-        <script type="text/javascript" src="game.js"></script>
-    </body>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <title>sandgame</title>
+  <meta name="keywords" content="sandpainting game, version 2, falling sand" />
+  <meta name="description" content="The Sandpainting Game, version 2" />
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+
+ 
+
+</head>
+<body>
+<h1>sandgame</h1>
+
+
+
+
+</body>
+
+
+<div class="wrapper" id="gameWrapper">
+
+  <canvas id="mainCanvas">Your browser doesn't support HTML5 canvas.</canvas>
+  <div id="menuWrapper">
+    <table id="elementTable">
+    </table>
+    <div id="optionsCol1" class="optionsCol" style="padding-left:20px;">
+      <div id="penSizeDiv">
+        <label for="pensize">Change Brush Size</label>
+        <select id="pensize"></select>
+      </div>
+      <label for="pensize">Change Amounts of:</label>
+      <div>
+        <select id="spigot1Type" class="spigotType"></select>
+        <select id="spigot1Size"></select>
+      </div>
+      <div>
+        <select id="spigot2Type" class="spigotType"></select>
+        <select id="spigot2Size"></select>
+      </div>
+      <div>
+        <select id="spigot3Type" class="spigotType"></select>
+        <select id="spigot3Size"></select>
+      </div>
+      <div>
+        <select id="spigot4Type" class="spigotType"></select>
+        <select id="spigot4Size"></select>
+      </div>
+    </div>
+    <div id="optionsCol2" class="optionsCol">
+      <div style="display:none;">
+        <label for="overwriteCheckbox">Overwrite</label>
+        <input type="checkbox" id="overwriteCheckbox">
+      </div>
+      <div id="speedSliderDiv" style="padding-left:15px;">
+        <label for="speedSlider">Change Speed</label>
+        <input type="range" id="speedSlider">
+      </div>
+      <div class="optionButtonContainer" style="display:none;">
+        <input id="saveButton" class="optionButton" type="button" value="Save">
+        <input id="loadButton" class="optionButton" type="button" value="Load">
+      </div>
+      <div id="clearButtonDiv" class="optionButtonContainer" style="padding-left:15px;">
+        <input id="clearButton" class="optionButton" type="button" value="Clear Screen">
+      </div>
+      <div id="fps-counter">
+      </div>
+    </div>    
+  </div>
+</div>
+
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="canvasConfig.js"></script>
+<script type="text/javascript" src="cursor.js"></script>
+<script type="text/javascript" src="particles.js"></script>
+<script type="text/javascript" src="elements-3.js"></script>
+<script type="text/javascript" src="spigots.js"></script>
+<script type="text/javascript" src="menu-3.js"></script>
+<script type="text/javascript" src="game.js"></script>
+
 </html>

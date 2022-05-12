@@ -180,6 +180,12 @@ div.transbox h3 {
   padding: 10px;
 }
 
+.br-big {
+  display: block;
+  margin-bottom: 4em;
+}
+
+
 /*Scroll bar*/
 
 html {
@@ -446,10 +452,11 @@ p {
 }
 
 .flex { /*Flexbox for containers*/
-  display: flex;
+
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: auto;
 }
 
 .waves {
@@ -462,8 +469,9 @@ p {
 }
 
 .content {
-  position:relative;
-  height:20vh;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
   text-align:center;
   background-color: white;
 }
