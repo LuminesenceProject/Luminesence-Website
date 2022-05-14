@@ -607,7 +607,9 @@ const __lava_immune = [
   ROCK,
   WATER,
   SALT_WATER,
-  STEAM
+  STEAM,
+  UNBREAKABLE_WALL,
+  NEON,
 ];
 Object.freeze(__lava_immune);
 const __num_lava_immune = __lava_immune.length;
