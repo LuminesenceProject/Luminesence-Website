@@ -1,98 +1,98 @@
 /*generic styles that are default for every page*/
 
 /*NAVBAR*/
- .navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
-    position: -webkit-sticky;
-  }
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+  position: -webkit-sticky;
+}
 
-  .navbar a {
-    float: left;
-    font-size: 16px;
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar :active {
+  color: #782bd4;
+}
+
+.navbar a:hover {
+  background-color: hotpink;
+}
+
+
+.dropdown {
+  float: left;
+ margin: auto;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit; 
+  margin: 0; 
+  transition-timing-function: ease-in;
+  transition-delay: 2s;
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #782bd4;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  color:white;
+  transition-timing-function: ease-in;
+  transition-delay: 2s;
+}
+.dropdown p {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navbar :active {
-    color: #782bd4;
-  }
-
-  .navbar a:hover {
-    background-color: hotpink;
-  }
+}
 
 
-  .dropdown {
-    float: left;
-   margin: auto;
-  }
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
 
-  .dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: inherit;
-    font-family: inherit; 
-    margin: 0; 
-    transition-timing-function: ease-in;
-    transition-delay: 2s;
-  }
-  
 
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #782bd4;
-  }
-  
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    color:white;
-    transition-timing-function: ease-in;
-    transition-delay: 2s;
-  }
-  .dropdown p {
-      color: white;
-  }
-  
 
-  .dropdown-content a {
-    float: none;
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
+.dropdown-content a:hover {
+  background-color: #782bd4;
+}
 
-  
-  
 
-  .dropdown-content a:hover {
-    background-color: #782bd4;
-  }
-  
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  div.sticky {
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-  }
+div.sticky {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
 
   /*end of navbar*/
 /* Body is styled on each page
@@ -134,6 +134,12 @@ h1 {
     color: white;
     font-size: xx-large;
     text-align: center;
+}
+
+h2 {
+  color: white;
+  font-size: xx-large;
+  text-align: center;
 }
     
 iframe {
@@ -582,4 +588,67 @@ body {
   }
 }
 
+/*game style types ETC: stratagy, logic, ... */
 
+.game {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+  margin: auto;
+  width: fit-content;
+  border-radius: 15px;
+}
+
+.game a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: inline;
+  width: fit-content;
+}
+
+.game :active {
+  color: #782bd4;
+}
+
+.game a:hover {
+  background-color: #782bd4;
+}
+
+/*glowing text*/
+
+h1.glow
+{
+	font-size: 6em;
+	letter-spacing: 15px;
+	color: #0e3742;
+	text-transform: capitalize;
+	width: 100%;
+	text-align: center;
+    -webkit-box-reflect:  below 1px linear-gradient(transparent,#004)
+    ;
+    line-height: 0.70em;
+    outline: none;
+    animation: animate 5s linear infinite;
+}
+@keyframes animate
+{
+	1%,18%,20%,50%,1%,60%,65%,1%,80%,90%,1%,92%,25%
+	{
+		color: #0e3742
+		text-shadow: none;
+	}
+	18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%
+	{
+		color:#fff;
+		text-shadow: 0 0 10px #03bcf4,
+		0 0 20px #03bcf4,
+		0 0 40px #03bcf4,
+		0 0 80px #03bcf4,
+		0 0 160px #03bcf4;
+
+	}
+}

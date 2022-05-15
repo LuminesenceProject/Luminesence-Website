@@ -76,6 +76,7 @@ h1 {
         float: left;
         width: 33.33%;
         padding: 5px;
+        display: inline-block ;
       }
       
       /* Clear floats after image containers */
@@ -88,7 +89,7 @@ h1 {
     
       @media screen and (max-width: 500px) {
         .column {
-          width: 100%;
+          width: 90%;
         }
       }
     
@@ -113,7 +114,10 @@ h1 {
         grid-template-columns: auto auto auto;
         grid-template-rows: auto auto auto auto;
         align-content: center;
+        max-width: 64%;
+        margin: auto auto;
       }
+
 
     title {
       color: darkgray;
