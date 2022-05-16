@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html>
-<title>Flappy Bird</title>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flappy Letters</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../../index.css">
+	<script src="main.js"></script>
 </head>
-
 <body>
-	<div class="background"></div>
-	<img class="bird" src="logo.png" alt="bird-img">
-	<div class="message">
-		Press "Enter" to start!
-	</div>
-	<div class="score">
-		<span class="score_title"></span>
-		<span class="score_val"></span>
-	</div>
-	<script src="gfg.js"></script>
+	<div id="canvasContainer"></div>
+<span id="textInputSpan">
+  <input id="textInput" maxlength="10" type="text" width="150" class="input" placeholder="Name, max is 8 chars"/>
+  <button onclick="changeText()" class="button-3">GO!</button>
+</span>
 </body>
-
 </html>

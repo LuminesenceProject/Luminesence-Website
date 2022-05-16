@@ -12,7 +12,7 @@ const elementMenuItems = [
   SPOUT, OIL, WELL, METHANE, STEAM,
   FIRE, GUNPOWDER, C4, NITRO, CHARGED_NITRO, NAPALM,
   FUSE, PLANT, SOIL, WET_SOIL, ROCK, WAX, FALLING_WAX,
-  NEON, LEAF, POLLEN,
+  NEON, LEAF, POLLEN, CITRIC,
 	BACKGROUND
 ];
 
@@ -52,7 +52,8 @@ menuNames[CHILLED_ICE] = "Chilled Ice";
 menuNames[LEAF] = "Leaf";
 menuNames[POLLEN] = "Pollen";
 menuNames[FALLING_WAX] = "Falling Wax";
-menuNames[UNBREAKABLE_WALL] = "UB-Wall"
+menuNames[UNBREAKABLE_WALL] = "UB-Wall";
+menuNames[CITRIC] = "Citric";
 
 
 

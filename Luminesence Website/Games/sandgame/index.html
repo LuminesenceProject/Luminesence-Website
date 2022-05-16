@@ -12,7 +12,51 @@
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
+<script>
+myCanvas.offscreenCanvas = document.createElement('canvas');
+myCanvas.offscreenCanvas.width = myCanvas.width;
+myCanvas.offscreenCanvas.height = myCanvas.height;
 
+myCanvas.getContext('2d').drawImage(myCanvas.offScreenCanvas, 0, 0);
+
+var dpr = window.devicePixelRatio;
+var rect = canvas.getBoundingClientRect();
+
+// Set the "actual" size of the canvas
+canvas.width = rect.width * dpr;
+canvas.height = rect.height * dpr;
+
+// Scale the context to ensure correct drawing operations
+ctx.scale(dpr, dpr);
+
+// Set the "drawn" size of the canvas
+canvas.style.width = rect.width + 'px';
+canvas.style.height = rect.height + 'px';
+
+
+var m_canvas = document.createElement('canvas');
+m_canvas.width = 64;
+m_canvas.height = 64;
+var m_context = m_canvas.getContext(‘2d’);
+drawMario(m_context);
+
+function render() {
+  context.drawImage(m_canvas, 0, 0);
+  requestAnimationFrame(render);
+}
+
+var x = 100;
+var y = 100;
+var lastRender = Date.now();
+function render() {
+  var delta = Date.now() - lastRender;
+  x += delta;
+  y += delta;
+  context.fillRect(x, y, W, H);
+  requestAnimationFrame(render);
+}
+render();
+</script>
  
 
 </head>
@@ -55,7 +99,7 @@
       </div>
     </div>
     <div id="optionsCol2" class="optionsCol">
-      <div style="display:none;">
+      <div style="display:visible;">
         <label for="overwriteCheckbox">Overwrite</label>
         <input type="checkbox" id="overwriteCheckbox">
       </div>
