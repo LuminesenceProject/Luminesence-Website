@@ -910,13 +910,13 @@ class Labirynthe {
            ],
 
        packImages: [
-       {img:"https://i.ibb.co/KNcH1HC/bille.png",nom:"bille",l:800,h:40,ligne:1,sep:20,allure:0.15},
-       {img:"https://i.ibb.co/7kkmYHN/pikkux.png",nom:"pikkux",l:160,h:40,ligne:1,sep:4,allure:0.15},
-       {img:"https://i.ibb.co/nQ2SYM8/pikkuy.png",nom:"pikkuy",l:160,h:40,ligne:1,sep:4,allure:0.15},
-       {img:"https://i.ibb.co/8nk9H3b/feuille.gif",nom:"feuille"},
-       {img:"https://i.ibb.co/cFBj5t0/herbe.png",nom:"herbe"},
-       {img:"https://i.ibb.co/Jq6qkN4/sortie.png",nom:"sortie",l:400,h:40,ligne:1,sep:9},
-       {img:"https://i.ibb.co/12trPT0/piece.png",nom:"piece",l:400,h:40,ligne:1,sep:10},
+       {img:"bille.png",nom:"bille",l:800,h:40,ligne:1,sep:20,allure:0.15},
+       {img:"pikkux.png",nom:"pikkux",l:160,h:40,ligne:1,sep:4,allure:0.15},
+       {img:"pikkuy.png",nom:"pikkuy",l:160,h:40,ligne:1,sep:4,allure:0.15},
+       {img:"feuille.gif",nom:"feuille"},
+       {img:"herbe.png",nom:"herbe"},
+       {img:"sortie.png",nom:"sortie",l:400,h:40,ligne:1,sep:9},
+       {img:"piece.png",nom:"piece",l:400,h:40,ligne:1,sep:10},
            ],
     }
 
