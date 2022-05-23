@@ -1,0 +1,3432 @@
+@charset "UTF-8";
+/****** More of My Resets *******/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*** global varialables ***/
+:root {
+  --common-color1:#c72113;
+  --common-color2:#2674c3;
+}
+
+html {
+  overflow: hidden;
+  background-image: url(https://source.unsplash.com/random);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-size: 1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Standard */
+  min-height: 100vh;
+}
+
+body {
+  counter-reset: corona;
+  font-size: 16rem;
+  font-family: arial;
+}
+
+/***** Game Menu Frame *****/
+.game-menu-frame::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.game-header {
+  position: relative;
+  z-index: 5;
+  perspective: 800px;
+}
+
+.game-title {
+  position: relative;
+  z-index: 10;
+  margin-top: 20px;
+  transform: rotateX(21deg);
+  margin-bottom: 40px;
+  color: #fff;
+  font-size: 54rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+  text-align: center;
+  text-shadow: 2px 1px 0px #d2d2d2, 4px 2px 0px #4f3256, 3px 1px 6px #000000;
+  /*-webkit-text-stroke-width: 2px; -webkit-text-stroke-color: black;
+  text-shadow:2px 0px 5px #1c99ca, 0px 2px 5px #1c99ca, -2px 0px 5px #1c99ca, 0px -2px 5px #1c99ca;*/
+}
+.game-title .line-1 {
+  font-size: 40rem;
+  letter-spacing: -2px;
+}
+.game-title .line-2 {
+  font-size: 63rem;
+}
+.game-title .line-3 {
+  font-size: 14rem;
+  font-weight: nomral;
+  letter-spacing: 0px;
+  text-shadow: 1px 1px 0px #d2d2d2;
+  margin-top: 10px;
+}
+
+.game-nav {
+  position: relative;
+  z-index: 5;
+  width: 360px;
+  margin: 0 auto;
+  text-align: center;
+}
+.game-nav-title {
+  display: none;
+  font-size: 30rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+.game-nav-item {
+  margin-bottom: 10px;
+}
+.game-nav-button {
+  display: block;
+  height: 40px;
+  line-height: 36px;
+  border: solid 2px rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 20rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+.game-nav-button:hover, .game-nav-button:focus {
+  animation: neon 1.5s ease-in-out infinite alternate;
+  outline: none;
+}
+
+.game-over {
+  position: fixed;
+  height: 0px;
+  opacity: 0;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding-top: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: curtain 0.6s ease-in 100s forwards;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 30;
+  top: 30px;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
+  width: 360px;
+  padding: 20px;
+  min-height: 380px;
+  max-height: calc(100vh - 60px);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  border: solid 10px #121212;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.popup .close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  cursor: pointer;
+  font-family: cursive, arial;
+  font-size: 30rem;
+  line-height: 20px;
+}
+.popup .game-nav-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.common-content {
+  font-size: 18rem;
+  line-height: 1.3;
+}
+.common-content .common-title {
+  font-size: 22rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.common-content p, .common-content ul {
+  margin-bottom: 10px;
+}
+.common-content a {
+  color: var(--common-color2);
+}
+.common-content img {
+  display: block;
+  max-width: 70%;
+  margin: 10px auto;
+}
+
+.note {
+  color: #ccc;
+  line-height: 1.25;
+}
+
+[class*=corona-promo-virus] {
+  position: absolute;
+  top: -250px;
+}
+
+.corona-promo-virus-1 {
+  left: 10vw;
+  animation: coronaInsideStage 5s linear 1s infinite alternate;
+}
+
+.corona-promo-virus-2 {
+  right: 10vw;
+  animation: coronaInsideStage 5s linear 2s infinite alternate;
+}
+
+@keyframes coronaInsideStage {
+  to {
+    transform: translateY(500px);
+  }
+}
+@keyframes neon {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0052ff, 0 0 35px #0052ff, 0 0 40px #0052ff, 0 0 50px #0052ff, 0 0 75px #0052ff;
+  }
+  to {
+    box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px #0052ff, 0 0 17px #0052ff, 0 0 20px #0052ff, 0 0 25px #0052ff, 0 0 37px #0052ff;
+  }
+}
+@keyframes curtain {
+  from {
+    height: 100vh;
+    opacity: 0;
+  }
+  to {
+    height: 100vh;
+    opacity: 1;
+  }
+}
+/***** Game Frame *****/
+.game-frame {
+  display: none;
+}
+
+.corona-world {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* cursor */
+.corona-world,
+.corona-virus {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><filter id='grayscale'><feColorMatrix type='saturate' values='0.10'/></filter><text y='50%'>🧼</text></svg>") 16 0, auto;
+  /*!emojicursor.app*/
+}
+
+.count-down {
+  position: absolute;
+  z-index: 22;
+  left: 20px;
+  top: 20px;
+  font-size: 40rem;
+}
+.count-down .icon {
+  margin-right: 20px;
+}
+.count-down .count {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+.count-down .count::before, .count-down .count::after {
+  animation: countdown 100s step-end 1 forwards;
+  content: "";
+  width: 1ch;
+}
+.count-down .count::after {
+  animation-duration: 10s;
+  animation-iteration-count: 10;
+}
+@media (max-width: 500px) {
+  .count-down {
+    top: auto;
+    bottom: 20px;
+  }
+}
+
+.timer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 10px;
+  background-color: #fff;
+  border: solid 1px #333;
+}
+.timer::before {
+  content: "";
+  width: 0px;
+  height: 100%;
+  display: block;
+  background-color: var(--common-color2);
+  animation: timer 100s linear 0s;
+  animation-fill-mode: forwards;
+}
+@media (max-width: 500px) {
+  .timer {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+@keyframes countdown {
+  0% {
+    content: "9";
+  }
+  10% {
+    content: "8";
+  }
+  20% {
+    content: "7";
+  }
+  30% {
+    content: "6";
+  }
+  40% {
+    content: "5";
+  }
+  50% {
+    content: "4";
+  }
+  60% {
+    content: "3";
+  }
+  70% {
+    content: "2";
+  }
+  80% {
+    content: "1";
+  }
+  90%, 100% {
+    content: "0";
+  }
+}
+@keyframes timer {
+  0% {
+    width: 3%;
+  }
+  85% {
+    width: 85%;
+    background-color: var(--common-color2);
+  }
+  90% {
+    width: 90%;
+    background-color: var(--common-color1);
+  }
+  100% {
+    width: 100%;
+    background-color: var(--common-color1);
+  }
+}
+/*** Common Virus ***/
+.corona-virus {
+  --coronaColor:#000;
+  position: relative;
+  z-index: 10;
+  display: block;
+}
+.corona-virus .body {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--coronaColor);
+  opacity: 1;
+  transition: 0.3s;
+}
+
+/* virus objects position*/
+.corona-location {
+  position: absolute;
+  transform: scale(0);
+  will-change: transfrom;
+}
+
+.corona-virus-1-location {
+  animation: coronaLocation1 10s linear 960ms;
+}
+.corona-virus-1-location [class*=eye]::after {
+  animation-delay: 399ms;
+}
+
+@keyframes coronaLocation1 {
+  0% {
+    transform: translateX(-10vw) translateY(32vh) scale(0.7) rotate(-38deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.4) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(11vh) scale(0.6) rotate(-34deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(79vh) scale(0.8) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(63vh) scale(0.7) rotate(-6deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(12vh) scale(0.4) rotate(-15deg);
+  }
+}
+.corona-virus-2-location {
+  animation: coronaLocation2 10s linear 1920ms;
+}
+.corona-virus-2-location [class*=eye]::after {
+  animation-delay: 3016ms;
+}
+
+@keyframes coronaLocation2 {
+  0% {
+    transform: translateX(-10vw) translateY(29vh) scale(0.6) rotate(-20deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(5vh) scale(0.5) rotate(6deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(53vh) scale(0.8) rotate(-36deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(49vh) scale(0.7) rotate(33deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(14vh) scale(0.4) rotate(-17deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(80vh) scale(0.7) rotate(-20deg);
+  }
+}
+.corona-virus-3-location {
+  animation: coronaLocation3 10s linear 2880ms;
+}
+.corona-virus-3-location [class*=eye]::after {
+  animation-delay: 1532ms;
+}
+
+@keyframes coronaLocation3 {
+  0% {
+    transform: translateX(-10vw) translateY(63vh) scale(0.6) rotate(-19deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(40vh) scale(0.4) rotate(41deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(58vh) scale(0.7) rotate(34deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(3vh) scale(0.5) rotate(19deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(11vh) scale(0.6) rotate(19deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(58vh) scale(0.4) rotate(-22deg);
+  }
+}
+.corona-virus-4-location {
+  animation: coronaLocation4 10s linear 3840ms;
+}
+.corona-virus-4-location [class*=eye]::after {
+  animation-delay: 3204ms;
+}
+
+@keyframes coronaLocation4 {
+  0% {
+    transform: translateX(-10vw) translateY(5vh) scale(0.5) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(67vh) scale(0.4) rotate(-19deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(39vh) scale(0.6) rotate(43deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(19vh) scale(0.5) rotate(13deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(61vh) scale(0.4) rotate(-37deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(17vh) scale(0.5) rotate(-26deg);
+  }
+}
+.corona-virus-5-location {
+  animation: coronaLocation5 10s linear 4800ms;
+}
+.corona-virus-5-location [class*=eye]::after {
+  animation-delay: 2232ms;
+}
+
+@keyframes coronaLocation5 {
+  0% {
+    transform: translateX(-10vw) translateY(32vh) scale(0.8) rotate(32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(3vh) scale(0.6) rotate(-29deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(45vh) scale(0.6) rotate(37deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(7vh) scale(0.7) rotate(41deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(20vh) scale(0.6) rotate(31deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(27vh) scale(0.5) rotate(39deg);
+  }
+}
+.corona-virus-6-location {
+  animation: coronaLocation6 10s linear 5760ms;
+}
+.corona-virus-6-location [class*=eye]::after {
+  animation-delay: 440ms;
+}
+
+@keyframes coronaLocation6 {
+  0% {
+    transform: translateX(-10vw) translateY(36vh) scale(0.6) rotate(6deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(59vh) scale(0.7) rotate(9deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(52vh) scale(0.4) rotate(45deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(40vh) scale(0.7) rotate(-7deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(41vh) scale(0.4) rotate(22deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(41vh) scale(0.6) rotate(-11deg);
+  }
+}
+.corona-virus-7-location {
+  animation: coronaLocation7 10s linear 6720ms;
+}
+.corona-virus-7-location [class*=eye]::after {
+  animation-delay: 3722ms;
+}
+
+@keyframes coronaLocation7 {
+  0% {
+    transform: translateX(-10vw) translateY(38vh) scale(0.8) rotate(40deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(7vh) scale(0.5) rotate(2deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(24vh) scale(0.4) rotate(-33deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(73vh) scale(0.5) rotate(23deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(48vh) scale(0.8) rotate(-27deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(38vh) scale(0.8) rotate(31deg);
+  }
+}
+.corona-virus-8-location {
+  animation: coronaLocation8 10s linear 7680ms;
+}
+.corona-virus-8-location [class*=eye]::after {
+  animation-delay: 2436ms;
+}
+
+@keyframes coronaLocation8 {
+  0% {
+    transform: translateX(-10vw) translateY(12vh) scale(0.7) rotate(-7deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(47vh) scale(0.6) rotate(34deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(20vh) scale(0.8) rotate(-38deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(68vh) scale(0.6) rotate(24deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(32vh) scale(0.5) rotate(34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(29vh) scale(0.6) rotate(2deg);
+  }
+}
+.corona-virus-9-location {
+  animation: coronaLocation9 10s linear 8640ms;
+}
+.corona-virus-9-location [class*=eye]::after {
+  animation-delay: 3060ms;
+}
+
+@keyframes coronaLocation9 {
+  0% {
+    transform: translateX(-10vw) translateY(23vh) scale(0.6) rotate(28deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(13vh) scale(0.5) rotate(24deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(54vh) scale(0.6) rotate(29deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(2vh) scale(0.7) rotate(-8deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(29vh) scale(0.5) rotate(5deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(69vh) scale(0.7) rotate(-7deg);
+  }
+}
+.corona-virus-10-location {
+  animation: coronaLocation10 10s linear 9600ms;
+}
+.corona-virus-10-location [class*=eye]::after {
+  animation-delay: 1315ms;
+}
+
+@keyframes coronaLocation10 {
+  0% {
+    transform: translateX(-10vw) translateY(15vh) scale(0.5) rotate(-23deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(72vh) scale(0.7) rotate(29deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.5) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(36vh) scale(0.8) rotate(-6deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(8vh) scale(0.4) rotate(24deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(31vh) scale(0.5) rotate(10deg);
+  }
+}
+.corona-virus-11-location {
+  animation: coronaLocation11 10s linear 10560ms;
+}
+.corona-virus-11-location [class*=eye]::after {
+  animation-delay: 2104ms;
+}
+
+@keyframes coronaLocation11 {
+  0% {
+    transform: translateX(-10vw) translateY(35vh) scale(0.7) rotate(24deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(68vh) scale(0.5) rotate(-34deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(10vh) scale(0.8) rotate(-31deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(20vh) scale(0.4) rotate(-13deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(5vh) scale(0.7) rotate(12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(2vh) scale(0.6) rotate(-5deg);
+  }
+}
+.corona-virus-12-location {
+  animation: coronaLocation12 10s linear 11520ms;
+}
+.corona-virus-12-location [class*=eye]::after {
+  animation-delay: 3915ms;
+}
+
+@keyframes coronaLocation12 {
+  0% {
+    transform: translateX(-10vw) translateY(74vh) scale(0.5) rotate(-41deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(44vh) scale(0.8) rotate(28deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(1vh) scale(0.7) rotate(14deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(5vh) scale(0.7) rotate(15deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(4vh) scale(0.7) rotate(15deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(49vh) scale(0.8) rotate(8deg);
+  }
+}
+.corona-virus-13-location {
+  animation: coronaLocation13 10s linear 12480ms;
+}
+.corona-virus-13-location [class*=eye]::after {
+  animation-delay: 3198ms;
+}
+
+@keyframes coronaLocation13 {
+  0% {
+    transform: translateX(-10vw) translateY(39vh) scale(0.5) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(69vh) scale(0.6) rotate(38deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(60vh) scale(0.6) rotate(25deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(1vh) scale(0.8) rotate(-42deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(63vh) scale(0.5) rotate(29deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(6vh) scale(0.4) rotate(-18deg);
+  }
+}
+.corona-virus-14-location {
+  animation: coronaLocation14 10s linear 13440ms;
+}
+.corona-virus-14-location [class*=eye]::after {
+  animation-delay: 895ms;
+}
+
+@keyframes coronaLocation14 {
+  0% {
+    transform: translateX(-10vw) translateY(17vh) scale(0.6) rotate(-34deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(65vh) scale(0.8) rotate(-30deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(58vh) scale(0.7) rotate(22deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(48vh) scale(0.6) rotate(35deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(75vh) scale(0.5) rotate(-16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(36vh) scale(0.4) rotate(37deg);
+  }
+}
+.corona-virus-15-location {
+  animation: coronaLocation15 10s linear 14400ms;
+}
+.corona-virus-15-location [class*=eye]::after {
+  animation-delay: 3006ms;
+}
+
+@keyframes coronaLocation15 {
+  0% {
+    transform: translateX(-10vw) translateY(54vh) scale(0.7) rotate(-27deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(15vh) scale(0.5) rotate(-6deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(23vh) scale(0.6) rotate(-30deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(68vh) scale(0.8) rotate(-31deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(64vh) scale(0.7) rotate(29deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(7vh) scale(0.5) rotate(-37deg);
+  }
+}
+.corona-virus-16-location {
+  animation: coronaLocation16 10s linear 15360ms;
+}
+.corona-virus-16-location [class*=eye]::after {
+  animation-delay: 3573ms;
+}
+
+@keyframes coronaLocation16 {
+  0% {
+    transform: translateX(-10vw) translateY(64vh) scale(0.6) rotate(45deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(80vh) scale(0.7) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(76vh) scale(0.6) rotate(-17deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(1vh) scale(0.8) rotate(34deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(71vh) scale(0.7) rotate(41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(41vh) scale(0.6) rotate(-32deg);
+  }
+}
+.corona-virus-17-location {
+  animation: coronaLocation17 10s linear 16320ms;
+}
+.corona-virus-17-location [class*=eye]::after {
+  animation-delay: 945ms;
+}
+
+@keyframes coronaLocation17 {
+  0% {
+    transform: translateX(-10vw) translateY(11vh) scale(0.4) rotate(32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(17vh) scale(0.4) rotate(-31deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(27vh) scale(0.5) rotate(-30deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(66vh) scale(0.8) rotate(14deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(17vh) scale(0.4) rotate(-24deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(44vh) scale(0.7) rotate(27deg);
+  }
+}
+.corona-virus-18-location {
+  animation: coronaLocation18 10s linear 17280ms;
+}
+.corona-virus-18-location [class*=eye]::after {
+  animation-delay: 547ms;
+}
+
+@keyframes coronaLocation18 {
+  0% {
+    transform: translateX(-10vw) translateY(36vh) scale(0.6) rotate(37deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(50vh) scale(0.7) rotate(20deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(80vh) scale(0.6) rotate(23deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(65vh) scale(0.5) rotate(11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(0.7) rotate(-16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(14vh) scale(0.8) rotate(17deg);
+  }
+}
+.corona-virus-19-location {
+  animation: coronaLocation19 10s linear 18240ms;
+}
+.corona-virus-19-location [class*=eye]::after {
+  animation-delay: 889ms;
+}
+
+@keyframes coronaLocation19 {
+  0% {
+    transform: translateX(-10vw) translateY(10vh) scale(0.5) rotate(30deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(49vh) scale(0.8) rotate(4deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(45vh) scale(0.5) rotate(32deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(12vh) scale(0.5) rotate(24deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(3vh) scale(0.7) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(16vh) scale(0.4) rotate(33deg);
+  }
+}
+.corona-virus-20-location {
+  animation: coronaLocation20 10s linear 19200ms;
+}
+.corona-virus-20-location [class*=eye]::after {
+  animation-delay: 762ms;
+}
+
+@keyframes coronaLocation20 {
+  0% {
+    transform: translateX(-10vw) translateY(65vh) scale(0.4) rotate(18deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(29vh) scale(0.5) rotate(-43deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(68vh) scale(0.7) rotate(-26deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(68vh) scale(0.4) rotate(-26deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(54vh) scale(0.5) rotate(-34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(7vh) scale(0.4) rotate(26deg);
+  }
+}
+.corona-virus-21-location {
+  animation: coronaLocation21 10s linear 20160ms;
+}
+.corona-virus-21-location [class*=eye]::after {
+  animation-delay: 2358ms;
+}
+
+@keyframes coronaLocation21 {
+  0% {
+    transform: translateX(-10vw) translateY(73vh) scale(0.7) rotate(-33deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(59vh) scale(0.5) rotate(-19deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(61vh) scale(0.4) rotate(10deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(2vh) scale(0.7) rotate(20deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(2vh) scale(0.6) rotate(12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(54vh) scale(0.7) rotate(9deg);
+  }
+}
+.corona-virus-22-location {
+  animation: coronaLocation22 10s linear 21120ms;
+}
+.corona-virus-22-location [class*=eye]::after {
+  animation-delay: 499ms;
+}
+
+@keyframes coronaLocation22 {
+  0% {
+    transform: translateX(-10vw) translateY(62vh) scale(0.6) rotate(9deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(64vh) scale(0.5) rotate(-4deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(67vh) scale(0.6) rotate(12deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(3vh) scale(0.5) rotate(36deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(29vh) scale(0.7) rotate(-36deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(19vh) scale(0.8) rotate(-34deg);
+  }
+}
+.corona-virus-23-location {
+  animation: coronaLocation23 10s linear 22080ms;
+}
+.corona-virus-23-location [class*=eye]::after {
+  animation-delay: 3554ms;
+}
+
+@keyframes coronaLocation23 {
+  0% {
+    transform: translateX(-10vw) translateY(13vh) scale(0.7) rotate(40deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(23vh) scale(0.5) rotate(1deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(31vh) scale(0.4) rotate(-21deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(63vh) scale(0.4) rotate(-31deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(78vh) scale(0.5) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(67vh) scale(0.8) rotate(-35deg);
+  }
+}
+.corona-virus-24-location {
+  animation: coronaLocation24 10s linear 23040ms;
+}
+.corona-virus-24-location [class*=eye]::after {
+  animation-delay: 1634ms;
+}
+
+@keyframes coronaLocation24 {
+  0% {
+    transform: translateX(-10vw) translateY(65vh) scale(0.6) rotate(-11deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(2vh) scale(0.6) rotate(24deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(36vh) scale(0.7) rotate(-27deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(68vh) scale(0.5) rotate(40deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(1vh) scale(0.8) rotate(43deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(44vh) scale(0.6) rotate(6deg);
+  }
+}
+.corona-virus-25-location {
+  animation: coronaLocation25 10s linear 24000ms;
+}
+.corona-virus-25-location [class*=eye]::after {
+  animation-delay: 732ms;
+}
+
+@keyframes coronaLocation25 {
+  0% {
+    transform: translateX(-10vw) translateY(65vh) scale(0.6) rotate(-15deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(66vh) scale(0.4) rotate(37deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(16vh) scale(0.6) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(49vh) scale(0.6) rotate(-36deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(57vh) scale(0.7) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(1vh) scale(0.4) rotate(-39deg);
+  }
+}
+.corona-virus-26-location {
+  animation: coronaLocation26 10s linear 24960ms;
+}
+.corona-virus-26-location [class*=eye]::after {
+  animation-delay: 3716ms;
+}
+
+@keyframes coronaLocation26 {
+  0% {
+    transform: translateX(-10vw) translateY(60vh) scale(0.4) rotate(40deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(65vh) scale(0.5) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.6) rotate(-12deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(14vh) scale(0.7) rotate(-3deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(20vh) scale(0.5) rotate(44deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(47vh) scale(0.7) rotate(37deg);
+  }
+}
+.corona-virus-27-location {
+  animation: coronaLocation27 10s linear 25920ms;
+}
+.corona-virus-27-location [class*=eye]::after {
+  animation-delay: 180ms;
+}
+
+@keyframes coronaLocation27 {
+  0% {
+    transform: translateX(-10vw) translateY(63vh) scale(0.4) rotate(22deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(24vh) scale(0.8) rotate(7deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(32vh) scale(0.5) rotate(29deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(30vh) scale(0.8) rotate(-41deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(19vh) scale(0.4) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(53vh) scale(0.7) rotate(44deg);
+  }
+}
+.corona-virus-28-location {
+  animation: coronaLocation28 10s linear 26880ms;
+}
+.corona-virus-28-location [class*=eye]::after {
+  animation-delay: 3003ms;
+}
+
+@keyframes coronaLocation28 {
+  0% {
+    transform: translateX(-10vw) translateY(47vh) scale(0.5) rotate(33deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(33vh) scale(0.7) rotate(45deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(26vh) scale(0.6) rotate(-38deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(20vh) scale(0.8) rotate(-37deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(10vh) scale(0.6) rotate(11deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(59vh) scale(0.8) rotate(-1deg);
+  }
+}
+.corona-virus-29-location {
+  animation: coronaLocation29 10s linear 27840ms;
+}
+.corona-virus-29-location [class*=eye]::after {
+  animation-delay: 3149ms;
+}
+
+@keyframes coronaLocation29 {
+  0% {
+    transform: translateX(-10vw) translateY(74vh) scale(0.7) rotate(-17deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(16vh) scale(0.5) rotate(-7deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(70vh) scale(0.7) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(60vh) scale(0.6) rotate(-36deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(31vh) scale(0.7) rotate(30deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(37vh) scale(0.8) rotate(3deg);
+  }
+}
+.corona-virus-30-location {
+  animation: coronaLocation30 10s linear 28800ms;
+}
+.corona-virus-30-location [class*=eye]::after {
+  animation-delay: 2455ms;
+}
+
+@keyframes coronaLocation30 {
+  0% {
+    transform: translateX(-10vw) translateY(37vh) scale(0.4) rotate(6deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(37vh) scale(0.6) rotate(-11deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(30vh) scale(0.5) rotate(-29deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(10vh) scale(0.7) rotate(25deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(68vh) scale(0.6) rotate(7deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(19vh) scale(0.7) rotate(-2deg);
+  }
+}
+.corona-virus-31-location {
+  animation: coronaLocation31 10s linear 29760ms;
+}
+.corona-virus-31-location [class*=eye]::after {
+  animation-delay: 724ms;
+}
+
+@keyframes coronaLocation31 {
+  0% {
+    transform: translateX(-10vw) translateY(73vh) scale(0.4) rotate(-4deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(41vh) scale(0.6) rotate(-26deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(6vh) scale(0.4) rotate(-40deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(25vh) scale(0.4) rotate(3deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(7vh) scale(0.5) rotate(-9deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(1vh) scale(0.6) rotate(34deg);
+  }
+}
+.corona-virus-32-location {
+  animation: coronaLocation32 10s linear 30720ms;
+}
+.corona-virus-32-location [class*=eye]::after {
+  animation-delay: 758ms;
+}
+
+@keyframes coronaLocation32 {
+  0% {
+    transform: translateX(-10vw) translateY(43vh) scale(0.5) rotate(35deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(53vh) scale(0.4) rotate(23deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(37vh) scale(0.5) rotate(28deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(3vh) scale(0.5) rotate(13deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(16vh) scale(0.5) rotate(-41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(16vh) scale(0.5) rotate(-5deg);
+  }
+}
+.corona-virus-33-location {
+  animation: coronaLocation33 10s linear 31680ms;
+}
+.corona-virus-33-location [class*=eye]::after {
+  animation-delay: 2149ms;
+}
+
+@keyframes coronaLocation33 {
+  0% {
+    transform: translateX(-10vw) translateY(20vh) scale(0.5) rotate(4deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(33vh) scale(0.8) rotate(-14deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(53vh) scale(0.8) rotate(32deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(48vh) scale(0.5) rotate(-3deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(42vh) scale(0.6) rotate(37deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(46vh) scale(0.7) rotate(1deg);
+  }
+}
+.corona-virus-34-location {
+  animation: coronaLocation34 10s linear 32640ms;
+}
+.corona-virus-34-location [class*=eye]::after {
+  animation-delay: 3025ms;
+}
+
+@keyframes coronaLocation34 {
+  0% {
+    transform: translateX(-10vw) translateY(18vh) scale(0.5) rotate(33deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(26vh) scale(0.6) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(27vh) scale(0.7) rotate(10deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(57vh) scale(0.8) rotate(-9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(23vh) scale(0.4) rotate(-32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(63vh) scale(0.8) rotate(-32deg);
+  }
+}
+.corona-virus-35-location {
+  animation: coronaLocation35 10s linear 33600ms;
+}
+.corona-virus-35-location [class*=eye]::after {
+  animation-delay: 2496ms;
+}
+
+@keyframes coronaLocation35 {
+  0% {
+    transform: translateX(-10vw) translateY(61vh) scale(0.6) rotate(-29deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(47vh) scale(0.8) rotate(8deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(45vh) scale(0.5) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(42vh) scale(0.6) rotate(-5deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(35vh) scale(0.8) rotate(27deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(32vh) scale(0.6) rotate(18deg);
+  }
+}
+.corona-virus-36-location {
+  animation: coronaLocation36 10s linear 34560ms;
+}
+.corona-virus-36-location [class*=eye]::after {
+  animation-delay: 3179ms;
+}
+
+@keyframes coronaLocation36 {
+  0% {
+    transform: translateX(-10vw) translateY(18vh) scale(0.5) rotate(11deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(25vh) scale(0.8) rotate(-15deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(18vh) scale(0.6) rotate(-31deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(31vh) scale(0.7) rotate(-8deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(16vh) scale(0.7) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(76vh) scale(0.8) rotate(-32deg);
+  }
+}
+.corona-virus-37-location {
+  animation: coronaLocation37 10s linear 35520ms;
+}
+.corona-virus-37-location [class*=eye]::after {
+  animation-delay: 1910ms;
+}
+
+@keyframes coronaLocation37 {
+  0% {
+    transform: translateX(-10vw) translateY(49vh) scale(0.4) rotate(9deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(52vh) scale(0.6) rotate(-42deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(60vh) scale(0.6) rotate(19deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(38vh) scale(0.7) rotate(-16deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(0.7) rotate(30deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(9vh) scale(0.6) rotate(-14deg);
+  }
+}
+.corona-virus-38-location {
+  animation: coronaLocation38 10s linear 36480ms;
+}
+.corona-virus-38-location [class*=eye]::after {
+  animation-delay: 3453ms;
+}
+
+@keyframes coronaLocation38 {
+  0% {
+    transform: translateX(-10vw) translateY(19vh) scale(0.8) rotate(6deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(80vh) scale(0.4) rotate(45deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(6vh) scale(0.5) rotate(28deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(42vh) scale(0.4) rotate(21deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(26vh) scale(0.7) rotate(-44deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(58vh) scale(0.4) rotate(-38deg);
+  }
+}
+.corona-virus-39-location {
+  animation: coronaLocation39 10s linear 37440ms;
+}
+.corona-virus-39-location [class*=eye]::after {
+  animation-delay: 2628ms;
+}
+
+@keyframes coronaLocation39 {
+  0% {
+    transform: translateX(-10vw) translateY(8vh) scale(0.5) rotate(-3deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(53vh) scale(0.6) rotate(29deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(61vh) scale(0.6) rotate(34deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(68vh) scale(0.5) rotate(0deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(0.7) rotate(-41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(64vh) scale(0.5) rotate(32deg);
+  }
+}
+.corona-virus-40-location {
+  animation: coronaLocation40 10s linear 38400ms;
+}
+.corona-virus-40-location [class*=eye]::after {
+  animation-delay: 3565ms;
+}
+
+@keyframes coronaLocation40 {
+  0% {
+    transform: translateX(-10vw) translateY(75vh) scale(0.8) rotate(-7deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(12vh) scale(0.5) rotate(28deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(58vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(5vh) scale(0.6) rotate(-11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(24vh) scale(0.6) rotate(-35deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(76vh) scale(0.8) rotate(9deg);
+  }
+}
+.corona-virus-41-location {
+  animation: coronaLocation41 10s linear 39360ms;
+}
+.corona-virus-41-location [class*=eye]::after {
+  animation-delay: 1460ms;
+}
+
+@keyframes coronaLocation41 {
+  0% {
+    transform: translateX(-10vw) translateY(39vh) scale(0.4) rotate(-13deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(38vh) scale(0.5) rotate(3deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(77vh) scale(0.8) rotate(13deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(5vh) scale(0.4) rotate(-23deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(70vh) scale(0.4) rotate(-25deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(36vh) scale(0.5) rotate(-14deg);
+  }
+}
+.corona-virus-42-location {
+  animation: coronaLocation42 10s linear 40320ms;
+}
+.corona-virus-42-location [class*=eye]::after {
+  animation-delay: 2937ms;
+}
+
+@keyframes coronaLocation42 {
+  0% {
+    transform: translateX(-10vw) translateY(55vh) scale(0.7) rotate(16deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(8vh) scale(0.8) rotate(40deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(24vh) scale(0.5) rotate(24deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(77vh) scale(0.6) rotate(43deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(17vh) scale(0.7) rotate(20deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(35vh) scale(0.7) rotate(-41deg);
+  }
+}
+.corona-virus-43-location {
+  animation: coronaLocation43 10s linear 41280ms;
+}
+.corona-virus-43-location [class*=eye]::after {
+  animation-delay: 1681ms;
+}
+
+@keyframes coronaLocation43 {
+  0% {
+    transform: translateX(-10vw) translateY(31vh) scale(0.4) rotate(27deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(3vh) scale(0.4) rotate(-26deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(79vh) scale(0.8) rotate(1deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(41vh) scale(0.6) rotate(-11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(77vh) scale(0.5) rotate(11deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(42vh) scale(0.7) rotate(17deg);
+  }
+}
+.corona-virus-44-location {
+  animation: coronaLocation44 10s linear 42240ms;
+}
+.corona-virus-44-location [class*=eye]::after {
+  animation-delay: 78ms;
+}
+
+@keyframes coronaLocation44 {
+  0% {
+    transform: translateX(-10vw) translateY(72vh) scale(0.8) rotate(9deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(11vh) scale(0.5) rotate(-4deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(71vh) scale(0.7) rotate(8deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(76vh) scale(0.6) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(36vh) scale(0.5) rotate(43deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(22vh) scale(0.5) rotate(35deg);
+  }
+}
+.corona-virus-45-location {
+  animation: coronaLocation45 10s linear 43200ms;
+}
+.corona-virus-45-location [class*=eye]::after {
+  animation-delay: 2570ms;
+}
+
+@keyframes coronaLocation45 {
+  0% {
+    transform: translateX(-10vw) translateY(73vh) scale(0.5) rotate(-12deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(78vh) scale(0.7) rotate(2deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(67vh) scale(0.4) rotate(44deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(11vh) scale(0.8) rotate(-2deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(12vh) scale(0.7) rotate(38deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(8vh) scale(0.4) rotate(-42deg);
+  }
+}
+.corona-virus-46-location {
+  animation: coronaLocation46 10s linear 44160ms;
+}
+.corona-virus-46-location [class*=eye]::after {
+  animation-delay: 2427ms;
+}
+
+@keyframes coronaLocation46 {
+  0% {
+    transform: translateX(-10vw) translateY(24vh) scale(0.8) rotate(32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(71vh) scale(0.8) rotate(6deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(76vh) scale(0.4) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(17vh) scale(0.6) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(37vh) scale(0.7) rotate(-34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(11vh) scale(0.7) rotate(-16deg);
+  }
+}
+.corona-virus-47-location {
+  animation: coronaLocation47 10s linear 45120ms;
+}
+.corona-virus-47-location [class*=eye]::after {
+  animation-delay: 1505ms;
+}
+
+@keyframes coronaLocation47 {
+  0% {
+    transform: translateX(-10vw) translateY(46vh) scale(0.5) rotate(-41deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(56vh) scale(0.4) rotate(-9deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(58vh) scale(0.8) rotate(18deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(53vh) scale(0.5) rotate(24deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(46vh) scale(0.8) rotate(10deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(25vh) scale(0.7) rotate(-6deg);
+  }
+}
+.corona-virus-48-location {
+  animation: coronaLocation48 10s linear 46080ms;
+}
+.corona-virus-48-location [class*=eye]::after {
+  animation-delay: 3232ms;
+}
+
+@keyframes coronaLocation48 {
+  0% {
+    transform: translateX(-10vw) translateY(65vh) scale(0.6) rotate(28deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(35vh) scale(0.4) rotate(17deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(40vh) scale(0.4) rotate(37deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(62vh) scale(0.4) rotate(-32deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(2vh) scale(0.7) rotate(2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(12vh) scale(0.6) rotate(-11deg);
+  }
+}
+.corona-virus-49-location {
+  animation: coronaLocation49 10s linear 47040ms;
+}
+.corona-virus-49-location [class*=eye]::after {
+  animation-delay: 1219ms;
+}
+
+@keyframes coronaLocation49 {
+  0% {
+    transform: translateX(-10vw) translateY(17vh) scale(0.4) rotate(45deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(15vh) scale(0.5) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(65vh) scale(0.4) rotate(-37deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(46vh) scale(0.6) rotate(-6deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(2vh) scale(0.8) rotate(-34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(79vh) scale(0.7) rotate(40deg);
+  }
+}
+.corona-virus-50-location {
+  animation: coronaLocation50 10s linear 48000ms;
+}
+.corona-virus-50-location [class*=eye]::after {
+  animation-delay: 2836ms;
+}
+
+@keyframes coronaLocation50 {
+  0% {
+    transform: translateX(-10vw) translateY(42vh) scale(0.7) rotate(27deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(62vh) scale(0.4) rotate(29deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(9vh) scale(0.4) rotate(37deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(49vh) scale(0.4) rotate(11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(6vh) scale(0.4) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(33vh) scale(0.6) rotate(29deg);
+  }
+}
+.corona-virus-51-location {
+  animation: coronaLocation51 10s linear 48960ms;
+}
+.corona-virus-51-location [class*=eye]::after {
+  animation-delay: 3302ms;
+}
+
+@keyframes coronaLocation51 {
+  0% {
+    transform: translateX(-10vw) translateY(16vh) scale(0.7) rotate(24deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(39vh) scale(0.7) rotate(-26deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(29vh) scale(0.7) rotate(-8deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(20vh) scale(0.6) rotate(30deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(64vh) scale(0.8) rotate(-43deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(68vh) scale(0.8) rotate(-22deg);
+  }
+}
+.corona-virus-52-location {
+  animation: coronaLocation52 10s linear 49920ms;
+}
+.corona-virus-52-location [class*=eye]::after {
+  animation-delay: 1319ms;
+}
+
+@keyframes coronaLocation52 {
+  0% {
+    transform: translateX(-10vw) translateY(35vh) scale(0.4) rotate(45deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(25vh) scale(0.8) rotate(35deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(79vh) scale(0.6) rotate(-30deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(17vh) scale(0.5) rotate(-37deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(53vh) scale(0.8) rotate(16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(43vh) scale(0.4) rotate(-19deg);
+  }
+}
+.corona-virus-53-location {
+  animation: coronaLocation53 10s linear 50880ms;
+}
+.corona-virus-53-location [class*=eye]::after {
+  animation-delay: 675ms;
+}
+
+@keyframes coronaLocation53 {
+  0% {
+    transform: translateX(-10vw) translateY(3vh) scale(0.8) rotate(24deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(60vh) scale(0.8) rotate(-34deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(46vh) scale(0.8) rotate(44deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(64vh) scale(0.5) rotate(-44deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(39vh) scale(0.5) rotate(24deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(26vh) scale(0.6) rotate(24deg);
+  }
+}
+.corona-virus-54-location {
+  animation: coronaLocation54 10s linear 51840ms;
+}
+.corona-virus-54-location [class*=eye]::after {
+  animation-delay: 1322ms;
+}
+
+@keyframes coronaLocation54 {
+  0% {
+    transform: translateX(-10vw) translateY(28vh) scale(0.8) rotate(39deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(80vh) scale(0.8) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(80vh) scale(0.7) rotate(29deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(1vh) scale(0.8) rotate(40deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(12vh) scale(0.5) rotate(40deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(32vh) scale(0.5) rotate(-23deg);
+  }
+}
+.corona-virus-55-location {
+  animation: coronaLocation55 10s linear 52800ms;
+}
+.corona-virus-55-location [class*=eye]::after {
+  animation-delay: 1919ms;
+}
+
+@keyframes coronaLocation55 {
+  0% {
+    transform: translateX(-10vw) translateY(33vh) scale(0.4) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(30vh) scale(0.4) rotate(28deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(43vh) scale(0.8) rotate(-24deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(76vh) scale(0.7) rotate(31deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(28vh) scale(0.6) rotate(20deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(38vh) scale(0.6) rotate(18deg);
+  }
+}
+.corona-virus-56-location {
+  animation: coronaLocation56 10s linear 53760ms;
+}
+.corona-virus-56-location [class*=eye]::after {
+  animation-delay: 2658ms;
+}
+
+@keyframes coronaLocation56 {
+  0% {
+    transform: translateX(-10vw) translateY(37vh) scale(0.5) rotate(-38deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(62vh) scale(0.4) rotate(39deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(73vh) scale(0.8) rotate(3deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(5vh) scale(0.7) rotate(-7deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(67vh) scale(0.6) rotate(-28deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(28vh) scale(0.6) rotate(1deg);
+  }
+}
+.corona-virus-57-location {
+  animation: coronaLocation57 10s linear 54720ms;
+}
+.corona-virus-57-location [class*=eye]::after {
+  animation-delay: 86ms;
+}
+
+@keyframes coronaLocation57 {
+  0% {
+    transform: translateX(-10vw) translateY(55vh) scale(0.4) rotate(23deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(10vh) scale(0.7) rotate(29deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(25vh) scale(0.7) rotate(38deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(38vh) scale(0.6) rotate(44deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(33vh) scale(0.6) rotate(20deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(54vh) scale(0.4) rotate(6deg);
+  }
+}
+.corona-virus-58-location {
+  animation: coronaLocation58 10s linear 55680ms;
+}
+.corona-virus-58-location [class*=eye]::after {
+  animation-delay: 115ms;
+}
+
+@keyframes coronaLocation58 {
+  0% {
+    transform: translateX(-10vw) translateY(59vh) scale(0.5) rotate(-5deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(77vh) scale(0.5) rotate(42deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(17vh) scale(0.5) rotate(7deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(24vh) scale(0.8) rotate(-12deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(44vh) scale(0.8) rotate(16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(72vh) scale(0.6) rotate(-13deg);
+  }
+}
+.corona-virus-59-location {
+  animation: coronaLocation59 10s linear 56640ms;
+}
+.corona-virus-59-location [class*=eye]::after {
+  animation-delay: 1602ms;
+}
+
+@keyframes coronaLocation59 {
+  0% {
+    transform: translateX(-10vw) translateY(1vh) scale(0.7) rotate(30deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(17vh) scale(0.6) rotate(43deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(23vh) scale(0.5) rotate(-7deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(80vh) scale(0.6) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(68vh) scale(0.8) rotate(12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(37vh) scale(0.8) rotate(-4deg);
+  }
+}
+.corona-virus-60-location {
+  animation: coronaLocation60 10s linear 57600ms;
+}
+.corona-virus-60-location [class*=eye]::after {
+  animation-delay: 3994ms;
+}
+
+@keyframes coronaLocation60 {
+  0% {
+    transform: translateX(-10vw) translateY(28vh) scale(0.6) rotate(36deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(9vh) scale(0.8) rotate(-43deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(51vh) scale(0.8) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(65vh) scale(0.8) rotate(-6deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(33vh) scale(0.5) rotate(29deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(49vh) scale(0.5) rotate(33deg);
+  }
+}
+.corona-virus-61-location {
+  animation: coronaLocation61 10s linear 58560ms;
+}
+.corona-virus-61-location [class*=eye]::after {
+  animation-delay: 212ms;
+}
+
+@keyframes coronaLocation61 {
+  0% {
+    transform: translateX(-10vw) translateY(64vh) scale(0.4) rotate(-20deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(65vh) scale(0.8) rotate(-21deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(9vh) scale(0.6) rotate(-28deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(43vh) scale(0.8) rotate(28deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(30vh) scale(0.5) rotate(45deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.7) rotate(34deg);
+  }
+}
+.corona-virus-62-location {
+  animation: coronaLocation62 10s linear 59520ms;
+}
+.corona-virus-62-location [class*=eye]::after {
+  animation-delay: 2291ms;
+}
+
+@keyframes coronaLocation62 {
+  0% {
+    transform: translateX(-10vw) translateY(75vh) scale(0.7) rotate(34deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(29vh) scale(0.8) rotate(-9deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(35vh) scale(0.7) rotate(18deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(67vh) scale(0.7) rotate(-5deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(21vh) scale(0.5) rotate(9deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(80vh) scale(0.7) rotate(22deg);
+  }
+}
+.corona-virus-63-location {
+  animation: coronaLocation63 10s linear 60480ms;
+}
+.corona-virus-63-location [class*=eye]::after {
+  animation-delay: 373ms;
+}
+
+@keyframes coronaLocation63 {
+  0% {
+    transform: translateX(-10vw) translateY(31vh) scale(0.8) rotate(8deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(61vh) scale(0.8) rotate(27deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(12vh) scale(0.5) rotate(41deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(80vh) scale(0.7) rotate(27deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(51vh) scale(0.8) rotate(-41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(71vh) scale(0.5) rotate(-42deg);
+  }
+}
+.corona-virus-64-location {
+  animation: coronaLocation64 10s linear 61440ms;
+}
+.corona-virus-64-location [class*=eye]::after {
+  animation-delay: 3191ms;
+}
+
+@keyframes coronaLocation64 {
+  0% {
+    transform: translateX(-10vw) translateY(24vh) scale(0.6) rotate(-34deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(50vh) scale(0.4) rotate(25deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(38vh) scale(0.7) rotate(35deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(41vh) scale(0.7) rotate(-8deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(67vh) scale(0.8) rotate(30deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(33vh) scale(0.8) rotate(-43deg);
+  }
+}
+.corona-virus-65-location {
+  animation: coronaLocation65 10s linear 62400ms;
+}
+.corona-virus-65-location [class*=eye]::after {
+  animation-delay: 161ms;
+}
+
+@keyframes coronaLocation65 {
+  0% {
+    transform: translateX(-10vw) translateY(39vh) scale(0.6) rotate(-15deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(5vh) scale(0.6) rotate(-4deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(75vh) scale(0.6) rotate(-33deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(25vh) scale(0.8) rotate(-16deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(7vh) scale(0.4) rotate(20deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(37vh) scale(0.6) rotate(-43deg);
+  }
+}
+.corona-virus-66-location {
+  animation: coronaLocation66 10s linear 63360ms;
+}
+.corona-virus-66-location [class*=eye]::after {
+  animation-delay: 2327ms;
+}
+
+@keyframes coronaLocation66 {
+  0% {
+    transform: translateX(-10vw) translateY(34vh) scale(0.4) rotate(43deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(36vh) scale(0.7) rotate(11deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(60vh) scale(0.5) rotate(-38deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(62vh) scale(0.8) rotate(-23deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(40vh) scale(0.7) rotate(-42deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(15vh) scale(0.7) rotate(20deg);
+  }
+}
+.corona-virus-67-location {
+  animation: coronaLocation67 10s linear 64320ms;
+}
+.corona-virus-67-location [class*=eye]::after {
+  animation-delay: 2689ms;
+}
+
+@keyframes coronaLocation67 {
+  0% {
+    transform: translateX(-10vw) translateY(39vh) scale(0.6) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(8vh) scale(0.5) rotate(-12deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(4vh) scale(0.8) rotate(35deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(36vh) scale(0.4) rotate(-8deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(78vh) scale(0.6) rotate(-39deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(48vh) scale(0.7) rotate(-13deg);
+  }
+}
+.corona-virus-68-location {
+  animation: coronaLocation68 10s linear 65280ms;
+}
+.corona-virus-68-location [class*=eye]::after {
+  animation-delay: 761ms;
+}
+
+@keyframes coronaLocation68 {
+  0% {
+    transform: translateX(-10vw) translateY(50vh) scale(0.5) rotate(18deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(21vh) scale(0.5) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(12vh) scale(0.7) rotate(7deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(46vh) scale(0.4) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(56vh) scale(0.7) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-35deg);
+  }
+}
+.corona-virus-69-location {
+  animation: coronaLocation69 10s linear 66240ms;
+}
+.corona-virus-69-location [class*=eye]::after {
+  animation-delay: 1174ms;
+}
+
+@keyframes coronaLocation69 {
+  0% {
+    transform: translateX(-10vw) translateY(57vh) scale(0.8) rotate(9deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(38vh) scale(0.5) rotate(16deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(77vh) scale(0.7) rotate(21deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(22vh) scale(0.6) rotate(29deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(71vh) scale(0.7) rotate(37deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(29vh) scale(0.5) rotate(-4deg);
+  }
+}
+.corona-virus-70-location {
+  animation: coronaLocation70 10s linear 67200ms;
+}
+.corona-virus-70-location [class*=eye]::after {
+  animation-delay: 3042ms;
+}
+
+@keyframes coronaLocation70 {
+  0% {
+    transform: translateX(-10vw) translateY(56vh) scale(0.6) rotate(-26deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(58vh) scale(0.4) rotate(-11deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(55vh) scale(0.5) rotate(-6deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(17vh) scale(0.6) rotate(-28deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(66vh) scale(0.5) rotate(-12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(50vh) scale(0.7) rotate(-12deg);
+  }
+}
+.corona-virus-71-location {
+  animation: coronaLocation71 10s linear 68160ms;
+}
+.corona-virus-71-location [class*=eye]::after {
+  animation-delay: 2236ms;
+}
+
+@keyframes coronaLocation71 {
+  0% {
+    transform: translateX(-10vw) translateY(49vh) scale(0.5) rotate(12deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(74vh) scale(0.8) rotate(41deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(14vh) scale(0.8) rotate(26deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(16vh) scale(0.8) rotate(-16deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(41vh) scale(0.8) rotate(24deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(31vh) scale(0.7) rotate(10deg);
+  }
+}
+.corona-virus-72-location {
+  animation: coronaLocation72 10s linear 69120ms;
+}
+.corona-virus-72-location [class*=eye]::after {
+  animation-delay: 1705ms;
+}
+
+@keyframes coronaLocation72 {
+  0% {
+    transform: translateX(-10vw) translateY(2vh) scale(0.5) rotate(3deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(46vh) scale(0.8) rotate(-36deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(57vh) scale(0.8) rotate(42deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(75vh) scale(0.5) rotate(-27deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(74vh) scale(0.8) rotate(21deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(15vh) scale(0.7) rotate(-9deg);
+  }
+}
+.corona-virus-73-location {
+  animation: coronaLocation73 10s linear 70080ms;
+}
+.corona-virus-73-location [class*=eye]::after {
+  animation-delay: 3064ms;
+}
+
+@keyframes coronaLocation73 {
+  0% {
+    transform: translateX(-10vw) translateY(69vh) scale(0.5) rotate(-43deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(54vh) scale(0.4) rotate(-30deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(39vh) scale(0.4) rotate(-16deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(25vh) scale(0.6) rotate(21deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(51vh) scale(0.5) rotate(-6deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(9vh) scale(0.5) rotate(-42deg);
+  }
+}
+.corona-virus-74-location {
+  animation: coronaLocation74 10s linear 71040ms;
+}
+.corona-virus-74-location [class*=eye]::after {
+  animation-delay: 1838ms;
+}
+
+@keyframes coronaLocation74 {
+  0% {
+    transform: translateX(-10vw) translateY(54vh) scale(0.7) rotate(-14deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(3vh) scale(0.8) rotate(-17deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(25vh) scale(0.4) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(41vh) scale(0.5) rotate(6deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(79vh) scale(0.8) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(21vh) scale(0.8) rotate(-40deg);
+  }
+}
+.corona-virus-75-location {
+  animation: coronaLocation75 10s linear 72000ms;
+}
+.corona-virus-75-location [class*=eye]::after {
+  animation-delay: 3384ms;
+}
+
+@keyframes coronaLocation75 {
+  0% {
+    transform: translateX(-10vw) translateY(37vh) scale(0.6) rotate(5deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(72vh) scale(0.7) rotate(28deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(53vh) scale(0.8) rotate(3deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(25vh) scale(0.4) rotate(22deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(75vh) scale(0.7) rotate(-8deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(62vh) scale(0.8) rotate(17deg);
+  }
+}
+.corona-virus-76-location {
+  animation: coronaLocation76 10s linear 72960ms;
+}
+.corona-virus-76-location [class*=eye]::after {
+  animation-delay: 832ms;
+}
+
+@keyframes coronaLocation76 {
+  0% {
+    transform: translateX(-10vw) translateY(51vh) scale(0.4) rotate(-41deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(75vh) scale(0.7) rotate(28deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(1vh) scale(0.4) rotate(37deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(26vh) scale(0.5) rotate(-35deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(51vh) scale(0.6) rotate(-17deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(16vh) scale(0.4) rotate(-5deg);
+  }
+}
+.corona-virus-77-location {
+  animation: coronaLocation77 10s linear 73920ms;
+}
+.corona-virus-77-location [class*=eye]::after {
+  animation-delay: 3575ms;
+}
+
+@keyframes coronaLocation77 {
+  0% {
+    transform: translateX(-10vw) translateY(33vh) scale(0.7) rotate(8deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(6vh) scale(0.6) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(2vh) scale(0.6) rotate(-17deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(32vh) scale(0.5) rotate(23deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(60vh) scale(0.7) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(68vh) scale(0.5) rotate(16deg);
+  }
+}
+.corona-virus-78-location {
+  animation: coronaLocation78 10s linear 74880ms;
+}
+.corona-virus-78-location [class*=eye]::after {
+  animation-delay: 1171ms;
+}
+
+@keyframes coronaLocation78 {
+  0% {
+    transform: translateX(-10vw) translateY(19vh) scale(0.4) rotate(34deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(24vh) scale(0.7) rotate(5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(66vh) scale(0.6) rotate(0deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(33vh) scale(0.5) rotate(-39deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(5vh) scale(0.4) rotate(16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(3vh) scale(0.8) rotate(-44deg);
+  }
+}
+.corona-virus-79-location {
+  animation: coronaLocation79 10s linear 75840ms;
+}
+.corona-virus-79-location [class*=eye]::after {
+  animation-delay: 920ms;
+}
+
+@keyframes coronaLocation79 {
+  0% {
+    transform: translateX(-10vw) translateY(45vh) scale(0.8) rotate(-22deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(47vh) scale(0.6) rotate(-22deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(51vh) scale(0.7) rotate(20deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(4vh) scale(0.5) rotate(-11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(25vh) scale(0.7) rotate(42deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(17vh) scale(0.6) rotate(22deg);
+  }
+}
+.corona-virus-80-location {
+  animation: coronaLocation80 10s linear 76800ms;
+}
+.corona-virus-80-location [class*=eye]::after {
+  animation-delay: 791ms;
+}
+
+@keyframes coronaLocation80 {
+  0% {
+    transform: translateX(-10vw) translateY(45vh) scale(0.6) rotate(-12deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(48vh) scale(0.7) rotate(23deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(11vh) scale(0.8) rotate(33deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(73vh) scale(0.4) rotate(-43deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(52vh) scale(0.5) rotate(9deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(52vh) scale(0.7) rotate(-30deg);
+  }
+}
+.corona-virus-81-location {
+  animation: coronaLocation81 10s linear 77760ms;
+}
+.corona-virus-81-location [class*=eye]::after {
+  animation-delay: 2236ms;
+}
+
+@keyframes coronaLocation81 {
+  0% {
+    transform: translateX(-10vw) translateY(31vh) scale(0.8) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(55vh) scale(0.4) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(7vh) scale(0.5) rotate(-28deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(72vh) scale(0.8) rotate(10deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(56vh) scale(0.7) rotate(-32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(78vh) scale(0.5) rotate(-16deg);
+  }
+}
+.corona-virus-82-location {
+  animation: coronaLocation82 10s linear 78720ms;
+}
+.corona-virus-82-location [class*=eye]::after {
+  animation-delay: 3518ms;
+}
+
+@keyframes coronaLocation82 {
+  0% {
+    transform: translateX(-10vw) translateY(28vh) scale(0.5) rotate(-13deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(49vh) scale(0.4) rotate(0deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(79vh) scale(0.7) rotate(18deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(66vh) scale(0.7) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(32vh) scale(0.4) rotate(-39deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(12vh) scale(0.4) rotate(-26deg);
+  }
+}
+.corona-virus-83-location {
+  animation: coronaLocation83 10s linear 79680ms;
+}
+.corona-virus-83-location [class*=eye]::after {
+  animation-delay: 3343ms;
+}
+
+@keyframes coronaLocation83 {
+  0% {
+    transform: translateX(-10vw) translateY(33vh) scale(0.5) rotate(-8deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(12vh) scale(0.5) rotate(41deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(31vh) scale(0.7) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(32vh) scale(0.7) rotate(14deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(0.5) rotate(-32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(5vh) scale(0.7) rotate(10deg);
+  }
+}
+.corona-virus-84-location {
+  animation: coronaLocation84 10s linear 80640ms;
+}
+.corona-virus-84-location [class*=eye]::after {
+  animation-delay: 3699ms;
+}
+
+@keyframes coronaLocation84 {
+  0% {
+    transform: translateX(-10vw) translateY(70vh) scale(0.5) rotate(28deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(6vh) scale(0.5) rotate(5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(74vh) scale(0.6) rotate(-43deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(49vh) scale(0.6) rotate(-36deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(43vh) scale(0.6) rotate(22deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(2vh) scale(0.6) rotate(41deg);
+  }
+}
+.corona-virus-85-location {
+  animation: coronaLocation85 10s linear 81600ms;
+}
+.corona-virus-85-location [class*=eye]::after {
+  animation-delay: 2526ms;
+}
+
+@keyframes coronaLocation85 {
+  0% {
+    transform: translateX(-10vw) translateY(78vh) scale(0.7) rotate(-32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(5vh) scale(0.7) rotate(5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(49vh) scale(0.6) rotate(40deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(37vh) scale(0.5) rotate(4deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(64vh) scale(0.6) rotate(-25deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(1vh) scale(0.6) rotate(36deg);
+  }
+}
+.corona-virus-86-location {
+  animation: coronaLocation86 10s linear 82560ms;
+}
+.corona-virus-86-location [class*=eye]::after {
+  animation-delay: 513ms;
+}
+
+@keyframes coronaLocation86 {
+  0% {
+    transform: translateX(-10vw) translateY(64vh) scale(0.6) rotate(-26deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(73vh) scale(0.7) rotate(-17deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(73vh) scale(0.6) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(76vh) scale(0.8) rotate(25deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(55vh) scale(0.5) rotate(-4deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-37deg);
+  }
+}
+.corona-virus-87-location {
+  animation: coronaLocation87 10s linear 83520ms;
+}
+.corona-virus-87-location [class*=eye]::after {
+  animation-delay: 2297ms;
+}
+
+@keyframes coronaLocation87 {
+  0% {
+    transform: translateX(-10vw) translateY(67vh) scale(0.5) rotate(-29deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(40vh) scale(0.8) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(14vh) scale(0.4) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(54vh) scale(0.4) rotate(-22deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(50vh) scale(0.6) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(25vh) scale(0.7) rotate(25deg);
+  }
+}
+.corona-virus-88-location {
+  animation: coronaLocation88 10s linear 84480ms;
+}
+.corona-virus-88-location [class*=eye]::after {
+  animation-delay: 1081ms;
+}
+
+@keyframes coronaLocation88 {
+  0% {
+    transform: translateX(-10vw) translateY(43vh) scale(0.6) rotate(15deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(13vh) scale(0.6) rotate(31deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(59vh) scale(0.6) rotate(1deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(65vh) scale(0.8) rotate(9deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(65vh) scale(0.5) rotate(-24deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(52vh) scale(0.8) rotate(6deg);
+  }
+}
+.corona-virus-89-location {
+  animation: coronaLocation89 10s linear 85440ms;
+}
+.corona-virus-89-location [class*=eye]::after {
+  animation-delay: 3157ms;
+}
+
+@keyframes coronaLocation89 {
+  0% {
+    transform: translateX(-10vw) translateY(13vh) scale(0.5) rotate(22deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(33vh) scale(0.7) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(62vh) scale(0.8) rotate(-31deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(27vh) scale(0.8) rotate(-33deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(43vh) scale(0.4) rotate(19deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(58vh) scale(0.8) rotate(43deg);
+  }
+}
+.corona-virus-90-location {
+  animation: coronaLocation90 10s linear 86400ms;
+}
+.corona-virus-90-location [class*=eye]::after {
+  animation-delay: 1498ms;
+}
+
+@keyframes coronaLocation90 {
+  0% {
+    transform: translateX(-10vw) translateY(29vh) scale(0.5) rotate(20deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(70vh) scale(0.7) rotate(6deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(42vh) scale(0.4) rotate(-41deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(2vh) scale(0.6) rotate(11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(50vh) scale(0.8) rotate(25deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(52vh) scale(0.6) rotate(-12deg);
+  }
+}
+.corona-virus-91-location {
+  animation: coronaLocation91 10s linear 87360ms;
+}
+.corona-virus-91-location [class*=eye]::after {
+  animation-delay: 1313ms;
+}
+
+@keyframes coronaLocation91 {
+  0% {
+    transform: translateX(-10vw) translateY(53vh) scale(0.7) rotate(32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(68vh) scale(0.6) rotate(-22deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(4vh) scale(0.5) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.7) rotate(-2deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(38vh) scale(0.4) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(48vh) scale(0.7) rotate(-20deg);
+  }
+}
+.corona-virus-92-location {
+  animation: coronaLocation92 10s linear 88320ms;
+}
+.corona-virus-92-location [class*=eye]::after {
+  animation-delay: 3975ms;
+}
+
+@keyframes coronaLocation92 {
+  0% {
+    transform: translateX(-10vw) translateY(32vh) scale(0.8) rotate(-4deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(57vh) scale(0.6) rotate(-4deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(67vh) scale(0.5) rotate(-18deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(10vh) scale(0.8) rotate(-25deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(29vh) scale(0.6) rotate(41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(72vh) scale(0.4) rotate(32deg);
+  }
+}
+.corona-virus-93-location {
+  animation: coronaLocation93 10s linear 89280ms;
+}
+.corona-virus-93-location [class*=eye]::after {
+  animation-delay: 2912ms;
+}
+
+@keyframes coronaLocation93 {
+  0% {
+    transform: translateX(-10vw) translateY(76vh) scale(0.7) rotate(11deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(55vh) scale(0.5) rotate(32deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(5vh) scale(0.4) rotate(30deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(4vh) scale(0.4) rotate(20deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(25vh) scale(0.7) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(56vh) scale(0.7) rotate(7deg);
+  }
+}
+.corona-virus-94-location {
+  animation: coronaLocation94 10s linear 90240ms;
+}
+.corona-virus-94-location [class*=eye]::after {
+  animation-delay: 1635ms;
+}
+
+@keyframes coronaLocation94 {
+  0% {
+    transform: translateX(-10vw) translateY(68vh) scale(0.8) rotate(32deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(12vh) scale(0.7) rotate(5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(62vh) scale(0.7) rotate(44deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(46vh) scale(0.4) rotate(15deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(31vh) scale(0.8) rotate(23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(35vh) scale(0.8) rotate(-23deg);
+  }
+}
+.corona-virus-95-location {
+  animation: coronaLocation95 10s linear 91200ms;
+}
+.corona-virus-95-location [class*=eye]::after {
+  animation-delay: 97ms;
+}
+
+@keyframes coronaLocation95 {
+  0% {
+    transform: translateX(-10vw) translateY(79vh) scale(0.7) rotate(-15deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(70vh) scale(0.4) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(72vh) scale(0.5) rotate(5deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(40vh) scale(0.7) rotate(11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(29vh) scale(0.5) rotate(-39deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(18vh) scale(0.4) rotate(42deg);
+  }
+}
+.corona-virus-96-location {
+  animation: coronaLocation96 10s linear 92160ms;
+}
+.corona-virus-96-location [class*=eye]::after {
+  animation-delay: 3589ms;
+}
+
+@keyframes coronaLocation96 {
+  0% {
+    transform: translateX(-10vw) translateY(74vh) scale(0.7) rotate(31deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(15vh) scale(0.6) rotate(-18deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(39vh) scale(0.8) rotate(36deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(40vh) scale(0.4) rotate(-33deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(35vh) scale(0.7) rotate(27deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(40vh) scale(0.7) rotate(-4deg);
+  }
+}
+.corona-virus-97-location {
+  animation: coronaLocation97 10s linear 93120ms;
+}
+.corona-virus-97-location [class*=eye]::after {
+  animation-delay: 542ms;
+}
+
+@keyframes coronaLocation97 {
+  0% {
+    transform: translateX(-10vw) translateY(22vh) scale(0.7) rotate(-12deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(44vh) scale(0.4) rotate(-24deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(7vh) scale(0.8) rotate(11deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(18vh) scale(0.6) rotate(42deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(33vh) scale(0.6) rotate(-12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(13vh) scale(0.4) rotate(42deg);
+  }
+}
+.corona-virus-98-location {
+  animation: coronaLocation98 10s linear 94080ms;
+}
+.corona-virus-98-location [class*=eye]::after {
+  animation-delay: 2398ms;
+}
+
+@keyframes coronaLocation98 {
+  0% {
+    transform: translateX(-10vw) translateY(76vh) scale(0.6) rotate(19deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(10vh) scale(0.4) rotate(41deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(40vh) scale(0.7) rotate(2deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(14vh) scale(0.7) rotate(-36deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(66vh) scale(0.4) rotate(-23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(52vh) scale(0.6) rotate(30deg);
+  }
+}
+.corona-virus-99-location {
+  animation: coronaLocation99 10s linear 95040ms;
+}
+.corona-virus-99-location [class*=eye]::after {
+  animation-delay: 1928ms;
+}
+
+@keyframes coronaLocation99 {
+  0% {
+    transform: translateX(-10vw) translateY(59vh) scale(0.5) rotate(-7deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(16vh) scale(0.4) rotate(21deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(29vh) scale(0.8) rotate(4deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(76vh) scale(0.8) rotate(-12deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(47vh) scale(0.4) rotate(-26deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(28vh) scale(0.7) rotate(-15deg);
+  }
+}
+.corona-virus-100-location {
+  animation: coronaLocation100 10s linear 96000ms;
+}
+.corona-virus-100-location [class*=eye]::after {
+  animation-delay: 2224ms;
+}
+
+@keyframes coronaLocation100 {
+  0% {
+    transform: translateX(-10vw) translateY(38vh) scale(0.8) rotate(-35deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(1vh) scale(0.6) rotate(-19deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(57vh) scale(0.4) rotate(-42deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(58vh) scale(0.8) rotate(18deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(11vh) scale(0.6) rotate(10deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(36vh) scale(0.7) rotate(4deg);
+  }
+}
+/*** hairs ***/
+[class*=hair] {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -4px;
+}
+[class*=hair]::before {
+  content: "";
+  display: block;
+  width: 16px;
+  margin-left: -8px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--coronaColor);
+}
+[class*=hair]::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  display: block;
+  width: 4px;
+  margin-left: -4px;
+  height: 20px;
+  background-color: var(--coronaColor);
+}
+
+/*hair location*/
+.hair1 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove1 1s linear -60ms infinite alternate;
+}
+
+.hair2 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove2 1s linear -120ms infinite alternate;
+}
+
+.hair3 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove3 1s linear -180ms infinite alternate;
+}
+
+.hair4 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove4 1s linear -240ms infinite alternate;
+}
+
+.hair5 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove5 1s linear -300ms infinite alternate;
+}
+
+.hair6 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove6 1s linear -360ms infinite alternate;
+}
+
+.hair7 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove7 1s linear -420ms infinite alternate;
+}
+
+.hair8 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove8 1s linear -480ms infinite alternate;
+}
+
+.hair9 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove9 1s linear -540ms infinite alternate;
+}
+
+.hair10 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove10 1s linear -600ms infinite alternate;
+}
+
+.hair11 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove11 1s linear -660ms infinite alternate;
+}
+
+.hair12 {
+  transform: rotateZ(-150deg) translateY(-65px);
+  /* only for promo to improve performance */
+  animation: hairMove12 1s linear -720ms infinite alternate;
+}
+
+/* hair animation  */
+@keyframes hairMove1 {
+  from {
+    transform: rotateZ(-150deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(-150deg) translateY(-61px);
+  }
+}
+@keyframes hairMove2 {
+  from {
+    transform: rotateZ(-120deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(-120deg) translateY(-61px);
+  }
+}
+@keyframes hairMove3 {
+  from {
+    transform: rotateZ(-90deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(-90deg) translateY(-61px);
+  }
+}
+@keyframes hairMove4 {
+  from {
+    transform: rotateZ(-60deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(-60deg) translateY(-61px);
+  }
+}
+@keyframes hairMove5 {
+  from {
+    transform: rotateZ(-30deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(-30deg) translateY(-61px);
+  }
+}
+@keyframes hairMove6 {
+  from {
+    transform: rotateZ(0deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(0deg) translateY(-61px);
+  }
+}
+@keyframes hairMove7 {
+  from {
+    transform: rotateZ(30deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(30deg) translateY(-61px);
+  }
+}
+@keyframes hairMove8 {
+  from {
+    transform: rotateZ(60deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(60deg) translateY(-61px);
+  }
+}
+@keyframes hairMove9 {
+  from {
+    transform: rotateZ(90deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(90deg) translateY(-61px);
+  }
+}
+@keyframes hairMove10 {
+  from {
+    transform: rotateZ(120deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(120deg) translateY(-61px);
+  }
+}
+@keyframes hairMove11 {
+  from {
+    transform: rotateZ(150deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(150deg) translateY(-61px);
+  }
+}
+@keyframes hairMove12 {
+  from {
+    transform: rotateZ(180deg) translateY(-68px);
+  }
+  to {
+    transform: rotateZ(180deg) translateY(-61px);
+  }
+}
+/*** eyes ***/
+[class*=eye] {
+  position: absolute;
+  top: 25%;
+  width: 20px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+[class*=eye]::before {
+  position: absolute;
+  top: 50%;
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+}
+[class*=eye]::after {
+  content: "";
+  display: block;
+  background-color: var(--coronaColor);
+  height: 0px;
+  will-change: height;
+  animation: closeEye 4s linear 2s infinite alternate;
+}
+
+.eye1 {
+  left: 25%;
+  transform: rotateZ(15deg);
+}
+.eye1::before {
+  left: 10%;
+  animation: eyeMove 1s linear 0s infinite alternate;
+}
+
+.eye2 {
+  right: 25%;
+  transform: rotateZ(-15deg);
+}
+.eye2::before {
+  left: 10%;
+  animation: eyeMove 1s linear -0.5s infinite alternate;
+}
+
+@keyframes eyeMove {
+  0% {
+    transform: translateX(76%) translateY(10%);
+  }
+  20% {
+    transform: translateX(50%) translateY(0%);
+  }
+  50% {
+    transform: translateX(56%) translateY(30%);
+  }
+  70% {
+    transform: translateX(50%) translateY(0%);
+  }
+}
+@keyframes closeEye {
+  0% {
+    height: 0%;
+  }
+  90% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+/** Logics ***/
+.logic-checkbox {
+  opacity: 0.001;
+  position: absolute;
+  top: -40px;
+}
+
+/* popup */
+#whoAmIPopup:checked ~ #whoAmI,
+#HowToPlayPopup:checked ~ #HowToPlay {
+  display: block;
+}
+
+/* play game */
+#toggleGame:checked ~ .game-menu-frame {
+  display: none;
+}
+#toggleGame:checked ~ .game-frame {
+  display: block;
+}
+
+/* Graphics Level */
+#GraphicsLevel ~ .game-menu-frame #GraphicsLevelButton::before {
+  content: "High ";
+}
+#GraphicsLevel ~ .game-menu-frame #GraphicsLevelButton::after {
+  content: " 🖥️";
+}
+#GraphicsLevel:checked ~ .game-menu-frame #GraphicsLevelButton {
+  color: var(--common-color1);
+}
+#GraphicsLevel:checked ~ .game-menu-frame #GraphicsLevelButton::before {
+  content: "Low ";
+}
+#GraphicsLevel:checked ~ .game-menu-frame #GraphicsLevelButton::after {
+  content: " 📱";
+}
+#GraphicsLevel:checked ~ * *[class*=hair] {
+  animation-play-state: paused;
+}
+#GraphicsLevel:checked ~ * *[class*=eye]::before, #GraphicsLevel:checked ~ * *[class*=eye]::after {
+  animation-play-state: paused;
+}
+
+/* kill corona */
+input[type=radio] {
+  opacity: 0.001;
+}
+input[type=radio]:checked {
+  counter-increment: corona;
+}
+input[type=radio]:checked ~ .body {
+  --coronaColor:red;
+  opacity: 0;
+}
+
+.sum {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  display: flex;
+  border: solid 4px #fff;
+  border-radius: 10px;
+  font-size: 40rem;
+  font-weight: bold;
+  color: #fff;
+  transform: translateX(-50%) skewX(-15deg);
+}
+.sum .text {
+  flex: 1;
+  padding: 10px;
+  text-align: end;
+  background-color: var(--common-color1);
+  border-radius: 5px 0 0 5px;
+}
+.sum::after {
+  content: counter(corona) "/100";
+  flex: 1;
+  padding: 10px;
+  background-color: var(--common-color2);
+  border-radius: 0 5px 5px 0;
+}

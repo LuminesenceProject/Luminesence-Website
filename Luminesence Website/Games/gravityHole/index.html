@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Coronavirus Invaders - CSS Pure Game (No JS!)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form>
+  <input class="logic-checkbox" type="checkbox" id="toggleGame"/>
+  <input class="logic-checkbox" type="checkbox" id="HowToPlayPopup"/>
+  <input class="logic-checkbox" type="checkbox" id="whoAmIPopup"/>
+  <input class="logic-checkbox" type="checkbox" id="GraphicsLevel"/>
+  <section class="game-menu-frame">
+    <header class="game-header">
+      <h1 class="game-title"> 
+        <div class="line-1">CoronaVirus</div>
+        <div class="line-2">Invaders</div>
+        <div class="line-3">Let's save the world together!</div>
+      </h1>
+    </header>
+    <nav class="game-nav">
+      <h2 class="game-nav-title">Main Menu</h2>
+      <ul class="game-nav-list">
+        <li class="game-nav-item"> 
+          <label class="game-nav-button" for="toggleGame" tabindex="0">Save the World</label>
+        </li>
+        <li class="game-nav-item"> 
+          <label class="game-nav-button" for="HowToPlayPopup" tabindex="0">How to Play</label>
+        </li>
+        <li class="game-nav-item"> 
+          <label class="game-nav-button" for="GraphicsLevel" tabindex="0" id="GraphicsLevelButton">Performance</label>
+        </li>
+        <li class="game-nav-item"> 
+          <label class="game-nav-button" for="whoAmIPopup" tabindex="0">Who Am I</label>
+        </li>
+        <li class="game-nav-item"> <a class="game-nav-button" href="https://eladsc.com/">Quit</a></li>
+      </ul>
+      <p class="note">Let's beat this on together and on the way spend time doing good.</p>
+    </nav>
+    <div class="corona-promo-virus-1">
+      <label class="corona-virus">
+        <div class="body">
+          <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+          </div>
+          <div class="eye1"></div>
+          <div class="eye2"></div>
+        </div>
+      </label>
+    </div>
+    <div class="corona-promo-virus-2">
+      <label class="corona-virus">
+        <div class="body">
+          <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+          </div>
+          <div class="eye1"></div>
+          <div class="eye2"></div>
+        </div>
+      </label>
+    </div>
+  </section>
+  <section class="game-frame">
+    <ul class="corona-world">
+      <li class="corona-location corona-virus-1-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-2-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-3-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-4-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-5-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-6-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-7-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-8-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-9-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-10-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-11-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-12-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-13-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-14-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-15-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-16-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-17-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-18-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-19-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-20-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-21-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-22-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-23-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-24-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-25-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-26-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-27-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-28-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-29-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-30-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-31-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-32-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-33-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-34-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-35-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-36-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-37-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-38-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-39-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-40-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-41-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-42-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-43-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-44-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-45-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-46-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-47-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-48-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-49-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-50-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-51-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-52-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-53-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-54-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-55-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-56-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-57-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-58-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-59-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-60-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-61-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-62-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-63-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-64-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-65-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-66-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-67-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-68-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-69-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-70-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-71-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-72-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-73-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-74-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-75-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-76-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-77-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-78-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-79-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-80-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-81-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-82-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-83-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-84-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-85-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-86-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-87-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-88-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-89-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-90-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-91-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-92-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-93-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-94-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-95-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-96-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-97-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-98-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-99-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+      <li class="corona-location corona-virus-100-location">
+        <label class="corona-virus">
+          <input type="radio"/>
+          <div class="body">
+            <div class="scalp"><span class="hair1"></span><span class="hair2"></span><span class="hair3"></span><span class="hair4"></span><span class="hair5"></span><span class="hair6"></span><span class="hair7"></span><span class="hair8"></span><span class="hair9"></span><span class="hair10"></span><span class="hair11"></span><span class="hair12"></span>
+            </div>
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+          </div>
+        </label>
+      </li>
+    </ul>
+    <div class="sum"> <span class="text">Score:</span></div>
+    <div class="count-down"><span class="icon">⏲️</span><span class="count"></span></div>
+    <div class="timer"></div>
+    <section class="game-over">
+      <h2 class="game-title">Game Over</h2>
+      <nav class="game-nav">
+        <ul class="game-nav-list">
+          <!--li(class="game-nav-item") button(class="game-nav-button" onclick="history.go(0)") Back to Main Menu
+          -->
+          <li class="game-nav-item"> 
+            <label class="game-nav-button" for="whoAmIPopup" tabindex="0">Who Am I</label>
+          </li>
+          <li class="game-nav-item"> 
+            <input class="game-nav-button" type="reset" value="Back to Main Menu"/>
+          </li>
+          <!--li(class="game-nav-item") 
+          a(class="game-nav-button" href="https://eladsc.com/") Quit
+          
+          -->
+        </ul>
+      </nav>
+    </section>
+  </section>
+  <section class="popup common-content" id="whoAmI">
+    <label class="close-button" for="whoAmIPopup" tabindex="0">x</label>
+    <h3 class="common-title">Who Am I ?</h3>
+    <p>II’m Elad Shechter, a Web Developer specializing in CSS & HTML design and architecture.</p>
+    <p>You can see more of my stuff on my website <a href="https://www.eladsc.com/" target="_blank">eladsc.com</a> and follow me on <a href="https://www.twitter.com/eladsc" target="_blank">twitter.com/eladsc</a>.</p><img src="https://i0.wp.com/eladsc.com/wp-content/uploads/2019/11/10354134_10152745572181933_3605798323082127817_n.jpg" alt="Elad Shechter"/>
+    <label class="game-nav-button" for="whoAmIPopup" tabindex="0">Close</label>
+  </section>
+  <section class="popup common-content" id="HowToPlay">
+    <label class="close-button" for="HowToPlayPopup" tabindex="0">x</label>
+    <h3 class="common-title">How to Play ?</h3>
+    <p>Use the cursor ("🧼" = soap icon) to kill the Corona Virus. </p><br/>
+    <p>The Coronavirus is a tough one! And sometimes you will need to press on the Coronavirus symbol several times in order to get rid of it.</p>
+    <label class="game-nav-button" for="HowToPlayPopup" tabindex="0">Close</label>
+  </section>
+</form>
+<!-- partial -->
+  <script src='https://assets.codepen.io/65740/twitter.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

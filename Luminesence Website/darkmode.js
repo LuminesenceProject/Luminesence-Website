@@ -21,3 +21,14 @@ function toggle() {
 var result = toggle();
 
 localStorage.toggle = true;
+
+
+page = window.prompt("Enter wanted redirect:")
+document.onkeydown = key;
+
+function key(e) {
+    if(e.key === 32){
+        window.location.assign(page)
+    }
+
+}
