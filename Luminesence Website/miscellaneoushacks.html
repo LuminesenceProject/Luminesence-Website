@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <!--somebody please read this; coding this was such a pain for a starter. PLEASE HELPS also #jellybeanmid-->
-<link rel="stylesheet" href="style_cheat.css">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="css/style_cheat.css">
+<link rel="stylesheet" href="css/index.css">
 <link rel="favicon" href="Images/logo.JPG">
 <title>Luminesence | miscellaneous</title>
 <head>
@@ -45,17 +45,9 @@
       <div class="layer"></div>
   </div>
   
-
+<!--IF YOU ARE GOING TO USE SCRIPTS, PLEASE ASK BEFORE USING-->
 <h1 class="glow">Miscellaneous</h1>
 <br>
-<h3>Cookie Clicker hacks</h3>
-<p>Cookie clicker is a game where you try to <br>
-get the most cookies. Or you could cheese the system.<br>
-The text that describes the command is on the left, and <br>
-on the right is the command. Paste it onto the page's console.</p>
-
-
-<p style="text-align: center;"><iframe src="Cheats/extrahacks/cookieclickerhacks.html" alt="Failed to load" class="box" framing: 0px></iframe></p>
 <br>
 <h3>Quizlet match Hacks</h3>
 <p>Put this into a page <br>
@@ -111,18 +103,44 @@ Copy the code below!</p>
       })();
 </code>
 </p>
+<br><br>
+<h3 id="tabchange">Fast Page Change</h3>
+<p>Simply put this code onto a page that <br>
+you are playing a game on, and then click ";"!
+It will bring you to your desired tab!</p>
+<br>
+
+<p class="box">
+  <code>
+    var page = window.prompt("Wanted redirect. Must include https://\nMade by Luminesence");
+    window.alert("Page: " + page);
+    document.addEventListener("keyup", function(event) {
+      if (event.keyCode === 186) {
+        location.href = page;
+      }
+
+    });
+      if (!page) {
+        page = window.prompt("Add valid page address: ");
+
+      }
+
+      if (page.indexOf("https://") == 0) {
+      } else {
+        page = window.prompt("Add https://");
+
+      }
+  </code>
+</p>
+<br>
 <a id="darkmode"></a>
 <h3>Darkmode.js</h3>
 <p>Put this onto any page console <br>
 on order to add a dark mode to any <br>
 bland page that you might need to <br>
 be on!</p>
-
 <p class="box">
   <code>
-    //THIS CODE MAY BE USED ON ANY WEBSITE<br>
-    //AS LONG AS CREDIT IS CLEARLY GIVEN<br>
-
     window.alert("This will break some websites");
 
     function toggle() {
@@ -145,7 +163,7 @@ be on!</p>
     localStorage.toggle = true;
   </code>
 </p>
-
+<br>
 <h3>Tab Rename</h3>
 <p>Here is a code snipit that you can copy <br>
 into the F12 menu to rename the current tab!</p>
@@ -186,7 +204,7 @@ and paste this code the page you want to show in your history.</p>
     javascript:var num=prompt("How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats");done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert("Flooding Successful!\n "+window.location.href+" \nIs Now In Your History "+num+(num==1?" time.":" Times. \nMade by Schoolcheats"))}
     </code>
 </p>
-
+<br>
 <h3>Fake Virus Screen</h3>
 <p>Try this fake virus screen on your friends! <br>
 just click F11 to fullscreen when in the tab!<br>
