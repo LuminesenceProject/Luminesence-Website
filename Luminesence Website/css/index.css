@@ -218,7 +218,7 @@ opacity: .2;
 }
 
 ::-webkit-scrollbar-track {
-color: slategrey;
+background-color: black;
 opacity: .2;
 visibility: collapse;
 z-index: -1;
@@ -663,6 +663,7 @@ body {
   background-color: #151823;
   animation: textColor 10s ease infinite;
   border-radius: 8px;
+  padding-bottom: 5px;
 }
 
 .backlit:after {
@@ -706,3 +707,5 @@ body {
     color: #be9ae6;
   }
 }
+
+/*skyline*/

@@ -112,7 +112,7 @@ It will bring you to your desired tab!</p>
 
 <p class="box">
   <code>
-    var page = window.prompt("Wanted redirect. Must include https://\nMade by Luminesence");
+    var page = window.prompt("Wanted redirect. Must include https://\nIf successful, it will return 'undefined'\nMade by Luminesence");
     window.alert("Page: " + page);
     document.addEventListener("keyup", function(event) {
       if (event.keyCode === 186) {
@@ -120,14 +120,10 @@ It will bring you to your desired tab!</p>
       }
 
     });
-      if (!page) {
-        page = window.prompt("Add valid page address: ");
-
-      }
 
       if (page.indexOf("https://") == 0) {
       } else {
-        page = window.prompt("Add https://");
+        page = window.prompt("Add https:// or a valid adress");
 
       }
   </code>
