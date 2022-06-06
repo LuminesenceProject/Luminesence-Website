@@ -5,7 +5,7 @@
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
-  position: staticb;
+  position: static;
 }
 
 .navbar a {
@@ -707,5 +707,3 @@ body {
     color: #be9ae6;
   }
 }
-
-/*skyline*/

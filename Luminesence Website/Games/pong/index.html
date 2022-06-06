@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+  <script>
+  var aiptag = aiptag || {};
+  aiptag.cmd = aiptag.cmd || [];
+  aiptag.cmd.display = aiptag.cmd.display || [];
+  aiptag.cmd.player = aiptag.cmd.player || [];
+
+  //CMP tool settings
+  aiptag.cmp = {
+    show: true,
+    position: "centered",  //centered or bottom
+    button: true,
+    buttonText: "Privacy settings",
+    buttonPosition: "bottom-left" //bottom-left, bottom-right, top-left, top-right
+  }
+  </script>
+  <style>
+
+  </style>
+  <script src="//api.adinplay.com/libs/aiptag/pub/SWT/swordbattle.io/tag.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div style="display:flex;height: 100%;">
+
+    	<div id='swordbattle-io_300x600' style="width:300;height:600;">
+		<script type='text/javascript'>
+			aiptag.cmd.display.push(function() { aipDisplayTag.display('swordbattle-io_300x600'); });
+		</script>
+
+	</div>
+            <canvas style="width: 100%;height: 100%" id="mycanvas">
+    </div>
+    <script type="module">
+var start = Date.now()
+var int = setInterval((e) => {
+var left = $(document).outerWidth() - $(window).width();
+$('body, html').scrollLeft(left);
+  var top = $(document).outerHeight() - $(window).height();
+  $('body, html').scrollTop(-1*top);
+}, 100)
+
+      setTimeout((e) => {
+        clearInterval(int)
+      }, 10000)
+var aiLerp = 0.1
+        // import kaboom lib
+        import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
+        
+        // initialize kaboom context with yellow background
+        kaboom({
+            background: [0,0,0],
+          canvas: document.querySelector("#mycanvas"),
+        });
+
+        // add some paddles
+
+
+        //player paddle
+        add(
+            [
+                pos(40,0),
+                rect(20,80),
+                outline(5),
+                origin("center"),
+                area(),
+                "player",
+                "paddle"
+            ]
+        )
+        
+        //ai paddle
+        add(
+            [
+                pos(width()-40,0),
+                rect(20,80),
+                outline(5),
+                origin("center"),
+                area(),
+                "ai",
+                "paddle"
+            ]
+        )
+
+        //paddle movement
+        onUpdate("player", (p) => {
+            p.pos.y = mousePos().y;
+        })
+
+        onUpdate("ai", (p) => {
+            p.pos.y = lerp(p.pos.y, ball.pos.y, aiLerp);
+        })
+
+        let ballSpeed = 700;
+
+        //[ourScore, aiScore]
+        var score = [0,0];
+
+        //add score text
+
+        add([
+            text(score.join(" - ")),
+            pos(center()),
+            origin("center"),
+            z(50),
+            { update() {
+                this.text = score.join(" - ");
+            } }
+        ])
+
+        const ball = add([
+            pos(center()),
+            circle(16),
+            outline(4),
+            area({ width: 32, height: 32, offset: vec2(-16)}),
+            {vel: dir(rand(-50,50))},
+            "ball"
+        ])
+
+        //ball update
+        onUpdate("ball", (b) => {
+            b.move(b.vel.scale(ballSpeed));
+            if(b.pos.x < 0 || b.pos.x > width()) {
+                //ball out of bounds
+                if(b.pos.x < 0) {
+                    score[1]++;
+                    aiLerp -= 0.05
+                    aiLerp = Math.max(0.01, aiLerp)
+                } else {
+                    score[0]++;
+                  console.log(aiLerp)
+                    aiLerp += 0.05
+                    aiLerp = Math.min(0.9, aiLerp)
+                }
+                //reset game
+                b.pos = center();
+                b.vel = dir(rand(-50,50));
+                ballSpeed = 700;
+            }
+
+            //check if hitting ceiling or ground
+            if (b.pos.y < 0 || b.pos.y > height()) {
+                b.vel.y *= -1;
+            }
+        })
+
+        //ball collision
+
+        ball.onCollide("paddle", (p) => {
+            ballSpeed += 50;
+            ball.vel = dir(ball.pos.angle(p.pos))
+        })
+
+        
+        </script>
+    
+</body>
+
+</html>
