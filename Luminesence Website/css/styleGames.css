@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   grid-gap: 2rem;
-  margin: 2rem;
+
 }
 
 .card {
@@ -81,7 +81,13 @@ a {
   text-decoration: none;
 }
 
-span {
+.container span {
+  display: block;
+  height: 6.5rem;
+  content: "";
+}
+
+.nSpan {
   display: block;
   height: 6.5rem;
   content: "";
@@ -201,100 +207,6 @@ h1 {
   background-color: #782bd4;
 }
 
-/*nav bar*/
-
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-  position: static;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar :active {
-  color: #782bd4;
-}
-
-.navbar a:hover {
-  background-color: hotpink;
-}
-
-
-.dropdown {
-  float: left;
- margin: auto;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  background-color: inherit;
-  font-family: inherit; 
-  margin: 0; 
-  transition-timing-function: ease-in;
-  transition-delay: 2s;
-}
-
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #782bd4;
-}
-
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  color:white;
-  transition-timing-function: ease-in;
-  transition-delay: 2s;
-}
-.dropdown p {
-    color: white;
-}
-
-
-.dropdown-content a {
-  float: none;
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-
-
-
-.dropdown-content a:hover {
-  background-color: #782bd4;
-}
-
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-div.sticky {
-  position: -webkit-sticky; 
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-}
 
 
 html {
