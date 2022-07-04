@@ -17,13 +17,6 @@ note: loading times are slow
 
 contact us at: wafflepancake9@gmail.com or jstdam0210@gmail.com for any questions
 
-USE:
-Any of the code is free to be used, 
-as long as proper credit is given.
-(most of the games are open source)
-And just to prove credit, put a <3 after
-the given credit.
-
 note: without proper credit, we will sue!
 
 since:
