@@ -12,7 +12,7 @@ body, html {
   }
   
   .bg-image {
-    background-image: url(Images/fake_virus_image.jpg);
+    background-image: url(../Images/fake_virus_image.jpg);
     filter: blur(4px);
     -webkit-filter: blur(4px);
     height: 100%;
@@ -21,7 +21,6 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    position: sticky;
   }
   
  
@@ -39,6 +38,7 @@ body, html {
     width: 80%;
     padding: 20px;
     text-align: center;
+    box-shadow: 5px 5px 5px;
   }
 
 ul {
@@ -88,3 +88,42 @@ ul {
         border: 10cm solid gray;
 
     }
+
+    form {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .desc {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .desc p {
+      width: 560px;
+      color: rgba(253, 253, 253, 0.514);
+  }
+  
+input {
+      background: none;
+      backdrop-filter: blur(20px);
+      font-family: inherit;
+      padding: 0px 17px;
+      height: 48px;
+      border: 1px solid rgb(255, 255, 255, .2);
+      color: var(--text-color);
+      border-radius: 3px;
+      outline: none;
+      width: 350px;
+      margin-top: 5px;
+      border-radius: 50px;
+      color: #FFF;
+  }
+  
+input:focus {
+      border: 1px solid rgba(253, 253, 253, 0.514);
+      border-radius: 6px;
+      animation: fadeInAnimation ease-in-out 0.3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+  }

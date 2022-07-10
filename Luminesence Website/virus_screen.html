@@ -8,56 +8,82 @@
     <link rel="stylesheet" href="css/fake_virus.css">
     <link rel="favicon" href="Images/fake_virus_image.jpg">
 </head>
-<script>
-window.onbeforeunload = function() {
-    var message = 'Do you want to leave this page?';
-    return message;
-}
-</script>
 <body>
-    <div class="bg-image"></div>
-    <div class="bg-text">        
-        <h1>DO NOT LEAVE TAB</h1>
+<div class="bg-image"></div>
+<center>
+<div class="bg-text" id="main-text">        
+    <h1>DO NOT LEAVE TAB</h1>
+    <p>All your files will be deleted if the money is not transfered<br>
+    properly to one of these sources</p>
+    <h2>What Happened To This Computer?</h2>
+    <p><b>All your personal data, photos, videos, work files, including your operating system have been encrypted and can be accessed again if you pay a ransome. You can't access anything on this machine but this screen.</b></p> 
+    <p>You have <b>one hour</b> to pay the prize, otherwise you will no longer be able to decrypt them. Powering off or restarting your computer will also destroy your files. </p>
+    <h2>What Can You Do?</h2>
+    <p>You might be looking for a way to recover your files but don't waste your time. We use an unbreakable encryption so nobody can restore your files without a decryption key. </p>
+    <p>You can purchase your key using one of the payment methods listed below. You will get a code to paste in the input field and click <b>Decrypt</b>. After this you should be restored in a couple of minutes.</p>
+    <h2>Is This Legal?</h2>
+    <p>Someone who has access to this computer has recently installed one of our free applications and agreed for the files to be encrypted by accepting the terms and conditions. This procedure is absolutely legal, <br>we are a certified and awarded company specialized in computer viruses and digital identity theft. We will send you an invoice for your payment.</p>
+    <h2>How Do You Pay?</h2>
+    <p>We offer many payment methods to make the transaction smooth and easy to make you a satisfied but not a returning customer: </p>
+    <br>
+    <p>   
+    <b>$399 + Tax worth of Monopoly Money to this address:</b><br>
+    107 Pokey Oaks South, Townsville, USA<br><br>
+    Send the fee with PayDude:<br>
+        timmy@smithsvillepreschool<br><br>
+    We now accept kidneys!<br>
+    Call now to request kidney transplant: +1 804 TAKE MY KIDNEY<br>
+    </p>
+    <hr>
+    <h2>Avalible Payment Methods:</h2>
+    <ul>
+        <li><img src="Images/fake_money.png"></li>
+        <li><img src="Images/pay_prick.png"></li>
+        <li><img src="Images/pay_kidneys.png"></li>
+    </ul>    
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" >
+    <span style="float: right;">
+    Contact Agent For Support
+    </span> 
+    <br>
+    <img src="Images/agent_ccexpress.png" style="float: right; width: 5%; height: 5%;" title="Agent Contact"></a><br>
+    <p style="color: red; display:none;" id="warning">*Enter a valid key</p><br>
+    <input type="text" placeholder="Encryption Key" id="input" onmouseover="token()"><br>
+    </center>
 
-        <p>All your files will be deleted if the money is not transfered<br>
-        properly to one of these sources</p>
-        <h2>What Happened To This Computer?</h2>
-        <p><b>All your personal data, photos, videos, work files, including your operating system have been encrypted and can be accessed again if you pay a ransome. You can't access anything on this machine but this screen.</b></p> 
-        <p>You have <b>one hour</b> to pay the prize, otherwise you will no longer be able to decrypt them. Powering off or restarting your computer will also destroy your files. </p>
-        <h2>What Can You Do?</h2>
-        <p>You might be looking for a way to recover your files but don't waste your time. We use an unbreakable encryption so nobody can restore your files without a decryption key. </p>
-        <p>You can purchase your key using one of the payment methods listed below. You will get a code to paste in the input field and click <b>Decrypt</b>. After this you should be restored in a couple of minutes.</p>
-        <h2>Is This Legal?</h2>
-        <p>Someone who has access to this computer has recently installed one of our free applications and agreed for the files to be encrypted by accepting the terms and conditions. This procedure is absolutely legal, <br>we are a certified and awarded company specialized in computer viruses and digital identity theft. We will send you an invoice for your payment.</p>
-        <h2>How Do You Pay?</h2>
-        <p>We offer many payment methods to make the transaction smooth and easy to make you a satisfied but not a returning customer: </p>
-        <br>
-<p>
-<b>$399 + Tax worth of Monopoly Money to this address:</b><br>
-107 Pokey Oaks South, Townsville, USA<br><br>
-Send the fee with PayDude:<br>
-    timmy@smithsvillepreschool<br><br>
-We now accept kidneys!<br>
-Call now to request kidney transplant: +1 804 TAKE MY KIDNEY<br>
-</p>
+</div>
+<div class="bg-text" id="alt-text" style="display: none;">
+    <h1>Files have been decrypted</h1>
+    <p>Thank you for properly using the token system. Failure to do so <br>
+    would have resulted in the deletion of all your files.</p>
+    <br>
+    <p style="text-align: right;">Another happy customer!</p>
+    <img src="Images/happy_person.png" alt="Failed to load" style="float: right;">
 
-<hr>
-<h2>Avalible Payment Methods:</h2>
-<ul>
-<li><img src="Images/fake_money.png"></li>
-<li><img src="Images/pay_prick.png"></li>
-<li><img src="Images/pay_kidneys.png"></li>
+</div>
 
-</ul>
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" >
-<span style="float: right;">
-Contact Agent For Support
-</span> 
-<br>
-<img src="Images/agent_ccexpress.png" style="float: right; width: 5%; height: 5%;" title="Agent Contact">
-</a>
-    </div>
 
+
+<script>      
+let r = (Math.random() + 1).toString(36).substring(0);
+console.log(r);
+function token(){    
+
+    var input = document.getElementById('input').value;
+    if(input == r){
+        document.getElementById('main-text').style.display = 'none';
+        document.getElementById('alt-text').style.display = 'inline';
+        document.getElementById('warning').style.display = 'none';
+    } else{
+        document.getElementById('warning').style.display = 'inline';
+    }
+
+    var input = document.getElementById('input').value;
+    if(input === 'never gonna give you up'){
+        window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    } else{}
+}
+
+</script>
 </body>
-
 </html>
