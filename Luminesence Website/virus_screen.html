@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPORTANT: VIRUS</title>
     <link rel="stylesheet" href="css/fake_virus.css">
-    <link rel="favicon" href="Images/fake_virus_image.jpg">
+    <link rel="icon" type="image/x-icon" href="Images/fake_virus_image.jpg">
 </head>
 <body>
 <div class="bg-image"></div>
@@ -57,16 +57,26 @@
     <p>Thank you for properly using the token system. Failure to do so <br>
     would have resulted in the deletion of all your files.</p>
     <br>
+    <img src="Images/happy_person.png" alt="Failed to load" style="float: right;"><br>
     <p style="text-align: right;">Another happy customer!</p>
-    <img src="Images/happy_person.png" alt="Failed to load" style="float: right;">
-
 </div>
 
 
 
-<script>      
-let r = (Math.random() + 1).toString(36).substring(0);
+<script> 
+//number / letter randomizer
+let math =  (Math.random() + 1).toString(36).substring(0);
+let math2 =  (Math.random() + 3).toString(36).substring(7);
+let r = math + math + math2;
 console.log(r);
+
+
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        token();
+    }
+});
+
 function token(){    
 
     var input = document.getElementById('input').value;
@@ -82,6 +92,8 @@ function token(){
     if(input === 'never gonna give you up'){
         window.location = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     } else{}
+
+
 }
 
 </script>

@@ -15,6 +15,7 @@ body {
     overflow-x: hidden;
     background-color: #94d3a2;
     padding-right: 2rem;
+    min-width: 400px;
 }
 
 
@@ -79,60 +80,51 @@ body {
   }
 }
 
-
-
 .btn {
-  border: none;
-  color: black;
-  background-color: white;
-  display: inline-flex;
-}
-.btn:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  direction: rtl;
-  z-index: -1;
-  box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  color: #000;
-}
-.btn:hover:after {
-  left: auto;
-  right: 0;
-  width: 100%;
-}
-.btn:active {
-  top: 2px;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
-button {
-  margin: 20px;
+.btn:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
 }
-.custom-btn {
-  width: 130px;
-  height: 40px;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
+
+.btn:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.btn:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }
 
 h1 {
@@ -523,6 +515,12 @@ li {
   how fast you will be clicking!</p>
 </div>
 <br><br><br><br><br><br><br><br> 
+<div class="box-right">
+  <h3>Virus</h3><a class="custom-btn btn" style="float: left;" href="virus_screen.html" target="_blank">Copy</a>
+  <p>Want to prank your friends? Just go to this link and <br>
+  pretend that you have been hacked!</p>
+</div>
+<br><br><br><br><br><br><br><br>
 <div class="box-right">
     <h1 style="text-align:center;">Blooket</h1>
     <p>Blooket is a answer question game like kahoot. <br> The only main diffrence being that there is an ability <br>

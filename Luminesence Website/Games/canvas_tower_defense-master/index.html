@@ -112,6 +112,14 @@ div.item {
         align-content: center;
       }
 
+.endText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    color: white;
+}
+
 
 </style>
 
@@ -239,10 +247,22 @@ Attackers Stopped: <span id='stopped'>0</span>
         Remade by luminesence
     </p>
 </div>
+<h1 style="display: none;" id="endText" class="endText">GAME OVER</h1>
+<button style="display: none;" id="endText" class="endText" onclick="window.location.reload();">RESTART</button>
 <script>
-    console.log("You can get more money by typing 'money = x;' than specify the amount.")
-    console.log("You can also change the damage of a tower by using 'towerx.prototype.damage = x;'")
-    console.log("X values must be specified. There are 5 types of towers.")
+    console.log("You can get more money by typing 'money = x;' than specify the amount.");
+    console.log("You can also change the damage of a tower by using 'towerx.prototype.damage = x;'");
+    console.log("X values must be specified. There are 5 types of towers.");
+    
+var atp = document.getElementById("attackersScore");
+if(atp > 10){
+  baseSpeed = 0;
+  var endText = document.getElementById("endText");
+  endText.style.display = 'inline';
+  document.endText.style.transitionDelay = '.5s';
+  document.endText.style.transition = '.5s';
+  document.endText.style.transition = 'transition-timing-function: linear;';
+}
 </script>
 
 <script type='text/javascript' src='mainLoop.js'></script>

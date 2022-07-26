@@ -21,6 +21,15 @@ addEnemyTimer = 60,
 money = 225,
 moneyIncrement = 5;
 
+//end game past 10
+
+if(attackerPoints < 10){
+  var et = document.getElementById("endText");
+  et.style.display = 'inline';
+  document.et.style.transitionDelay = '.5s';
+  document.et.style.transition = '.5s';
+  document.et.style.transition = 'transition-timing-function: linear;';
+}
 
 
 //draw stuff
@@ -76,7 +85,7 @@ mainLoopLogic = function() {
   setTimeout(mainLoopLogic, 1000/FPS);
 };
  
-window.onload = function() {
+window.onload = function() { 
   setTimeout(mainLoopLogic, 1000/FPS);
   requestAnimationFrame(mainLoopRender);
 };

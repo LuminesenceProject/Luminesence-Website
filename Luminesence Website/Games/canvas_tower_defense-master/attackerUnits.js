@@ -115,3 +115,4 @@ UEnemy.prototype.color = 'cyan';
 
 //list of enemy types
 var enemyTypes = [Enemy,FastEnemy,StrongEnemy,godEnemy,UEnemy];
+

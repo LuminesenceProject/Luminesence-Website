@@ -90,7 +90,7 @@ const POLLEN = __inGameColor(230, 235, 110);
 const CHARGED_NITRO = __inGameColor(245, 98, 78);
 const NEON = __inGameColor(230,230,250);
 const UNBREAKABLE_WALL = __inGameColor(255, 20, 20);
-const CITRIC = __inGameColor(255, 20, 20);
+const CITRIC = __inGameColor(150, 183, 10);
 
 
 /*
@@ -393,6 +393,11 @@ function SALT_WATER_ACTION(x, y, i) {
 function OIL_ACTION(x, y, i) {
   if (random() < 30) {
     if (bordering(x, y, i, FIRE) !== -1) {
+      __doBorderBurn(x, y, i);
+      return;
+    }
+
+    if (bordering(x, y, i, NEON) !== -1) {
       __doBorderBurn(x, y, i);
       return;
     }
@@ -762,7 +767,14 @@ function STEAM_ACTION(x, y, i) {
     if (bordering(x, y, i, WATER) !== -1) {
       gameImagedata32[i] = WATER;
       return;
-    }
+    }  
+  }
+
+  if (random() < 5) {
+    if (bordering(x, y, i, NEON) !== -0.5) {
+      gameImagedata32[i] = WATER;
+      return;
+    }  
   }
 
   /* condense/disappear due to air cooling */
@@ -805,14 +817,7 @@ function NEON_ACTION(x, y, i) {
     if (saltLoc !== -1) {
       gameImagedata32[saltLoc] = STEAM;
       return;
-    }
-    var OIL = bordering(x, y, i, SALT);
-    if (OIL_ACTION === -1) OIL = bordering(x, y, i, OIL);
-    if (OIL_ACTION !== -1) {
-      gameImagedata32[OIL_ACTION] = FIRE;
-      return;
-    }
-    
+    }    
   }
 }
 
@@ -1547,4 +1552,4 @@ function CITRIC_ACTION(a,e,n){
   {const d=e>0?e-1:-1,i=e<MAX_Y_IDX?e+1:-1,r=a>0?a-1:-1,m=a<MAX_X_IDX?a+1:-1,A=[r,m,a],I=[i,d,e];var t,o;
     for(random()<50&&(A[0]=m,A[1]=r),random()<50&&(I[0]=d,I[1]=i),o=0;3!==o;o++){const d=I[o];if(-1===d)continue;if(random()<25&&d!==i)continue;
       const r=d*width;for(t=0;3!==t;t++){const o=A[t];if(-1===o)continue;if(d===e&&o===a)continue;if(o!==a&&d!==e)continue;
-        const i=r+o,m=gameImagedata32[i];if(m!==CITRIC&&m!==BACKGROUND&&m!==WATER&&m!==SALT_WATER&&m!==ICE&&m!==CHILLED_ICE&&m!==CRYO)return d!==e+1?void(gameImagedata32[i]=BACKGROUND):(gameImagedata32[n]=BACKGROUND,void((m!==WALL||random()<75)&&(gameImagedata32[i]=ACID)))}}}doDensityLiquid(a,e,n,WATER,25,30)||doDensityLiquid(a,e,n,SALT_WATER,25,30)||doGravity(a,e,n,!0,100)}
+        const i=r+o,m=gameImagedata32[i];if(m!==CITRIC&&m!==BACKGROUND&&m!==WATER&&m!==SALT_WATER&&m!==ICE&&m!==NEON&&m!==CHILLED_ICE&&m!==CRYO)return d!==e+1?void(gameImagedata32[i]=BACKGROUND):(gameImagedata32[n]=BACKGROUND,void((m!==WALL||random()<75)&&(gameImagedata32[i]=CITRIC)))}}}doDensityLiquid(a,e,n,WATER,25,30)||doDensityLiquid(a,e,n,SALT_WATER,25,30)||doGravity(a,e,n,!0,100)}

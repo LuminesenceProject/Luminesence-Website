@@ -135,4 +135,3 @@ Tower5.prototype.cost = 100;
 //this is used to figure out which 
 //class of tower to add when mouse is clicked
 var towerClasses = [Tower,Tower2,Tower3,Tower4,Tower5];
-

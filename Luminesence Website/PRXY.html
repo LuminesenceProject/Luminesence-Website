@@ -244,6 +244,8 @@ body{
 iframe {
   width: 50vw;
   height: 30vw;
+  min-width: 500px;
+  min-height: 300px;
   margin: auto;
   border-radius: 5px;
   box-shadow: 5px 5px 5px;
@@ -255,61 +257,66 @@ p {
 }
 
 .btn {
-  padding: 12px 8px 12px 8px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px;
-  position: absolute;
-  top: 10%;
-  left: 28%;
-}
-
-.btn:before, btn:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 75px;
-  height: 0px; 
-  background: transparent;
-  transition: 500ms;
-}
-
-.btn:before {
-  transform: translateX(-50px) translateY(27px);
-    box-shadow: 5px 5px 16px #ca61ff;
-}
-
-.btn:after {
-  transform: translateX(-25px) translateY(27px);
-  box-shadow: -5px 5px 16px #1fd1f9;
-}
-
-.btn:hover:before, .btn:hover:after {
-  height: 5px;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 .btn:hover {
-  box-shadow: inset 0px 5px 10px rgba(255,255,255,0.4);
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
 }
 
-.btn:focus {
-  outline: none;
+.btn:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.btn:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
 }
 
 </style>
 <main>
 <center>
 <br><br><br>
-<button class="custom-btn btn" onclick="goFullscreen(fullscreen);"><div id="fullscreenText">Fullscreen</div></button>
+
 <iframe src="https://google-classroom.maddythebaddy.repl.co/" id="fullscreen" allowfullscreen="true"></iframe>
-<h3 style="position:absolute; top: 65%; left: 28%; font-size: 32px;">About</h3>
+<h3 style="font-size: 32px; display: inline flex;">About</h3><button class="custom-btn btn" onclick="goFullscreen(fullscreen);"><div id="fullscreenText">Fullscreen</div></button>
 <p>Tutoring proxy is one of the fastest avalible online proxys. By bypassing filters,<br> it allows you 
 to get to blocked sites. The proxy has been made by JSTDAM. <br> It can bypass websites no matter how
 complex the filters.</p>
 <br><br><br>
-<a href="https://sites.google.com/view/prepformath/name-origin">Look at JSTDAM's website!</a>
+<a href="https://sites.google.com/view/prepformath/name-origin" target="_blank" style="color: gray;">JSTDAM's google site!</a>
 <br>
-<a href="https://github.com/uRmotherIsSus/luminescencePlus">Or, check out JSTDAM's github!</a>
+<a href="https://github.com/uRmotherIsSus/luminescencePlus" target="_blank" style="color: gray;">Check out JSTDAM's github!</a>
 </center>
 </main>
 <script>
@@ -324,7 +331,7 @@ function goFullscreen(element) {
         if (wscript !== null) {
             wscript.SendKeys("{F11}");
         }
-    }
+    } 
 }
 
 var elem = document.body; // Make the body go full screen.

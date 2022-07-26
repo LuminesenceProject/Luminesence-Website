@@ -248,50 +248,22 @@ default item cards
 -->
 
 <script>
-  function surviveHide(){
-    document.getElementById('survival').style.display = 'grid';
-    document.getElementById('mindless').style.display = 'none';
-    document.getElementById('logic').style.display = 'none';
-    document.getElementById('skill').style.display = 'none';
-  }
-
-  function mindlessHide(){
-    document.getElementById('survival').style.display = 'none';
-    document.getElementById('mindless').style.display = 'grid';
-    document.getElementById('logic').style.display = 'none';
-    document.getElementById('skill').style.display = 'none';
-  }
-
-  function logicHide(){
-    document.getElementById('survival').style.display = 'none';
-    document.getElementById('mindless').style.display = 'none';
-    document.getElementById('logic').style.display = 'grid';
-    document.getElementById('skill').style.display = 'none';
-  }
-
-  function allHide(){
-    document.getElementById('survival').style.display = 'grid';
-    document.getElementById('mindless').style.display = 'grid';
-    document.getElementById('logic').style.display = 'grid';
-    document.getElementById('skill').style.display = 'grid';
-  }
-
-  function skillHide(){
-    document.getElementById('survival').style.display = 'none';
-    document.getElementById('mindless').style.display = 'none';
-    document.getElementById('logic').style.display = 'none';
-    document.getElementById('skill').style.display = 'grid';
+  function Hide(survival, mindless, logic, skill){
+    document.getElementById('survival').style.display = survival;
+    document.getElementById('mindless').style.display = mindless;
+    document.getElementById('logic').style.display = logic;
+    document.getElementById('skill').style.display = skill;
   }
 </script>
 <main>
 <h1 style="font-size: 50px;"><label id="gameType">Games</label></h1>
 <!--game types-->
 <div class="game">
-  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Games'; allHide();">All</a>
-  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Survival'; surviveHide();">Survival</a>
-  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Mindless'; mindlessHide();">Mindless</a>
-  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Logic'; logicHide();">Logic</a>
-  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Skill'; skillHide();">Skill</a>
+  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Games'; Hide('grid', 'grid', 'grid', 'grid');">All</a>
+  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Survival'; Hide('grid', 'none', 'none', 'none');">Survival</a>
+  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Mindless'; Hide('none', 'grid', 'none', 'none');">Mindless</a>
+  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Logic'; Hide('none', 'none', 'grid', 'none');">Logic</a>
+  <a class="game" onclick="document.getElementById('gameType').innerHTML = 'Skill'; Hide('none', 'none', 'none', 'grid');">Skill</a>
 </div>
 <br><br>
 <!-- games -->
@@ -691,10 +663,20 @@ default item cards
     </a>
   </div>
 
+  <div class="card">
+    <a href="Games/marble-game/index.html" target="_blank">
+      <img src="Images/marble.png" class="darken" alt="Failed to load"/>
+      <h3>Marble Game</h3>
+      <span></span>
+      <p>Try to get the marble into the square, and avoid the holes!</p>
+    </a>
+  </div>
 </div>
 <br>
 <p style="color: lightgray; text-align: center;">Luminesence</p>
-<a href="https://forms.gle/D1BxjrbmCEM5YMBD8" target="_blank" style="color: lightgrey; justify-content: center; position: absolute;">See your game up here without permission? Remove it now!</a>
+<center>
+<a href="https://forms.gle/D1BxjrbmCEM5YMBD8" target="_blank" style="color: lightgrey; text-align: center; position: absolute;">See your game up here without permission? Remove it now!</a>
+</center>
 </main>
 </body>
 </html>

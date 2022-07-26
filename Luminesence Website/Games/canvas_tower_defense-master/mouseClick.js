@@ -58,3 +58,4 @@ function towerAllowed(x,y) {
   }
   return true;
 }
+
