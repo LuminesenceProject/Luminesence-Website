@@ -1,3 +1,37 @@
+h3 {
+  color: white;
+  font-size: 24px;
+  margin: 20px 0 0 20px;
+  
+}
+
+h1 {
+  color: white;
+  font-size: x;
+}
+
+body {
+  background: #94d3a2;
+}
+
+#jsn-maincontent_inner h3 {
+  padding:3px 8px;
+  text-transform:uppercase;
+}
+#jsn-maincontent_inner h3 span {
+  background-color:#BBB1A5;
+  color:white;
+}
+
+p {
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  align-self: end;
+  margin: 0 0 20px 20px;
+  letter-spacing: 0.5px;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
@@ -17,40 +51,6 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-h3 {
-  color: white;
-  font-size: 24px;
-  margin: 20px 0 0 20px;
-  
-}
-
-h1 {
-  color: white;
-  font-size: x;
-}
-
-body {
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-}
-
-#jsn-maincontent_inner h3 {
-  padding:3px 8px;
-  text-transform:uppercase;
-}
-#jsn-maincontent_inner h3 span {
-  background-color:#BBB1A5;
-  color:white;
-}
-
-p {
-  color: white;
-  font-weight: 400;
-  font-size: 16px;
-  align-self: end;
-  margin: 0 0 20px 20px;
-  letter-spacing: 0.5px;
 }
 
 img {
@@ -186,6 +186,7 @@ h1 {
   margin: auto;
   width: fit-content;
   border-radius: 15px;
+  transition: 0.1s;
 }
 
 .game a {
@@ -200,11 +201,12 @@ h1 {
 }
 
 .game :active {
-  color: #782bd4;
+  background-color: #782bd4;
 }
 
 .game a:hover {
   background-color: #782bd4;
+  transform: scale(1.035, 1.035) translateY(-2px);
 }
 
 
@@ -214,26 +216,24 @@ html {
 }
 
 ::-webkit-scrollbar {
-width: 10px;
-height: 10px;
-opacity: 0;
-visibility: collapse;
-
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  visibility: collapse;
 }
 
 ::-webkit-scrollbar-thumb {
-background: rgba(90, 90, 90);
-opacity: .2;
+  background: rgba(90, 90, 90);
+  opacity: .2;
 }
 
 ::-webkit-scrollbar-track {
-background-color: black;
-opacity: .2;
-visibility: collapse;
-z-index: -1;
+  background-color: black;
+  opacity: .2;
+  visibility: collapse;
+  z-index: -1;
 }
 
 ::-webkit-scrollbar :hover {
   opacity: .5;
-
 }

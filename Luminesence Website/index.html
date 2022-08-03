@@ -9,202 +9,158 @@
 </head>
 <body>
 <style>
+
+a {
+  text-decoration: none;
+}
+
+main span {
+  content: "";
+  padding-top: 6.5rem;
+  display: block;
+}
+
 body {
-background: rgb(23, 56, 154);
-padding-bottom: 2rem;
+  background-color: #e6fafd;
+  min-width: 500px;
 }
 
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-  padding: 0;
-  bottom: 0;
+.info {
+  max-width: 50vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.content {
-  position:relative;
-  height:20vh;
-  text-align:center;
+.info p, h1 {
+  color: black;
 }
 
-/* Animation */
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
-}
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .content {
-    height:30vh;
-  }
-  h1 {
-    font-size:24px;
-  }
-}
-
-.mid-box {
-  border-radius: 5px;
-  margin: auto;
-  background-color: white;
-  box-shadow: 5px 5px 5px;
-  width: 70vw;
-}
-
-h1,p,h3{ 
-  text-align:center;
-}
-
-p {
+.info p {
   font-size: 24px;
 }
 
-h3 {
-  font-size: 32px;
+@media screen and (max-width: 900px) {
+  .info {
+    min-width: 90vw;
+  }
+
+  span {
+    padding-top: 4rem;
+  }
+
+  img {
+    display: none;
+  }
+
+  iframe {
+    width: 500px;
+    height: 1079px;
+  }
 }
 
-.animate {
-	font-size: 50px;
-	margin: 100px 0 0;
-	border-bottom: 2px solid #ccc;
-}
-
-.animate span {
-	display: inline-block;
-}
-
-a.repeat {
-  display: inline-block;
-  font-size: 12px;
-  text-transform: none;
-  text-decoration: none;
-  color: orange;
-  padding: 5px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  font-weight: normal;
-  margin: 0 0 0 50px;
-  border-radius: 3px;
-  position: relative;
-  bottom: 15px;
-}
-
-a.repeat:hover {
-  background: rgba(0, 0, 0, 0.7);
+.box {
   color: white;
-}
-
-.animate span:nth-of-type(2) {
-	animation-delay: .05s;
-}
-.animate span:nth-of-type(3) {
-	animation-delay: .1s;
-}
-.animate span:nth-of-type(4) {
-	animation-delay: .15s;
-}
-.animate span:nth-of-type(5) {
-	animation-delay: .2s;
-}
-.animate span:nth-of-type(6) {
-	animation-delay: .25s;
-}
-.animate span:nth-of-type(7) {
-	animation-delay: .3s;
-}
-.animate span:nth-of-type(8) {
-	animation-delay: .35s;
-}
-.animate span:nth-of-type(9) {
-	animation-delay: .4s;
-}
-.animate span:nth-of-type(10) {
-	animation-delay: .45s;
-}
-.animate span:nth-of-type(11) {
-	animation-delay: .5s;
-}
-.animate span:nth-of-type(12) {
-	animation-delay: .55s;
-}
-.animate span:nth-of-type(13) {
-	animation-delay: .6s;
-}
-.animate span:nth-of-type(14) {
-	animation-delay: .65s;
-}
-.animate span:nth-of-type(15) {
-	animation-delay: .7s;
-}
-.animate span:nth-of-type(16) {
-	animation-delay: .75s;
-}
-.animate span:nth-of-type(17) {
-	animation-delay: .8s;
-}
-.animate span:nth-of-type(18) {
-	animation-delay: .85s;
-}
-.animate span:nth-of-type(19) {
-	animation-delay: .9s;
-}
-.animate span:nth-of-type(20) {
-	animation-delay: .95s;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 
-/* Animation One */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  grid-gap: 2rem;
 
-.one span {
-	color: #24a8e6;
-	opacity: 0;
-	transform: translate(-150px, -50px) rotate(-180deg) scale(3);
-	animation: revolveScale .4s forwards;
 }
 
-@keyframes revolveScale {
-	60% {
-		transform: translate(20px, 20px) rotate(30deg) scale(.3);
-	}
-
-	100% {
-		transform: translate(0) rotate(0) scale(1);
-		opacity: 1;
-	}
+.card {
+  background-color: white;
+  width: 5rem;
+  min-width: fit-content;
+  max-height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.FAQ p {
+.card p,h1,h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+.card p {
+  font-size: 24px;
+}
+
+.card:hover {
+  transform: scale(1.035, 1.035);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover img {
+  transform: translateY(-10px);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: auto auto;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
   font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.btn:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+.photo {
+  z-index: 1;
+  position: absolute;
 }
 
 </style>
@@ -437,50 +393,57 @@ a.repeat:hover {
     </ul>
   </nav>    
 <main>
-<div class="mid-box">
-<center>
-  <div class="animate one">
-    <span>L</span><span>u</span><span>m</span><span>i</span><span>n</span><span>e</span><span>s</span><span>e</span><span>n</span><span>c</span><span>e</span>
-  </div>
-<br><br><br><br><br><br><br><br>
-<h3>Featured!</h3>
-<br>
-<p>After a summer brake, the website now hosts new games!<br>
-It also has a new makeover! The navigation has been<br>
-completly revamped, as well as the 'hacks' page!</p>
-<br>
-<br>
-<p>Get the latest version of the website<br>
-by clicking this icon:</p>
-<a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20vw; height:20vw;"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg></a>
-<br><br><br>
-<h3>FAQ</h3>
-<div class="FAQ">
-  <h3>Can we Help?</h3>
-  <p>While you can suggest games, 
-
-  if you   <br>want a job you are out of luck. we're broke lol <br>
-  (but help would be nice pls)</p>
-  <br>
-  <h3>Can you add your own games?</h3>
-  <br>
-  <p>Yes you can! You can email us at wafflepancakecake9@gmail.com <br> or jstdam0210@gmail.com</p>
-  <br>
-  <h3>Can I share this with friends?</h3>
-  <p>What friends lol...jkjkjk <br>
-  access my github to download, <a href="https://github.com/LuminesenceProject/Luminesence-Website" target="_blank"> "LuminesenceProject"</a>. </p>
+<div class="info">
+  <h1 style="text-align: left; font-size: 48px;">Luminesence</h1>
+  <p>Providing people with the ability to play games, using javascript hacks, and its own very built in proxy by
+    JSTDAM. The website regularily gets updates, giving people the chance to try out new games and hacks. 
+  </p>
 </div>
-<br><br>
+<div class="container">
+  <div class="card">
+    <div class="content">
+      <h2>Games</h2>
+      <p>There is a wide selection of games! Check them out often as new ones are quickly added every month!</p>
+      <a href="Games.html"><button class="btn">Check out!</button></a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2>Proxy</h2>
+      <p>The proxy is specicially made for the website, and is one of the fastest around! Made by JSTDAM.</p>
+      <a href="PRXY.html"><button class="btn">Check out!</button></a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2>Hacks</h2>
+      <p>The hacks are very usefull and can make boring websites and games much more fun for the user. Maybe not the other people.</p>
+      <a href="Hacks.html"><button class="btn">Check out!</button></a>
+    </div>
+  </div>
+</div>
+<div class="info" style="float: right;">
+  <span></span>
+  <h1>Featured</h1>
+  <span></span>
+  <p>A massive revamp has been made after summer break! Find all the new features while exploring the website!</p>
+  <span></span>
+  <span></span>
+  <h1>FAQ</h1>
+  <p>Want to see frequently asked questions? Click here to learn what other people ask about the website, and how it could be relavent to you!</p>
+  <a href="FAQ.html"><button class="btn">Check out!</button></a>
+</div>
+<span></span>
+<div class="info">
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSew1wqHo9nd-ODZJKv_Bh2Ztl_p2TEcd-TVXfvtGgjv7M0eJw/viewform?embedded=true" width="900" height="1079" frameborder="0" marginheight="0" marginwidth="0" class="box">Loading…</iframe>
+</div>
 
-<a href="sources.html">Terms and Conditions</a>
-<br><br>
-</center>
-<br><br><br><br>
-<div style="visibility:hidden;"><br><br><br><br>L</div>
+<span></span>
+<span></span>
+<div class="center">
+  <h6>You agree to the terms and conditions upon downloading. See <a href="sources.html">here</a>.</h6>
+</div>
+<span></span>
 </main>
-
-
-
-
 </body>
 </html>

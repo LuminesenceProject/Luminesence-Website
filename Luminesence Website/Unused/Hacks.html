@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacks | Luminesence</title>
+    <link rel="icon" type="image/x-icon" href="icons/favicon-16.png">
+</head>
+<body>
+<style>
+body {
+    margin: 0;
+    font-family: 'Prompt', sans-serif;
+    overflow-x: hidden;
+    background-color: #94d3a2;
+    padding-right: 2rem;
+    min-width: 400px;
+}
+
+
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+  padding: 0;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
+.btn {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #27ae60;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.btn:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+h1 {
+    font-size: 64px;
+    color: black;
+    text-align: center;
+    padding-top: 1;
+    width: 100%;
+    align-items: center;
+    z-index: 2;
+}
+
+h3 {
+    font-size: 32px;
+    color: black;
+    text-align: center;
+    padding-top: 1;
+    width: 100%;
+    align-items: center;
+    z-index: 2;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+img {
+    border-radius: 5px;
+
+    display: inline;
+}
+
+hr {
+    width: 50vw;
+    margin: auto;
+}
+
+.box {
+    width: 40%;
+    height: inherit;
+    border-radius: 5px;
+    box-shadow: 7px 7px 6px rgba(58, 58, 58, 0.5);
+    background-color: #7db389;
+    z-index: -2;
+}
+
+.box-right {
+    float: right;
+    width: 40%;
+    height: inherit;
+    border-radius: 5px;
+    box-shadow: 7px 7px 6px rgba(58, 58, 58, 0.5);
+    background-color: #7db389;
+    z-index: -2;
+    overflow: auto;
+}
+
+.box-left {
+    float: left;
+    width: 50%;
+    height: inherit;
+    border-radius: 5px;
+    box-shadow: 7px 7px 6px rgba(58, 58, 58, 0.5);
+    background-color: #7db389;
+    z-index: -2;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    color: white;
+    list-style-type: none;
+}
+
+</style>
+<!--navbar-->
+<link rel="stylesheet" href="css/nav.css"/>  
+  <script defer src="theme.js"></script>
+  <link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
+  rel="stylesheet"
+/>
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <li class="logo">
+        <a href="#" onclick="var tab_name = window.prompt('Enter tab name\nMade by Luminesence'); document.title = tab_name;
+        if (tab_name === 0){}else{tab_name = window.prompt('Enter tab name\nMade by Luminesence'); return true}
+        " class="nav-link">
+          <span class="link-text logo-text">Luminesence</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="angle-double-right"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+        </a>
+      </li>
+
+      
+      <li class="nav-item">
+        <a href="index.html" class="nav-link">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="space-shuttle"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <span class="link-text">Home</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="Games.html" class="nav-link">
+          <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 640 512">
+
+          <g class="fa-group">
+            <path fill="currentColor"
+            d="M448 64H192C85.96 64 0 149.1 0 256s85.96 192 192 192h256c106 0 192-85.96 192-192S554 64 448 64zM247.1 280h-32v32c0 13.2-10.78 24-23.98 24c-13.2 0-24.02-10.8-24.02-24v-32L136 279.1C122.8 279.1 111.1 269.2 111.1 256c0-13.2 10.85-24.01 24.05-24.01L167.1 232v-32c0-13.2 10.82-24 24.02-24c13.2 0 23.98 10.8 23.98 24v32h32c13.2 0 24.02 10.8 24.02 24C271.1 269.2 261.2 280 247.1 280zM431.1 344c-22.12 0-39.1-17.87-39.1-39.1s17.87-40 39.1-40s39.1 17.88 39.1 40S454.1 344 431.1 344zM495.1 248c-22.12 0-39.1-17.87-39.1-39.1s17.87-40 39.1-40c22.12 0 39.1 17.88 39.1 40S518.1 248 495.1 248z"
+            class="fa-secondary"
+            /></svg>
+          </g>
+            <span class="link-text">Games</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="PRXY.html" class="nav-link">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="alien-monster"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+            class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M480 288H32c-17.62 0-32 14.38-32 32v128c0 17.62 14.38 32 32 32h448c17.62 0 32-14.38 32-32v-128C512 302.4 497.6 288 480 288zM352 408c-13.25 0-24-10.75-24-24s10.75-24 24-24s24 10.75 24 24S365.3 408 352 408zM416 408c-13.25 0-24-10.75-24-24s10.75-24 24-24s24 10.75 24 24S429.3 408 416 408zM480 32H32C14.38 32 0 46.38 0 64v128c0 17.62 14.38 32 32 32h448c17.62 0 32-14.38 32-32V64C512 46.38 497.6 32 480 32zM352 152c-13.25 0-24-10.75-24-24S338.8 104 352 104S376 114.8 376 128S365.3 152 352 152zM416 152c-13.25 0-24-10.75-24-24S402.8 104 416 104S440 114.8 440 128S429.3 152 416 152z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M160,320h64V224H160Zm192-96v96h64V224Z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <span class="link-text">Proxy</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="Hacks.html" class="nav-link">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="space-shuttle"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M128 96h384v256h64V80C576 53.63 554.4 32 528 32h-416C85.63 32 64 53.63 64 80V352h64V96zM624 384h-608C7.25 384 0 391.3 0 400V416c0 35.25 28.75 64 64 64h512c35.25 0 64-28.75 64-64v-16C640 391.3 632.8 384 624 384zM365.9 286.2C369.8 290.1 374.9 292 380 292s10.23-1.938 14.14-5.844l48-48c7.812-7.813 7.812-20.5 0-28.31l-48-48c-7.812-7.813-20.47-7.813-28.28 0c-7.812 7.813-7.812 20.5 0 28.31l33.86 33.84l-33.86 33.84C358 265.7 358 278.4 365.9 286.2zM274.1 161.9c-7.812-7.813-20.47-7.813-28.28 0l-48 48c-7.812 7.813-7.812 20.5 0 28.31l48 48C249.8 290.1 254.9 292 260 292s10.23-1.938 14.14-5.844c7.812-7.813 7.812-20.5 0-28.31L240.3 224l33.86-33.84C281.1 182.4 281.1 169.7 274.1 161.9z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <span class="link-text">Hacks</span>
+        </a>
+      </li>
+
+
+
+      <li class="nav-item" id="themeButton">
+        <a href="#" class="nav-link">
+          <svg
+            class="theme-icon"
+            id="lightIcon"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="moon-stars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <svg
+            class="theme-icon"
+            id="solarIcon"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="sun"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-sun fa-w-16 fa-7x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8a17.31 17.31 0 0 0-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4a17.31 17.31 0 0 0 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7a17.31 17.31 0 0 0 31 0l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3a17.33 17.33 0 0 0 .2-31.1zm-155.9 106c-49.91 49.9-131.11 49.9-181 0a128.13 128.13 0 0 1 0-181c49.9-49.9 131.1-49.9 181 0a128.13 128.13 0 0 1 0 181z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M352 256a96 96 0 1 1-96-96 96.15 96.15 0 0 1 96 96z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <svg
+            class="theme-icon"
+            id="darkIcon"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="sunglasses"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+            class="svg-inline--fa fa-sunglasses fa-w-18 fa-7x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M574.09 280.38L528.75 98.66a87.94 87.94 0 0 0-113.19-62.14l-15.25 5.08a16 16 0 0 0-10.12 20.25L395.25 77a16 16 0 0 0 20.22 10.13l13.19-4.39c10.87-3.63 23-3.57 33.15 1.73a39.59 39.59 0 0 1 20.38 25.81l38.47 153.83a276.7 276.7 0 0 0-81.22-12.47c-34.75 0-74 7-114.85 26.75h-73.18c-40.85-19.75-80.07-26.75-114.85-26.75a276.75 276.75 0 0 0-81.22 12.45l38.47-153.8a39.61 39.61 0 0 1 20.38-25.82c10.15-5.29 22.28-5.34 33.15-1.73l13.16 4.39A16 16 0 0 0 180.75 77l5.06-15.19a16 16 0 0 0-10.12-20.21l-15.25-5.08A87.95 87.95 0 0 0 47.25 98.65L1.91 280.38A75.35 75.35 0 0 0 0 295.86v70.25C0 429 51.59 480 115.19 480h37.12c60.28 0 110.38-45.94 114.88-105.37l2.93-38.63h35.76l2.93 38.63c4.5 59.43 54.6 105.37 114.88 105.37h37.12C524.41 480 576 429 576 366.13v-70.25a62.67 62.67 0 0 0-1.91-15.5zM203.38 369.8c-2 25.9-24.41 46.2-51.07 46.2h-37.12C87 416 64 393.63 64 366.11v-37.55a217.35 217.35 0 0 1 72.59-12.9 196.51 196.51 0 0 1 69.91 12.9zM512 366.13c0 27.5-23 49.87-51.19 49.87h-37.12c-26.69 0-49.1-20.3-51.07-46.2l-3.12-41.24a196.55 196.55 0 0 1 69.94-12.9A217.41 217.41 0 0 1 512 328.58z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M64.19 367.9c0-.61-.19-1.18-.19-1.8 0 27.53 23 49.9 51.19 49.9h37.12c26.66 0 49.1-20.3 51.07-46.2l3.12-41.24c-14-5.29-28.31-8.38-42.78-10.42zm404-50l-95.83 47.91.3 4c2 25.9 24.38 46.2 51.07 46.2h37.12C489 416 512 393.63 512 366.13v-37.55a227.76 227.76 0 0 0-43.85-10.66z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+          <span class="link-text">Theme</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<main>
+<h1>Hacks</h1>
+<br><br><br><br><br><br><br>
+<img style="float: left;" alt="Image failed to load" src="data:image/jpeg;base64,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">
+<div class="box-left">
+<p>Embedable Javascript that can be put onto any page to get what you want. <br>
+    Highly usefull, though some websites may ip ban you if used to much. Other lines of code<br>
+    can just improve the overall quality of a website. Keep in mind that if any of these Javascript codes <br>
+    are to old, they may break the website!</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<br><br><br>
+
+<div class="box-right">
+    <img style="float: right;" src="https://th.bing.com/th/id/OIP.V9MZNVuBePx0bnpsOnPLCgHaDE?w=344&h=144&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Image failed to load">
+    <h3>Dark Mode</h3><button class="custom-btn btn" style="float: left;" onclick="copyText();">Copy</button>
+    <input id="input" style="display: none;" value="  function toggle() {
+      let q = document.querySelectorAll('#nightify');
+      if(q.length) {
+          q[0].parentNode.removeChild(q[0]);
+          return false
+      };
+      var h = document.getElementsByTagName('head')[0],
+          s = document.createElement('style');
+      s.setAttribute('type', 'text/css');
+      s.setAttribute('id', 'nightify');
+      s.appendChild(document.createTextNode('html{-webkit-filter:brightness(75%) !important; background: #fff;}  body{background-color: #fefefe;}'));
+      h.appendChild(s); 
+      document.body.style.background = 'black';
+      document.querySelectorAll('p').forEach(p => p.style.color = 'white');
+      document.querySelectorAll('span').forEach(span => span.style.color = 'white');
+      document.querySelectorAll('h1').forEach(h1 => h1.style.color = 'white');
+      document.querySelectorAll('h2').forEach(h2 => h2.style.color = 'white');
+      document.querySelectorAll('h3').forEach(h3 => h3.style.color = 'white');
+      document.querySelectorAll('h4').forEach(h4 => h4.style.color = 'white');
+      document.querySelectorAll('h5').forEach(h5 => h5.style.color = 'white');
+      document.querySelectorAll('h6').forEach(h6 => h6.style.color = 'white');
+      return true
+  }
+  
+  var result = toggle();
+  
+  localStorage.toggle = true;">
+    <p>This line of code can make any site dark! Just put it into any<br>
+    page console and it will invert any of the colors! <br>
+    It will break images.</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-left">
+    <h3>Page Change</h3><button class="custom-btn btn" style="float: left;" onclick="copyToClipboard('c2')">Copy</button>
+    <p>Simply put this code onto a page that <br>
+        you are playing a game on, and then click ";"!
+        It will bring you to your desired tab!</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-right">
+    <h3>Tab Rename</h3><button class="custom-btn btn" style="float: left;" onclick="copyToClipboard('c3')">Copy</button>
+    <p>Here is a code snipit that you can copy <br>
+        into the F12 menu to rename the current tab!</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-left">
+    <h3>Tab icon</h3><button class="custom-btn btn" style="float: left;" onclick="copyToClipboard('c4')">Copy</button>
+    <p>Hate the icon of a tab? Just copy this code <br>
+        into the F12 box and than click enter! <br>
+        Paste the wanted image address into the pop-up.<br</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-right">
+    <h3>History Flood</h3><button class="custom-btn btn" style="float: left;" onclick="copyToClipboard('c5')">Copy</button>
+    <p>Want to flood your history with useless stuff? Make a bookmark <br>
+        and paste this code the page you want to show in your history.</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-left">
+  <h3>Autoclicker</h3><button class="custom-btn btn" style="float: left;" onclick="copyToClipboard('c6')">Copy</button>
+  <p>Want to have an automatic autoclicker on any page?<br>
+  Simply put this into any page console, and watch <br>
+  how fast you will be clicking!</p>
+</div>
+<br><br><br><br><br><br><br><br> 
+<div class="box-right">
+  <h3>Virus</h3><a class="custom-btn btn" style="float: left;" href="virus_screen.html" target="_blank">Copy</a>
+  <p>Want to prank your friends? Just go to this link and <br>
+  pretend that you have been hacked!</p>
+</div>
+<br><br><br><br><br><br><br><br>
+<div class="box-right">
+    <h1 style="text-align:center;">Blooket</h1>
+    <p>Blooket is a answer question game like kahoot. <br> The only main diffrence being that there is an ability <br>
+    to unlock things called 'blooks'. <br>Certain cheats may get you banned.</p>
+    <ul>
+       <a class="custom-btn btn" style="float: left;"  href="Cheats/BlooketHacks/Get All Answers Right.txt" target="_blank">All answers</a>
+       <a class="custom-btn btn" style="float: left;"  href="Cheats/BlooketHacks/GetAllBlooks.txt" target="_blank">All blooks</a>
+       <a class="custom-btn btn" style="float: left;"  href="Cheats/BlooketHacks/cryptohack.html" target="_blank">Crypto</a>
+    </ul>
+    <br><br><br><br>
+</div>
+
+
+<!--code to copy
+<p style="display: none;"><div id="c?" style="display: none;" >
+
+</div></p>
+
+
+-->
+<p style="display: none;"><code id="c1">
+  function toggle() {
+      let q = document.querySelectorAll('#nightify')
+      if(q.length) {
+          q[0].parentNode.removeChild(q[0])
+          return false
+      }
+      var h = document.getElementsByTagName('head')[0],
+          s = document.createElement('style');
+      s.setAttribute('type', 'text/css');
+      s.setAttribute('id', 'nightify');
+      s.appendChild(document.createTextNode('html{-webkit-filter:brightness(50%) !important; background: #fff;}  body{background-color: #fefefe;}'));
+      h.appendChild(s); 
+      document.body.style.background = 'black';
+      document.querySelectorAll('p').forEach(p => p.style.color = 'white');
+      document.querySelectorAll('span').forEach(span => span.style.color = 'white');
+      document.querySelectorAll('h1').forEach(h1 => h1.style.color = 'white');
+      document.querySelectorAll('h2').forEach(h2 => h2.style.color = 'white');
+      document.querySelectorAll('h3').forEach(h3 => h3.style.color = 'white');
+      document.querySelectorAll('h4').forEach(h4 => h4.style.color = 'white');
+      document.querySelectorAll('h5').forEach(h5 => h5.style.color = 'white');
+      document.querySelectorAll('h6').forEach(h6 => h6.style.color = 'white');
+      return true
+  }
+  
+  var result = toggle();
+  
+  localStorage.toggle = true;</code></p>
+
+</div>
+<p style="display: none;"><div id="c2" style="display: none;">
+    var page = window.prompt("Wanted redirect. Must include https://\nIf successful, it will return 'undefined'\nMade by Luminesence");
+    window.alert("Page: " + page);
+    document.addEventListener("keyup", function(event) {
+      if (event.keyCode === 186) {
+        location.href = page;
+      }
+
+    });
+
+      if (page.indexOf("https://") == 0) {
+      } else {
+        page = window.prompt("Add https:// or a valid adress");
+
+      }
+</div></p>
+
+<p style="display: none;"><div id="c3" style="display: none;" >
+    var tab_name = window.prompt("Enter tab name"); 
+    document.title = tab_name; 
+</div></p>
+
+<p style="display: none;"><div id="c4" style="display: none;" >
+    var icon_href = window.prompt("Image adress for tab icon");
+    var link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    link.href = icon_href;
+</div></p>
+
+<p style="display: none;"><div id="c5" style="display: none;" >
+    javascript:var num=prompt("How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats");done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert("Flooding Successful!\n "+window.location.href+" \nIs Now In Your History "+num+(num==1?" time.":" Times. \nMade by Schoolcheats"))}
+</div></p>
+
+<p style="display: none;"><div id="c6" style="display: none;" >
+  var btn = document.createElement("button");  
+  btn.id = 'autoBtn';
+  btn.innerHTML = "Start";  
+  btn.style.position = 'fixed';
+  btn.style.zIndex = '10000';
+  btn.style.top = '2vw';
+  btn.style.left = '2vw';
+  btn.style.padding = '10px 10px 10px 10px';
+  btn.style.borderRadius = '10px';
+  document.body.appendChild(btn);  
+  
+  dragElement(document.getElementById("autoBtn"));
+  
+  function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      elmnt.onmousedown = dragMouseDown;
+    }
+  
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
+    }
+  
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+  
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+  btn.ondblclick = function(){
+      function handler(event) {setInterval(function(){var element=event.target; element.click(); var dispatchMouseEvent = function(target, var_args) {  var e = document.createEvent("MouseEvents");    e.initEvent.apply(e, Array.prototype.slice.call(arguments, 1));  target.dispatchEvent(e);};dispatchMouseEvent(element, 'mouseover', true, true);dispatchMouseEvent(element, 'mousedown', true, true);dispatchMouseEvent(element, 'click', true, true);dispatchMouseEvent(element, 'mouseup', true, true); }, 1);};document.body.addEventListener('mousemove',handler,false);
+  }
+</div></p>
+
+<p style="display: none;"><div id="c7" style="display: none;" >
+
+</div></p>
+
+<p style="display: none;"><div id="c8" style="display: none;" >
+
+</div></p>
+</main>
+<script>
+
+
+function copyToClipboard(var1){
+ let val = document.getElementById(var1).innerHTML;
+ const selBox = document.createElement('textarea');
+ selBox.style.position = 'fixed';
+ selBox.style.left = '0';
+ selBox.style.top = '0';
+ selBox.style.opacity = '0';
+ selBox.value = val;
+ document.body.appendChild(selBox);
+ selBox.focus();
+ selBox.select();
+ document.execCommand('copy');
+ document.body.removeChild(selBox);
+ alert('Code copied, CRTL+V to paste into console.\nMade by Luminesence');
+
+}  
+
+function copyText() {
+  /* Get the text field */
+  var copyText = document.getElementById("input");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Code copied, CRTL+V to paste into console.\nMade by Luminesence");
+}
+
+</script>
+</body>
+</html>
