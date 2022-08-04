@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextobjectid="10">
+ <tileset firstgid="1" name="js13k" tilewidth="32" tileheight="32" tilecount="7" columns="7">
+  <image source="tileset.png" width="224" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="isStable" type="bool" value="false"/>
+    <property name="name" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="isStable" type="bool" value="true"/>
+    <property name="name" value="floor"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="isStable" type="bool" value="true"/>
+    <property name="name" value="ladder"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="isStable" type="bool" value="false"/>
+    <property name="name" value="door"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="isStable" type="bool" value="false"/>
+    <property name="name" value="player"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="isStable" type="bool" value="false"/>
+    <property name="name" value="enemy"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="isStable" type="bool" value="false"/>
+    <property name="name" value="battery"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="level" width="32" height="24">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,7,7,7,7,7,7,7,1,1,1,1,1,1,1,1,1,1,1,1,1,
+7,7,1,1,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,3,
+2,2,3,2,2,2,2,2,2,2,3,2,1,1,1,1,1,1,1,3,2,7,1,1,1,1,1,1,1,7,2,3,
+1,1,3,1,1,1,1,1,1,1,3,2,7,7,7,7,7,7,7,3,2,7,1,1,1,1,1,1,1,7,2,3,
+1,7,3,1,1,1,7,7,7,7,3,2,2,2,2,2,2,2,2,2,2,7,1,1,1,1,1,1,1,7,2,3,
+3,2,2,1,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,7,1,1,1,1,1,1,1,7,2,3,
+3,1,1,1,1,3,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,7,1,1,1,1,1,1,1,7,2,3,
+3,7,1,1,1,3,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,7,1,1,1,1,1,1,1,7,2,3,
+2,2,3,1,1,3,7,7,7,7,7,2,7,7,7,7,7,7,7,7,2,1,1,7,1,7,1,7,1,1,2,3,
+1,1,3,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,
+1,7,3,1,3,1,1,1,1,1,1,1,1,1,1,7,7,7,7,7,1,1,1,1,1,1,1,1,1,1,7,3,
+3,2,2,1,3,7,7,1,7,7,1,1,1,1,3,2,2,2,2,2,1,1,1,1,2,2,2,2,2,2,7,3,
+3,1,1,7,2,2,2,3,2,2,2,7,7,7,3,1,1,7,7,7,7,7,1,1,2,2,2,2,2,2,7,3,
+3,7,1,7,7,7,7,3,7,7,7,7,7,7,3,1,3,2,2,2,2,2,1,1,2,2,7,7,7,2,7,3,
+2,2,3,7,2,2,2,3,2,2,2,7,7,7,3,1,3,1,1,7,7,7,7,7,1,2,2,7,7,2,7,3,
+1,1,3,7,2,7,2,3,2,7,2,7,7,7,3,1,3,1,3,2,2,2,2,2,1,1,2,2,7,2,7,3,
+1,7,3,7,2,2,2,3,2,2,2,7,7,7,3,1,3,1,3,1,1,7,7,7,7,7,1,2,2,2,7,3,
+3,2,2,7,1,1,1,3,1,1,1,7,7,7,3,1,3,1,3,1,3,2,2,2,2,2,1,1,1,1,7,3,
+3,1,1,7,2,2,2,3,2,2,2,7,7,7,3,1,3,1,3,1,3,1,1,7,7,7,7,7,1,1,7,3,
+3,7,1,7,2,7,2,3,2,7,2,7,7,7,3,1,3,1,3,1,3,1,3,2,2,2,2,2,1,1,7,3,
+2,2,3,7,2,7,2,3,2,7,2,7,7,7,3,1,3,1,3,1,3,1,3,1,1,7,7,7,7,7,7,3,
+1,1,3,7,2,2,2,3,2,2,2,7,7,7,3,1,3,1,3,1,3,1,3,1,3,2,2,2,2,2,7,3,
+4,1,3,1,1,1,1,3,1,1,1,1,1,1,3,1,3,1,3,1,3,1,3,1,3,1,1,1,1,1,7,3,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+</map>

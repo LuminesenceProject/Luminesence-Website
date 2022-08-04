@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush');
+@keyframes wiggle {
+  0% {
+    transform: none;
+  }
+  10% {
+    transform: rotate(10deg) scale(1.2);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+#menuQuest {
+  width: 200px;
+  border: 2px double black;
+  text-align: center;
+  padding: 5px;
+  cursor: move;
+  background: linear-gradient(#EFBC9B,#EDB29E);
+}
+.logo {
+  position: absolute;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+}
+.golden {
+  border: 2px solid goldenrod !important;
+}
+#mainMenu {
+  text-align: center;
+}
+#gameTitle {
+  animation-name: wiggle;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0,0,0,1);
+  animation-iteration-count: infinite;
+  font-size: 48px;
+  text-shadow: 0 1px 0 #999999, 0 2px 0 #888888, 0 3px 0 #777777, 0 4px 0 #666666, 0 5px 0 #555555, 0 6px 0 #444444, 0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4), 0 9px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Caveat Brush', cursive;
+}
+.mainMenuBtn {
+  width: 25%;
+  height: 4em;
+}
+#tutorialMsg {
+  width: 250px;
+  border: 3px double #848484; 
+  background-color: white;
+  outline:0;
+  padding: 20px 5px 5px 5px;
+  z-index: 99;
+  position: absolute;
+  display: block;
+  border-radius: 10px;
+}
+#tutorialMsg > button {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+#tutorialMsg > button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+#tutorialMsg > label {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  color: grey;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+#arrow {
+  position: absolute;
+  display: none;
+}
+
+body {
+  background: #6190E8;
+  background: -webkit-linear-gradient(to left, #6190E8 , #A7BFE8);
+  background: linear-gradient(to left, #6190E8 , #A7BFE8);
+        
+  overflow-x: hidden;
+  font-family: "Indie flower", cursive;
+}
+
+#contents menu {
+  display: none;
+}
+
+#contents menu:target {
+  display: block;
+}
+
+.tile {
+  float: left;
+  border: 2px solid black;
+  width: 40px;
+  height: 40px;
+  cursor: default;
+  margin: 1px;
+  text-overflow: ellipsis;
+}
+.tile:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  z-index: 99;
+  background-color: inherit;
+}
+
+
+.plant {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+
+p {
+  background-color: lightblue;
+  float: left;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 900;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s cubic-bezier(0,0,1,0);
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+}
+
+.animation {
+  position: absolute;
+  font-size: 24px;
+  z-index: -1;
+}
+#console {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  resize: none;
+  overflow: auto;
+  border: 2px solid black;
+  width: 250px;
+  height: calc(100% - 100px);
+}
+
+.upbar-container {
+  width: calc(100% - 4px);
+  height: 15px;
+  float: right;
+  background-color: white;
+  border: 2px solid black;
+  clear: both;
+  display: block;
+  border-radius: 10px;
+}
+
+.upbar {
+  background-color: #167ac6;
+  height: 100%;
+  line-height: inherit;
+  transition: all 0.5s cubic-bezier(.24, .07, 0, 1);
+  text-align: center;
+  font-size: 14px;
+  width: 0%;
+  white-space: pre;
+  border-radius: 10px;
+}
+img {
+  width: 35px;
+  height: 35px;
+  float: left;
+}
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+#money {
+  font-size: 24px;
+  font-family: monospace;
+}
+#season {
+  font-size: 24px;
+}
+select {
+  border: 1px solid #111;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+#plant {
+  background: url(brush.png) 96% / 10% no-repeat white;
+  text-transform:capitalize;
+}
+#fps 
+{background: url(http://board.4players.pl/uploads/monthly_2016_10/icon175x175.png.ebedf77abfe6da9c05d149bbd6612aa4.png) 96% / 15% no-repeat white;
+}
+#tileSize {
+  background: url(square.png) 96% / 15% no-repeat white;
+}
+#sun { 
+  position: absolute;
+  top: 50px;
+  left: calc(50% + 80px);
+	width:70px;
+	height:70px;
+	border-radius:50%;
+	background:white;
+	opacity:0.6;
+	box-shadow: 0px 0px 40px 15px white;
+  transition: opacity 2s linear;
+}
+
+#map {
+  float: left;
+  width: calc(100% - 600px);
+}
+
+#contents {
+  position: fixed;
+  right: 250px;
+  width: 400px;
+  overflow-y: auto;
+  max-height: 450px;
+  overflow-x: hidden;
+}
+menu > button {
+  width: 100%;
+}
+
+#navbar {
+  position: fixed;
+  right: 10px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+#navbar li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#navbar li a:hover {
+    background-color: #555;
+    color: white;
+}
+#openMenuBtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 2px;
+  border: 2px solid black;
+  font-size: 17px;
+  margin: 2px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 24px;
+  display: inline-block;
+}
+label {
+  width: 250px;
+  float: left;
+  border-radius: 10px;
+  background: none;
+  border: 1px solid rgb(255, 255, 255, .2);
+  color: var(--text-color);
+  border-radius: 3px;
+  outline: none;
+  border-radius: 50px;
+  color: #FFF;
+}
+
+label:focus {
+  border: 1px solid rgba(253, 253, 253, 0.514);
+  border-radius: 6px;
+  animation: fadeInAnimation ease-in-out 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.active {
+  background-color: green;
+}
+
+#skilltree {
+  padding: 10px;
+  width: 350px;
+  float: right;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  display: block;
+}
+
+#skilltree > button {
+  width: 87.5px;
+  padding: 0;
+  color: black;
+  font-size: 11px;
+  height: 60px;
+  background-color: orange;
+  cursor: pointer;
+  border: 2px solid darkorange;
+  outline: none;
+  float: left;
+  white-space: nowrap !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0,0,1,0);
+}
+#skilltree > button:disabled {
+  background-color: red;
+  color: black;
+  border: 2px solid #aa0303;
+  cursor: default;
+  transition: all 0.3s cubic-bezier(0,0,1,0);
+}
+
+.achievement {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  float: left;
+  font-family: "Monospace";
+  text-align: center;
+/*   background-color: black;
+  color: white; */
+  font-size: 28px;
+  margin: 1px;
+}
+.achievement > img {
+  width: 30px;
+  height: 30px;
+}
+#menuSkill {
+  transition: all 0.4s cubic-bezier(0,0,0,1);
+}
+
+
+
+.tooltipster-punk {
+	border-radius: 5px; 
+	border-bottom: 3px solid #004fce;
+	background: #2a2a2a;
+	color: #fff;
+}
+.tooltipster-punk .tooltipster-content {
+	font-family: 'Courier', monospace;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+  border-radius: 10px;
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+select {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#unlockTab > button {
+  width: 100%;
+  height: 75px;
+  float: left;
+  padding: 5px;
+  font-size: 16px;
+  margin: 1px;
+  border-radius: 5px;
+}
+.btn-style {
+  width: 32.5%;
+  height: 75px;
+  float: left;
+  padding: 5px;
+  font-size: 16px;
+  margin: 1px;
+  border-radius: 5px;
+}
+
+hr {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+
+#achievementPercentage {
+  text-align: center;
+  text-decoration: underline;
+}
+.achievementText {
+  color: #f97400;
+}
+.achievementRewardText {
+  color: #01bc05;
+}
+code {
+  color: white;
+}
+
+.ach {
+  background: #52c234;
+  background: -webkit-linear-gradient(to bottom, #52c234 , #061700);
+  background: linear-gradient(to bottom, #52c234 , #061700);
+  border-radius: 10px;
+  display: block;
+  position: fixed;
+  bottom: -5em;
+  left: 50%;
+  margin-left: -175px;
+  width: 350px;
+  height: 65px;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 0 0 0;
+}
+
+.ach .icon {
+  float: left;
+  font-size: 2.2em;
+  width: 65px;
+  padding: 0.1em 0 0;
+  text-align: center;
+}
+
+.ach .text_wrap {
+  position: absolute;
+  left: 65px;
+  width: 250px;
+  top: 0.7em;
+  overflow: hidden;
+}
+
+.ach .title {
+  font-size: 0.9em;
+  width: 260px;
+  margin: 0 0 -0.2em;
+  padding: 0;
+}
+
+.ach .detail {
+  font-size: 0.7em;
+  width: 260px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ach {
+  -webkit-transition: all .1s ease-out;
+  -moz-transition: all .1s ease-out;
+  -o-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+
+@keyframes ach_in_anim {
+  0% {
+    bottom: -5em;
+    width: 65px;
+    margin-left: -32.5px;
+    border-radius: 50%;
+  }
+  15% {
+    bottom: 2.2em;
+    width: 65px;
+    margin-left: -32.5px;
+  }
+  25% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+  }
+  75% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+  }
+  85% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+    border-radius: 50%;
+  }
+  92% {
+    bottom: 1em;
+    width: 380px;
+    margin-left: -190px;
+    border-radius: 0;
+  }
+  100% {
+    bottom: 1em;
+    width: 350px;
+    margin-left: -175px;
+    border-radius: 0;
+  }
+}
+
+@keyframes ach_current {
+  0% {
+    bottom: 1em;
+    width: 350px;
+    margin-left: -175px;
+  }
+  100% {
+    bottom: 1em;
+    width: 350px;
+    margin-left: -175px;
+  }
+}
+
+@keyframes ach_out_anim {
+  0% {
+    bottom: 1em;
+    width: 350px;
+    margin-left: -175px;
+    border-radius: 50%;
+  }
+  16% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+    border-radius: 50%;
+  }
+  20% {
+    bottom: 1em;
+    width: 50px;
+    margin-left: -25px;
+  }
+  34% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+  }
+  70% {
+    bottom: 1em;
+    width: 65px;
+    margin-left: -32.5px;
+  }
+  100% {
+    bottom: -5em;
+    width: 65px;
+    margin-left: -32.5px;
+    border-radius: 50%;
+  }
+}
+
+.achieved {
+  animation: ach_in_anim 1.4s, ach_current 3s, ach_out_anim 0.8s;
+  animation-delay: 0s, 1.4s, 4.4s;
+}
+
+@keyframes i_in_anim {
+  0% {
+    transform: scale(0);
+  }
+  45% {
+    transform: scale(0)
+  }
+  46% {
+    transform: scale(0.4)
+  }
+  50% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes i_current {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes i_out_anim {
+  0% {
+    transform: scale(1);
+  }
+  46% {
+    transform: scale(1);
+  }
+  47% {
+    transform: scale(1.2);
+  }
+  56% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.4)
+  }
+  65% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.achieved .icon i {
+  animation: i_in_anim 1.4s, i_current 3s, i_out_anim 0.8s;
+  animation-delay: 0s, 1.4s, 4.4s;
+}
+
+@keyframes text_in_anim {
+  0% {
+    width: 0;
+  }
+  85% {
+    width: 0;
+  }
+  100% {
+    width: 260px;
+  }
+}
+
+@keyframes text_out_anim {
+  0% {
+    width: 260px;
+  }
+  12% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.achieved .text_wrap {
+  animation: text_in_anim 1.4s, text_out_anim 0.8s;
+  animation-delay: 0s, 4.4s;
+}

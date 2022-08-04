@@ -26,9 +26,6 @@ moneyIncrement = 5;
 if(attackerPoints < 10){
   var et = document.getElementById("endText");
   et.style.display = 'inline';
-  document.et.style.transitionDelay = '.5s';
-  document.et.style.transition = '.5s';
-  document.et.style.transition = 'transition-timing-function: linear;';
 }
 
 

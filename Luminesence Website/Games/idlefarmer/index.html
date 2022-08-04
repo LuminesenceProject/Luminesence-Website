@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Idle Farmer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/blitzer/jquery-ui.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://silvio-r.github.io/spop/dist/spop.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="game">
+
+  <div class="upbar-container">
+    <div class="upbar" id=levelbar></div>
+  </div>
+  <br>
+  <div id="sun"></div>
+  <center>
+    <div id="season"></div>
+    <div class="upbar-container" style="width: 250px; float: none; margin: 0 auto;">
+      <div class="upbar" id=seasonbar></div>
+    </div>
+  </center>
+  <button id=openMenuBtn>Menu</button>
+  <div id="navbar">
+    <ul>
+      <li id=raceTimeLeft style="text-align: center;"></li>
+      <li><a href="#unlockTab" id=menuUnlock><i class="fa fa-unlock-alt"></i> Unlockables</a></li>
+      <li><a href="#upgradesTab" id=menuUpgrades><i class="fa fa-arrow-circle-up"></i> Upgrades</a></li>
+      <li><a href="#skillTab" id=menuSkill>&#9861; Skills</a></li>
+      <li><a href="#achievementsTab" id=menuAchievements>	&#127942; Achievements</a></li>
+      <li><a href="#debtTab" id=menuDebt style="display: none;">Debt challenge</a></li>
+      <li><a href="#statsTab" id=menuStats>&#128202; Statistics</a></li>
+      <li><a href="#settingsTab"><i class="fa fa-cog fa-spin"></i> Settings</a></li>
+      <li><a href="#creditsTab">&copy; Credits</a></li>
+    </ul>
+  </div>
+
+  <div id="contents">
+    <menu id=unlockTab></menu>
+    <menu id="upgradesTab" style="overflow: hidden;">
+      <code>To quick buy click the button and hold enter.</code><br>
+
+      <button id=moreSpaceBtn onclick="buyMoreSpace();" class="btn-style"></button>
+      <button id=growthSpeedBtn onclick="buyMoreGrowthSpeed();" class="btn-style info"></button>
+      <button id=replantUpgradeBtn onclick="buyReplantChance();" class="btn-style info"></button>
+      
+      <button onclick="buyMaxEff();">Buy 10x efficiency</button>
+
+      <button onclick="buyFill();" id=buyFillBtn class="btn-style info" title="£1 Million.">Unlock "fill all" button</button>
+    </menu>
+    <menu id="settingsTab">
+      <label for="numberPopUps">Number pop ups</label>
+      <div id=numberPopUps class=checkbox></div><br>
+      <label for="simplifyNumbers">Simplify numbers</label>
+      <div id=simplifyNumbers class="checkbox active"></div><br>
+      <label for="useSelectedPlant">Use selected plant in "Fill all".</label>
+      <div id="useSelectedPlant" class="checkbox active"></div><br>
+      <label for="sunEnabled">Show sun</label>
+      <div id="sunEnabled" class="checkbox active"></div><br>
+      <label for="plantTime">Toggle % / time</label>
+      <div id="plantTime" class="checkbox"></div><br>
+      <label for="replantEnable">Enable replant</label>
+      <div id="replantEnable" class="checkbox active"></div>
+      <br><br>
+      <label for="fps">FPS</label>
+      <select id=fps>
+      <optgroup label="Choose FPS:" id=fpsOption></optgroup>
+    </select><br>
+      <label for="tileSize">Tile size</label>
+      <select id=tileSize>
+      <optgroup label="Tile size:" id=tileSizeOption></optgroup>
+    </select>
+      <br>
+      <p onclick="saveTest();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</p>
+      <p onclick="history.go(0);"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Load</p>
+      <p style="background-color: red;" onclick="reset();">Reset game</p>
+    </menu>
+    <menu id="creditsTab">
+      <ul>
+        <u>Creator:</u>
+        <li>killereks (game design, scripts)</li>
+      </ul>
+      <ul>
+        <u>Helpers:</u>
+        <li>Richfest (glitches & ideas)</li>
+        <li>LeEclipse (glitches & ideas)</li>
+      </ul>
+    </menu>
+    <menu id=skillTab>
+      <div id=skilltree>
+        <div id="skillpoints"></div>
+        <span class="title">Skill tree</span>
+      </div>
+    </menu>
+    <menu id=achievementsTab>
+      <div id="achievements">
+        <div id=achievementPercentage>Here</div>
+      </div>
+
+    </menu>
+    <menu id=statsTab>
+      <div id="stats"></div>
+    </menu>
+    <menu id=debtTab>
+      <div id="timeLeft"></div>
+      <div id=debtLeft></div>
+      <button id=debtBtn>Pay 100% of money</button>
+    </menu>
+  </div>
+  
+  <div id="menuQuest">
+    <div id="questTimeLeft"></div>
+    <div id=quest></div>
+  </div>
+
+  <button onclick="fillAll();" disabled id=fillAllBtn><img src="http://downloadicons.net/sites/default/files/paint-bucket-icon-61620.png" style="width: 25px; height: 25px;"> Fill all</button><br>
+  <div id="money"></div>
+  <div id="mps"></div>
+  <select id="plant" style="width: 350px;"></select>
+  <div id="info"></div>
+  <div id=log></div>
+  <div id=map></div>
+
+
+  <div class="ach">
+    <div class="icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+    <div class="text_wrap">
+      <div class="title"></div>
+      <span class="detail"></span>
+    </div>
+  </div>
+  
+  <img src="up-arrow.png" id=arrow style="width: 50px; height: 90px;">
+  <div id=tutorialMsg></div>
+
+</div>
+
+<div id=mainMenu>
+  <center><img src="nicubunu_RPG_map_symbols_Farm.png" alt="" class="logo"></center>
+  <br><br><br><br>
+  <center id=gameTitle>Welcome to farming idle v2</center>
+  <br><br>
+  <button class=mainMenuBtn onclick="startGame();">Start</button>
+  <br>
+  <div id="currentChallenge"></div>
+  <br>
+  <label style="float: none;">
+    Tutorial?
+    <div class=checkbox id=tutorial></div>
+  </label>
+  <br><br><br>
+  <select style="width: 200px;" id=challengeOption>
+    <option value="No challenge">No challenge</option>
+    <optgroup label="Easy challenges">
+      <option value="wheat only">Wheat only</option>
+      <option value="winter only">Only winter</option>
+    </optgroup>
+    <optgroup label="Medium challenges">
+      <option value="hideout">Hideout</option>
+      <option value="race">Race</option>
+      <option value="slot loss">Slot loss</option>
+    </optgroup>
+    <optgroup label="Hard challenges">
+      <option value="five slots">5 Slots max</option>
+      <option value="debt">Debt</option>
+      <option value="quest chaos">Quest chaos</option>
+      <option value="missing plants">Missing plants</option>
+      <option value="no upgrades">No upgrades</option>
+    </optgroup>
+  </select>
+  <br>
+  <div id="challengeDesc" style="width: 200px; text-align: center; margin: 0 auto; border: 2px double black; padding: 10px;"></div>
+  <br>
+  <br>
+  <select id=difficultySelect>
+    <option>Easy</option>
+    <option disabled>Medium</option>
+    <option disabled>Hard</option>
+  </select>
+  <button onclick="reset();" style="position:absolute;left:10px; bottom: 10px; background-color: red;">Reset game</button>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+<script src='https://silvio-r.github.io/spop/dist/spop.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Game of Thrones Sim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html ng-app="app">
+
+<body ng-controller="MainCtrl">
+  <div ng-hide="started">
+    <h2>Game of Thrones Simulator</h2>
+    <h5>A story-based minigame. You run a House, and try to survive.</h5>
+    <hr>
+    <div style="padding: 1em">
+      <h6>Step One: Build your House:</h6>
+      <div class="content">
+        <form>
+          <div class="row">
+            <div class="large-12 columns">
+              <label>
+                <input type="text" ng-model="family.name" ng-blur="checkFamilyName()" placeholder="Name your House">
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-6 columns">
+              <label>
+                <span>Starting funds: {{family.steel}} Gold Dragons</span>
+                <input type="range" min=1000 max=10000 step=50 ng-model="family.steel">
+              </label>
+              <label>
+                <span>Starting soldiers: {{family.soldiers}} Soldiers</span>
+                <input type="range" min=20 max=150 ng-model="family.soldiers">
+              </label>
+            </div>
+            <div class="medium-6 columns">
+              <div>Family Members: {{family.members.length}}/8</div>
+              <div ng-repeat="member in family.members track by $index" class="deletable alert-box" ng-click="family.members.splice($index, 1)">{{member.name}} <a href="#" class="close">&times;</a></div>
+              <div ng-show="family.members.length === 0">No family members. Why not add some?
+              </div>
+              <div ng-show="family.members.length<8">
+                <div style="padding:0.5em">
+                  <div class="row collapse">
+                    <div class="small-9 columns">
+                      <input type="text" ng-model="newMemberName" placeholder="New Family Member Name">
+                    </div>
+                    <div class="small-3 columns">
+                      <button class="postfix" ng-click="addMember(newMemberName)">Add</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row text-center">
+        <div>
+          <label>Pace: Slow
+            <input type="range" min=0 max=19 ng-model="pace">Fast
+          </label>
+        </div>
+        <hr>
+
+        <a href="#" class="button [radius round]" ng-disabled="family.name.length == 0 || family.members.length == 0" ng-click="start()">To the Throne!</a>
+      </div>
+    </div>
+  </div>
+  <div ng-show="started">
+    <h3>House {{family.name}} - Day {{family.day}}</h3>
+    <div class="row">
+      <div class="small-6 columns">
+        Funds: {{family.steel}} Gold
+        <br>
+        <button ng-click="collectTaxes()" ng-disabled="taxCD">Collect Taxes</button>
+      </div>
+      <div class="small-6 columns">
+        <div>Soldiers: {{family.soldiers}}</div>
+        <div class="button-bar">
+          <div>Hire Soldiers:</div>
+          <ul class="button-group round" style="font-size:75%">
+            <li><a href="#" class="button" ng-click="hireSoldiers(10)" ng-disabled="family.steel < 100">10  (100 Gold)</a></li>
+            <li><a href="#" class="button" ng-click="hireSoldiers(100)" ng-disabled="family.steel < 1000">100  (1K Gold)</a></li>
+            <li><a class="button" ng-click="hireSoldiers(family.steel/10)">Max [{{family.steel/10 | number:0}}]</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div>Places:</div>
+      <div class="place" ng-repeat="place in places">
+        {{place.name}} - House {{place.house}}
+      </div>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        <h5>Log</h5>
+        <div style="max-height: 250px; overflow: auto;">
+          <div ng-repeat="log in logs track by $index" class="log">{{log}}</div>
+        </div>
+      </div>
+      <div class="small-6 columns">
+        <h5>Family:</h5>
+        <div ng-repeat="member in family.members track by $index" class="family" ng-class="{dead:!member.alive}">
+          <div>
+            {{member.name}}
+          </div>
+          <div>Location: {{member.location}}</div>
+        </div>
+        <div class="box">
+          <h5>Enemies</h5>
+          <div ng-repeat="person in family.enemies track by $index" class="deletable" ng-click="confirmAssassination(person)">{{person}}</div>
+        </div>
+        <div class="box">
+          <h5>Allies</h5>
+          <div ng-repeat="person in family.allies track by $index">{{person}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="showAssassinOptions" class= "modal">
+    So you wish to kill {{assassinationTarget}}? Who do you wish to hire?
+    <hr>
+    <div class="button-group">
+      <button class="button tiny" ng-repeat="assassin in assassins" ng-click="orderKill(assassin, assassinationTarget)" ng-disabled="assassin.price > family.steel">{{assassin.name}} ({{assassin.price}} Gold)</button>
+      <button class="button tiny" ng-click="cancelAssassination()">Cancel</button>
+    </div>
+  </div>
+  <div ng-show="gameOver" class="modal">
+    <h3>{{gameOver}}</h3>
+  </div>
+</body>
+
+</html>
+<!-- partial -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src='//blockchain.info//Resources/wallet/pay-now-button.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

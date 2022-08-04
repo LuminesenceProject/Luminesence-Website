@@ -1,0 +1,67 @@
+*{
+  transition: all 0.2s ease
+}
+label>span{
+  width: 200px;
+  display: inline-block
+}
+
+.deletable{
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.dead {
+  text-decoration: line-through;
+  background: #aa0000;
+  color: #ccc;
+  opacity: 0.8;
+}
+
+.deletable:hover{
+  background-color:#dd0000
+}
+
+.modal{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height: 140px;
+  overflow:auto;
+  border-bottom: solid 1px black;
+  padding: 1em;
+  background: rgb(200, 200, 200);
+}
+
+.log{
+  font-size: 80%;
+  border-bottom: solid 1px #444;
+  overflow: scroll;
+}
+
+.family{
+  padding: 0.25em;
+  border: solid 1px #333;
+  border-radius: 1em;
+}
+
+.button{
+  padding: 0.25em 0.5em;
+}
+
+.place{
+  float: left;
+  width: 300px;
+  padding: 10px;
+}
+
+.box{
+  margin: 0.25em;
+  padding: 0.25em;
+  border: solid 1px #444;
+}
+
+.box h5{
+  text-decoration:underline
+}
