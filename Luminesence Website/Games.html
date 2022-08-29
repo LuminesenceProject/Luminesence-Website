@@ -256,14 +256,13 @@ default item cards
   }
 </script>
 <main>
-<h1 style="font-size: 50px;"><label id="gameType">Games</label></h1>
 <!--game types-->
 <div class="game">
-  <a class="game" href="#" onclick="document.getElementById('gameType').innerHTML = 'Games'; Hide('grid', 'grid', 'grid', 'grid');">All</a>
-  <a class="game" href="#" onclick="document.getElementById('gameType').innerHTML = 'Survival'; Hide('grid', 'none', 'none', 'none');">Survival</a>
-  <a class="game" href="#" onclick="document.getElementById('gameType').innerHTML = 'Mindless'; Hide('none', 'grid', 'none', 'none');">Mindless</a>
-  <a class="game" href="#" onclick="document.getElementById('gameType').innerHTML = 'Logic'; Hide('none', 'none', 'grid', 'none');">Logic</a>
-  <a class="game" href="#" onclick="document.getElementById('gameType').innerHTML = 'Skill'; Hide('none', 'none', 'none', 'grid');">Skill</a>
+  <a class="game" href="#" onclick="Hide('grid', 'grid', 'grid', 'grid');">All</a>
+  <a class="game" href="#" onclick="Hide('grid', 'none', 'none', 'none');">Survival</a>
+  <a class="game" href="#" onclick="Hide('none', 'grid', 'none', 'none');">Mindless</a>
+  <a class="game" href="#" onclick="Hide('none', 'none', 'grid', 'none');">Logic</a>
+  <a class="game" href="#" onclick="Hide('none', 'none', 'none', 'grid');">Skill</a>
 </div>
 <br><br>
 <!-- games -->
@@ -327,11 +326,11 @@ default item cards
 
 
   <div class="card">
-    <a href="Games/starfighter-master/app/index.html" target="_blank">
+    <a href="Games/star fighter/dist/index.html" target="_blank">
       <img src="https://raw.githubusercontent.com/bcastell/starfighter/master/app/images/media/demo.gif " class="darken" alt="Failed to load"/>
-      <h3>starfighter</h3>
+      <h3>Galaxy Raid</h3>
       <span></span>
-      <p>Survive all of the astroids and collect the lightning!</p>
+      <p>Destroy rocks and save your ships!</p>
     </a>
   </div>
 
@@ -714,6 +713,15 @@ default item cards
       <h3>OFFLINE OECT</h3>
       <span></span>
       <p>Repair the facility by getting batteries.</p>
+    </a>
+  </div>
+
+  <div class="card">
+    <a href="Games/singleHTMLGames/tanks.html" target="_blank">
+      <img src="Images/roll-tanks.png" class="darken" alt="Failed to load"/>
+      <h3>Roll Tanks</h3>
+      <span></span>
+      <p>Defeat enemy tanks with a hint of luck.</p>
     </a>
   </div>
 </div>
