@@ -75,7 +75,7 @@ p {
     }
 }
 
-main span {
+.mn {
     content: "";
     padding-top: 6.5rem;
     display: block;
@@ -369,6 +369,7 @@ rel="stylesheet"
   </ul>
 </nav>
     <main>
+      <a id="top"></a>
         <div class="info">
             <h2>Hacks</h2>
             <p>Embedable Javascript that can be put onto any page to get what you want.
@@ -382,7 +383,7 @@ rel="stylesheet"
             <p><button class="btn" onclick="copyText('id');">Copy</button>
             Description
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="id" readonly value="code">
         </div>
         -->
@@ -392,7 +393,7 @@ rel="stylesheet"
                 This line of code can make any site dark! Just put it into any
                 page console and it will invert any of the colors!
                 It will break images.
-            <span></span>
+            <span class="mn"></span>
             <input id="c1" readonly value="function toggle() {
                 let q = document.querySelectorAll('#nightify');
                 if(q.length) {
@@ -429,7 +430,7 @@ rel="stylesheet"
                     page console and it will invert any of the colors!
                     It will break images.
                 </p>
-                <span></span>
+                <span class="mn"></span>
                 <input id="c2" readonly value="var page = window.prompt('Wanted redirect. Must include https://\nIf successful, it will return 'undefined'\nMade by Luminesence');
                 window.alert('Page: ' + page);
                 document.addEventListener('keyup', function(event) {
@@ -451,7 +452,7 @@ rel="stylesheet"
                 Here is a code snipit that you can copy
                 into the F12 menu to rename the current tab!
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="c3" readonly value="var tab_name = window.prompt('Enter tab name'); 
             document.title = tab_name; ">
         </div>
@@ -462,7 +463,7 @@ rel="stylesheet"
                 into the F12 box and than click enter!
                 Paste the wanted image address into the pop-up.
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="c4" readonly value="var icon_href = window.prompt('Image adress for tab icon');
             var link = document.querySelector('link[rel~='icon']');
             if (!link) {
@@ -478,7 +479,7 @@ rel="stylesheet"
                 Want to flood your history with useless stuff? Make a bookmark
                 and paste this code the page you want to show in your history.
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="c5" readonly value="javascript:var num=prompt('How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats');done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert('Flooding Successful!\n '+window.location.href+' \nIs Now In Your History '+num+(num==1?' time.':' Times. \nMade by Schoolcheats'))}">
         </div>
         <button class="accordion" style="background-color: rgb(220, 220, 220);">Autoclicker</button>
@@ -488,7 +489,7 @@ rel="stylesheet"
                 Simply put this into any page console, and watch
                 how fast you will be clicking!
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="c6" readonly value="  var btn = document.createElement('button');  
             btn.id = 'autoBtn';
             btn.innerHTML = 'Start';  
@@ -545,7 +546,7 @@ rel="stylesheet"
               Want to prank your friends? Just go to this link and
               pretend that you have been hacked!
             </p>
-            <span></span>
+            <span class="mn"></span>
             <input id="c7" readonly value="code">
         </div>
         <button class="accordion" style="background-color: rgb(220, 220, 220);">All answers</button>
@@ -553,25 +554,63 @@ rel="stylesheet"
             <p><a href="Cheats/BlooketHacks/Get All Answers Right.txt" target="_blank" class="btn">Get code</a>
               Want to get all answers right in blooket? Just click at the button to do so!
             </p>
-            <span></span>
+            <span class="mn"></span>
         </div>
         <button class="accordion">All blooks</button>
         <div class="panel">
             <p><a href="Cheats/BlooketHacks/GetAllBlooks.txt" target="_blank" class="btn">Get code</a>
               Want every blooket to show off to your friends in a game? Just plug in this code to check out locked blooks!
             </p>
-            <span></span>
+            <span class="mn"></span>
         </div>
         <button class="accordion" style="background-color: rgb(220, 220, 220);">Crypto Hack</button>
         <div class="panel">
             <p><a href="Cheats/BlooketHacks/cryptohack.html" target="_blank" class="btn">Get code</a>
               Use this hack to get as much crpto as you want!
             </p>
-            <span></span>
+            <span class="mn"></span>
         </div>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="mn"></span>
+        <span class="mn"></span>
+        <span class="mn"></span>
+          <!-- footer -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <h3>Luminesence  <span><img src="Icons/favicon-32.png" alt="Failed to load"></span></h3>
+    <p class="footer-links">
+      <a href="#top">Back to Top</a>
+    </p>
+    <p class="footer-company-name">	&#x24B8 Luminesence LTD</p>
+        <p class="footer-company-name"><a href="sources.html">Terms and Conditions</a></p>
+  </div>
+  <div class="footer-center">
+  <div>
+    <a href="https://github.com/LuminesenceProject/Luminesence-website"><i class="fa fa-github"></i></a>
+    <p>Github</p>
+    </div>
+    <div>
+      <a href=""></a><i class="fa fa-plus"></i>
+      <p>Luminesence Plus</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><span>wafflepancakecake9@gmail.com</span></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About</span>
+      Making games for those who don't have them.
+      <h6>Some games may not work.</h6>
+    </p>
+    <div class="footer-icons" style="display: none;">
+      <a href="https://www.facebook.com/www.pknstan.ac.id/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/pknstanid" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.youtube.com/PKNSTANKEMENKEU/" class="icoYoutube" title="Youtube"><i class="fa fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
     </main>
 </body>
 <script>
