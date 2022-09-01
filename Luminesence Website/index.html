@@ -1,136 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luminesence | Home</title>
-    <link rel="icon" type="image/x-icon" href="icons/favicon-16.png">
-</head>
-<body>
-    
-</body>
-</html>
-<style>
-* {
-  box-sizing: border-box;
-}
+  <meta charset="UTF-8">
+  <title>Luminesence | Home</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="icon/x-icon" href="icons/favicon-16.png">
 
-body {
-  font-family: verdana;
-  padding: 10px;
-  background: #f1f1f1;
-  margin: 0;
-  background-color: #e6fafd;
-}
-
-/* Header/Blog Title */
-.header {
-  padding: 30px;
-  text-align: center;
-  background: white;
-}
-
-.header h1 {
-  font-size: 50px;
-}
-
-.leftcolumn {   
-  float: left;
-  width: 75%;
-}
-
-.rightcolumn {
-  float: right;
-  width: 25%;
-  background-color: #f1f1f1;
-  padding-left: 20px;
-}
-
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-.row p,h1,h2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.row p {
-  font-size: 24px;
-}
-
-.row h2 {
-  font-size: 32px;
-}
-
-ol {
-  font-size: 16px;
-}
-
-a {
-  color: lightskyblue;
-}
-
-.games {
-  height: 100px;
-  width: 200px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.games img {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  opacity: .9;
-  background-color: black;
-  filter: brightness(50%);
-}
-
-.games:hover {
-  transform: scale(1.035, 1.035);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-}
-
-.games:hover img {
-  transform: translateY(-10px);
-}
-
-.games h3 {
-  text-decoration: none;
-  color: black;
-  font-size: 24px;
-}
-</style>
 </head>
 <body>
 <!--navbar-->
@@ -360,53 +236,127 @@ a {
         </a>
       </li>
     </ul>
-  </nav> 
-
+  </nav>
 <main>
-  <div class="row">
-    <div class="leftcolumn">
-      <div class="card">
-        <h2>Luminesence</h2>
-        <h5>Updated 08/30/22</h5>
-        <p>Providing people with the ability to play games, using javascript hacks, and its own very built in proxy by
-          JSTDAM. The website regularily gets updates, giving people the chance to try out new games and hacks. </p>
-      </div>
-      <div class="card">
-        <h2>Featured</h2>
-        <p>A massive revamp has been made after summer break! Find all the new features while exploring the website! <br>
-          A short list of new features includes:<br>
-          <ol>
-            <li>Updated galaxy raid</li>
-            <li>Added hacks</li>
-            <li>Creation of <a href="FFAAQQ.html">FAQ</a></li>
-          </ol>
-        </p>
+<header class="wrapper">
+  <h1>Luminesence   <img src="icons/favicon-32.png" alt="Failed to load"></h1>
+  <h3>A video game website, with hacks!</h3>
+</header>
+<section id="info" class="wrapper" class="container">
+  <div id="infowrap" class="container">
+    <article>
+      <h1>Constant updates</h1>
+      <p>The website is constantly updated every one to two weeks, so always check to see if you have the latest version! </p>
+      <a href="https://github.com/LuminesenceProject/Luminesence-website" target="_blank"><button>More</button></a>
+    </article>
+    <article>
+      <h1>Alternative</h1>
+      <p>Bored of the normal host of games? You can check out an alternative if this link gets blocked! </p>
+      <a href="https://github.com/uRmotherIsSus/luminescencePlus" target="_blank"><button>More</button></a>
+    </article>
+    <article>
+      <h1>Fast Proxy</h1>
+      <p>The Luminesence Website has its own state of the art proxy. Using ultraviolet its one of the fastest around.</p>
+      <a href="https://google-classroom.maddythebaddy.repl.co/" target="_blank"><button>More</button></a>
+    </article>
+  </div>
+</section>
+<section id="peoplecards" class="wrapper">
+  <h1>About</h1>
+  <h3>Check out the wonderful developers!</h3>
+  <div class="container">
+    <div>
+      <h2>Luminescence</h2>
+      <h3>The main drive behind the website, adds mostly games, and updates the interface.</h3>
     </div>
+    <div>
+      <h2>JSTDAM</h2>
+      <h3>Made the proxy that you use, as well as the FAQ page. Mostly works on and off.</h3>
+    </div>
+  </div>
+</section>
+<section id="articlecards" class="wrapper">
+  <div class="app">
+
+    <div class="cardList">
+      <button class="cardList__btn btn btn--left">
+        <div class="icon">
+          <svg>
+            <use xlink:href="#arrow-left"></use>
+          </svg>
+        </div>
+      </button>
+  
+      <div class="cards__wrapper">
+        <div class="card current--card">
+          <div class="card__image">
+            <img src="https://raw.githubusercontent.com/bcastell/starfighter/master/app/images/media/demo.gif " alt="Failed to load" style="filter: brightness(50%);" />
+          </div>
+        </div>
+  
+        <div class="card next--card">
+          <div class="card__image">
+            <img src="Images/valorant.jfif" alt="Failed to load" style="filter: brightness(50%);" />
+          </div>
+        </div>
+  
+        <div class="card previous--card">
+          <div class="card__image">
+            <img src="Images/sandgame.jpg" alt="Failed to load" style="filter: brightness(50%);" />
+          </div>
+        </div>
+      </div>
+  
+      <button class="cardList__btn btn btn--right">
+        <div class="icon">
+          <svg>
+            <use xlink:href="#arrow-right"></use>
+          </svg>
+        </div>
+      </button>
+    </div>
+  
+    <div class="infoList">
+      <div class="info__wrapper">
+        <div class="info current--info">
+          <h1 class="text name">Galaxy Raid</h1>
+          <h4 class="text location">From JS13K</h4>
+          <p class="text description" style="color: white;">Destroy rocks and try to upgrade the your ship!<br><br><a href="Games/star fighter/dist/index.html" target="_blank"><button>Check Out!</button></a></p>
+        </div>
+  
+        <div class="info next--info">
+          <h1 class="text name">Valorant</h1>
+          <h4 class="text location">Riot Games</h4>
+          <p class="text description" style="color: white;">Try to win this 5V5 shooter!<br><br><a href="Games/singleHTMLGames/valorant.html" target="_blank"><button>Check Out!</button></a></p>
+        </div>
+  
+        <div class="info previous--info">
+          <h1 class="text name">Sandgame</h1>
+          <h4 class="text location">Luminescence</h4>
+          <p class="text description" style="color: white;">Try out this sandbox game.<br><br><a href="Games/sandgame/index.html" target="_blank"><button>Check Out!</button></a></p>
+        </div>
       </div>
     </div>
-   
-     
-    <div class="rightcolumn">
-      <div class="card">
-        <h2>Updates</h2>
-        <a href="https://github.com/LuminesenceProject/Luminesence-Website/archive/refs/heads/main.zip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg></a>
-        <p>Try to view the site at least once a week, as we update constantly.</p>
+  
+  
+    <div class="app__bg">
+      <div class="app__bg__image current--image">
+        <img src="Images/bg-3.JPG" alt="Failed to load" />
       </div>
-      <div class="card">
-        <h3>Popular Games</h3>
-        <a href="Games/singleHTMLGames/tanks.html" class="games" ><h3>Roll tanks</h3><img src="Images/roll-tanks.png" height="100px" width="200px" alt="Failed to load"></a><br>
-        <a href="Games/star fighter/dist/index.html" class="games" ><h3>Galaxy Raid</h3><img src="https://raw.githubusercontent.com/bcastell/starfighter/master/app/images/media/demo.gif " height="100px" width="200px" alt="Failed to load"></a><br>
-        <a href="Games/singleHTMLGames/valorant.html" class="games" ><h3>Valorant</h3><img src="Images/valorant.jfif" height="100px" width="200px" alt="Failed to load"></a><br>
+      <div class="app__bg__image next--image">
+        <img src="Images/bg-1.jfif" alt="Failed to load" />
+      </div>
+      <div class="app__bg__image previous--image">
+        <img src="Images/sandgame.jpg" alt="Failed to load" />
       </div>
     </div>
   </div>
-<br>
-<br>
+</section>
   <!-- footer -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
   <footer class="footer-distributed">
     <div class="footer-left">
-      <h3>Luminesence  <span><img src="Icons/favicon-32.png" alt="Failed to load"></span></h3>
+      <h3>Luminesence  <span><img src="Icons/favicon-32.png" style="display: none;" alt="Failed to load"></span></h3>
       <p class="footer-links">
         <a href="#top">Back to Top</a>
       </p>
@@ -419,20 +369,18 @@ a {
       <p>Github</p>
       </div>
       <div>
-        <i class="fa fa-plus"></i>
-          <p><a href="https://sites.google.com/view/prepformath/home">Luminescence Plus</a></p>
-
+        <a href="https://github.com/uRmotherIsSus/luminescencePlus"></a><i class="fa fa-plus"></i>
+        <p>Luminesence Plus</p>
       </div>
       <div>
         <i class="fa fa-envelope"></i>
-        <p><a href = "mailto: wafflepancake9@gmail.com">wafflepancake9@gmail.com</a></p>
+        <p><span>wafflepancakecake9@gmail.com</span></p>
       </div>
     </div>
     <div class="footer-right">
       <p class="footer-company-about">
-          <br>
         <span>About</span>
-        Making games so you don't have to.
+        Making games for those who don't have them.
         <h6>Some games may not work.</h6>
       </p>
       <div class="footer-icons" style="display: none;">
@@ -443,5 +391,9 @@ a {
     </div>
   </footer>
 </main>
+  
+<script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script><script  src="./script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .white-box {
+      background-color: white;
+      color: black;
+      width: 350px;
+    height: 305px;
+    border-radius: 25px;
+    float: center;
+  }
+  
+  .btn {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #2882af;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    justify-content: center;
+    margin: auto auto;
+    font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 13px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+  }
+  

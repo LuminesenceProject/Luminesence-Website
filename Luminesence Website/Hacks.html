@@ -8,11 +8,12 @@
 </head>
 <style>
 body {
-    background-color: #e6fafd;
+    background-color: --bg-primary;
 }
 
 h2,p {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: --text-primary;
 }
 
 h2 {
@@ -24,7 +25,7 @@ p {
 }
 
 .accordion {
-  background-color: #eee;
+  background-color: --text-primary;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -63,6 +64,8 @@ p {
 .info {
     text-align: left;
     width: 50vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -137,6 +140,32 @@ input {
     height: fit-content;
     border: none;
     display: none;
+}
+
+.text-field {
+  width: 50vw;
+  justify-content: center;
+  text-align: center;
+  background: none;
+  font-family: inherit;
+  padding: 0px 17px;
+  height: fit-content;
+  border: 1px solid rgb(255, 255, 255, .2);
+  color: var(--text-primary);
+  border-radius: 3px;
+  outline: none;
+  width: 350px;
+  margin-top: 5px;
+  border-radius: 50px;
+  color: #FFF;
+}
+
+.text-field :focus {
+  border: 1px solid rgba(253, 253, 253, 0.514);
+    border-radius: 6px;
+    animation: fadeInAnimation ease-in-out 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 </style>
 <body>
@@ -569,6 +598,11 @@ rel="stylesheet"
               Use this hack to get as much crpto as you want!
             </p>
             <span class="mn"></span>
+        </div>
+        <div class="info">
+          <h1>Encrypter</h1>
+          <p>Want to encrypt your messages that you send? Just put in the message and send it!</p>
+          <input type="text" placeholder="Put text here" style="display:inline;" class="text-field">
         </div>
         <span class="mn"></span>
         <span class="mn"></span>
