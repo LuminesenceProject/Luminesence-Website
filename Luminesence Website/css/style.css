@@ -33,6 +33,20 @@ a:link {
   max-width: 1500px;
 }
 
+@media screen and (min-width: 900px) {
+  .container {
+    width: 100%;
+  }
+
+  .container p {
+    font-size: 12px;
+  }
+
+  #peoplecards {
+    width: 100%;
+  }
+}
+
 body {
   margin: 0;
 }
@@ -181,28 +195,6 @@ header h1 {
 #articlecards hr {
   width: 85%;
   border: 1px solid #efefef;
-}
-
-footer {
-  height: 100px;
-}
-footer div {
-  width: 90%;
-}
-footer div p {
-  float: left;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.4em;
-  color: #ccc;
-}
-footer div .fa {
-  font-size: 2.3em;
-  margin: 30px 10px;
-  float: right;
-  color: #5385c1;
-}
-footer div .fa:hover {
-  color: #8badd5;
 }
 
 /* Responsive Queries */

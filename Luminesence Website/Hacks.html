@@ -601,8 +601,19 @@ rel="stylesheet"
         </div>
         <div class="info">
           <h1>Encrypter</h1>
-          <p>Want to encrypt your messages that you send? Just put in the message and send it!</p>
-          <input type="text" placeholder="Put text here" style="display:inline;" class="text-field">
+          <p>Want to encrypt your messages that you send? Just put in the message and send it! Type in the text you want encrypted, then a custom password for better secrecy. Then click the decrypt button to get it back.</p>
+          <br />Data to encrypt:
+          <input id="text" type="text" placeholder="Enter text to encrypt" style="display:inline;" class="text-field" />
+      
+          <br />password: <input id="password" type="text" placeholder="Custom password" style="display:inline;" class="text-field" />
+      
+          <br /><button onclick="encrypt()" class="btn" >encrypt</button>
+      
+          <br />Encrypted Value:<br /><span id="EncryptedValue"></span>
+      
+          <br />
+          <button onclick="decrypt()" class="btn" >decrypt</button>
+          <br />Decrypted Value: <span id="decrypted"></span>
         </div>
         <span class="mn"></span>
         <span class="mn"></span>
@@ -680,6 +691,25 @@ function copyText(id) {
   document.getElementsByClassName("btn").innerHTML = 'hello';
 }
 
+// encrypt-decrypt
+function encrypt() {
+  var encrypted = CryptoJS.AES.encrypt(
+  document.getElementById("text").value,
+  document.getElementById("password").value
+  );
+  document.getElementById("EncryptedValue").innerHTML = encrypted;
+  document.getElementById("decrypted").innerHTML = "";
+}
+
+function decrypt() {
+  var decrypted = CryptoJS.AES.decrypt(
+  document.getElementById("EncryptedValue").innerHTML,
+   document.getElementById("password").value
+  ).toString(CryptoJS.enc.Utf8);
+  document.getElementById("decrypted").innerHTML = decrypted;
+  document.getElementById("EncryptedValue").innerHTML = "";
+}
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 </html>
