@@ -1,474 +1,364 @@
-const gc = document.querySelector('#game_console')
-const gc_loc = gc.getBoundingClientRect()
-const player = 'player2'
-var pl;
+/**
 
-var cols = 40 // multiple of 16
-var rows = 22 // multiple of 9
-const tile_size = gc_loc.width*(100/cols/100)
-const pl_size = tile_size*2
-document.body.style.setProperty('--tile-line-height', pl_size+'px')
+https://codepen.io/EduardoLopes/pen/IJnAr/license
 
-gc.style.width = '1000px'
-gc.style.height = tile_size*rows+'px'
+**/
 
-var gravity = 8,
-    kd,
-    x_speed = 5,
-    pb_y = 0,
-    score = 0,
-    rot = 0,
-    data_p = 0,
-    bonus = 1,
-    dead = false,
-    kd_list = [],
-    d = {},
-    gp,
-    gpa,
-    dbljump = false,
-    dash = false,
-    timer = 0,
-    level_num = -1;
+//dirty code made in less the 24 working hours
 
-const levels = [
-  {
-    start:'19.5,0',
-    map: [8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
-          8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,9,9,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]
-  },
-  {
-    start:'19.5,0',
-    map: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,8,8,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,8,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,8,8,8,8,8,8,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,
-          8,8,8,8,0,1,1,1,1,1,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,1,1,1,1,1,0,8,8,8,8,
-          8,8,8,8,0,2,2,2,2,2,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,2,2,2,2,2,0,8,8,8,8,
-          8,8,8,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,8,8,8,8]
-  },
-  {
-    start:'2,13',
-    map: [8,8,8,8,8,8,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-          8,0,0,0,0,8,8,8,0,1,1,1,1,0,8,8,8,0,0,0,0,0,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,0,0,1,1,1,0,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,1,1,1,1,1,0,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,
-          0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,3,0,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,3,0,0,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,0,2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0,8,8,
-          1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,8,8,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,8,8,
-          1,1,1,1,1,1,1,1,1,1,0,8,0,1,1,1,1,1,0,8,8,8,8,8,8,0,1,1,1,1,1,1,1,1,1,1,1,0,0,8,
-          0,0,0,0,0,1,1,1,1,1,0,8,0,2,2,2,2,2,0,8,8,8,8,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,
-          8,8,8,8,0,1,1,1,1,1,0,8,0,0,0,0,0,0,0,8,8,8,8,8,8,0,2,2,2,1,1,1,1,1,1,1,1,1,1,0,
-          8,8,8,8,0,2,2,2,2,2,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,
-          8,8,8,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0]
+var i = 0;
 
-  },
-  {
-    start:'1,2',
-    map: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,0,1,1,1,1,1,1,1,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,
-          1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,6,1,1,0,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,0,0,0,0,0,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,0,0,0,0,
-          0,1,1,1,1,0,1,1,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,0,1,1,0,1,1,1,1,0,
-          0,1,1,1,1,0,2,2,0,2,2,2,0,2,2,2,2,2,2,0,0,2,2,2,2,2,2,0,2,2,2,0,2,2,0,1,1,1,1,0,
-          0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,4,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,4,1,1,1,1,1,1,1,9,
-          0,1,7,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,0,0,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          0,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,9,
-          0,0,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,0,0,0,0,
-          8,8,8,8,0,1,1,1,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,0,8,8,8,8,
-          8,8,8,8,0,2,2,2,0,2,2,2,0,2,2,2,2,2,2,0,0,2,2,2,2,2,2,0,2,2,2,0,2,2,2,0,8,8,8,8,
-          8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,8]
-
-
-  },
-  {
-    start: '1,2',
-    map: [0,0,0,0,0,8,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-          1,1,1,1,0,0,0,0,0,4,4,4,4,0,8,8,8,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          0,0,0,0,0,0,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,0,
-          0,0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,
-          0,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,
-          0,1,1,1,0,0,0,0,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,0,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0,1,0,1,1,1,9,
-          0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0,8,0,1,1,1,1,1,1,1,1,1,0,1,1,1,9,
-          0,0,0,0,0,1,1,1,1,1,1,1,0,2,2,2,2,2,0,0,0,0,0,0,8,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,
-          8,8,8,8,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,8,8,8,8,8,8,0,2,2,2,1,1,1,1,1,1,0,8,8,8,8,
-          8,8,8,8,0,2,2,2,2,2,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,1,1,1,1,1,1,0,8,8,8,8,
-          8,8,8,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,8,8,8,8]
-  },
-  {
-    start: '2,13',
-    map: [8,8,8,8,8,8,8,8,0,0,0,0,0,0,8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-          8,0,0,0,0,8,8,8,0,1,1,1,1,0,8,8,8,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,8,0,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,8,8,8,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,0,0,0,0,0,1,1,1,1,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,
-          8,0,1,1,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,
-          0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,8,8,8,8,8,
-          0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0,0,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,8,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,8,8,
-          1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,8,
-          0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,
-          8,8,8,8,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-          8,8,8,8,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,
-          8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-  }
-]
-
-function buildGame(){  
-  // clear tiles and update level number
-  gc.innerHTML = "<div id='"+player+"'></div><div id='game_alert'></div><div id='deaths_counter'></div><div id='time_counter'></div>"
-  if(level_num < levels.length - 1) {
-    level_num++  
-  } else {
-    level_num = 0
-  }
-
-  let time = 0
-  let deaths = 0
-  let tc = document.querySelector('#time_counter')
-  let dc = document.querySelector('#deaths_counter')
-  tc.innerHTML = 'TIME<br>'+ time
-  dc.innerHTML = 'DEATHS<br>'+ deaths
-
-  // set random level color
-  document.body.style.setProperty('--root-clr', 'hsl('+Math.random()*360+'deg,75%,50%)')
-
-  // add tiles for new level
-  for(var i=0;i<cols*rows;i++) {
-    var d = document.createElement('div')
-    d.className = 'tile'
-
-    if(levels[level_num].map[i] == 0) {   
-      d.className = 'tile ground' 
-      // d.style.background = 'dimgray'
-    }
-    if(levels[level_num].map[i] == 2) {
-      d.className = 'tile lava'      
-    }  
-    if(levels[level_num].map[i] == 3) {
-      d.className = 'tile lava spleft'      
-    }
-    if(levels[level_num].map[i] == 4) {
-      d.className = 'tile lava sptop'      
-    }  
-    if(levels[level_num].map[i] == 5) {
-      d.className = 'tile lava spright'      
-    }
-    if(levels[level_num].map[i] == 6) {
-      d.className = 'tile portal1'      
-    }
-    if(levels[level_num].map[i] == 7) {
-      d.className = 'tile portal2'      
-    }
-    if(levels[level_num].map[i] == 8) {
-      d.className = 'tile innerwall'      
-    }
-    if(levels[level_num].map[i] == 9) {
-      d.className = 'tile nextlevel'      
-    }
-    d.setAttribute('grid_loc', [i % cols,Math.floor(i/cols)])
-    d.style.width = tile_size + 'px'
-    d.style.height = tile_size + 'px'
-    d.style.position = 'absolute'
-    // d.innerHTML = i
-    // d.style.outline = '1px dotted gray'
-    d.style.left = (i % cols)*tile_size + 'px'
-    d.style.top = Math.floor(i/cols)*tile_size + 'px'
-
-    gc.appendChild(d)
-  }    
-
-  // add player stuff
-  const ga = document.querySelector('#game_alert')
-  var pl = document.querySelector('#'+player)
-  pl.style.width = tile_size + 'px'
-  pl.style.height = tile_size + 'px'
-  pl.style.top = (tile_size*levels[level_num].start.split(',')[1]) + 'px'
-  pl.style.left = (tile_size*levels[level_num].start.split(',')[0]) + 'px'
-
-  // add info box
-  ga.innerHTML = 'Arrow keys to move and jump<br>double jump / wall sliding'
-  ga.style.opacity = '1'
-
-  var pl_loc = pl.getBoundingClientRect() 
-  var x = pl_loc.left
-
-  function updatePlayer() {
-    // get points based on player location
-    var pl_loc = pl.getBoundingClientRect()  
-    var pl_center = document.elementFromPoint(pl_loc.x + (tile_size*.5), pl_loc.y + (tile_size*.75))
-    var pl_xy1 = document.elementFromPoint(pl_loc.x + (pl_loc.width*.25), pl_loc.y + pl_loc.height + gravity)
-    var pl_xy2 = document.elementFromPoint(pl_loc.x + (pl_loc.width*.75), pl_loc.y + pl_loc.height + gravity)
-    var pl_xy3 = document.elementFromPoint(pl_loc.x - (x_speed*.5), pl_loc.y + (pl_loc.height*.5))
-    var pl_xy4 = document.elementFromPoint(pl_loc.x + pl_loc.width + (x_speed*.5), pl_loc.y + (pl_loc.height*.5))
-    var pl_xy5 = document.elementFromPoint(pl_loc.x + (pl_loc.width*.5), pl_loc.y - (gravity*.5))
-    var pl_xy6 = document.elementFromPoint(pl_loc.x + (pl_size*.5), pl_loc.y + pl_size)
-
-    // console.log(pl_center)
-
-    function endGame() {
-      alert('you died')
-    }
-
-    //if dead stop, else update player and everything else
-    if(!pl_xy1 || !pl_xy2 || dead) {
-      // endGame()
-    } else { 
-
-      // set player top   
-      // if player on ground set new top
-      if(pl_xy1.classList.contains('ground') ||
-         pl_xy2.classList.contains('ground')) {
-        gravity = 0
-      } else {
-        if(gravity < 8) {
-          gravity += .51
-        } else {
-          gravity = 8
-        }
-      }
-      pl.style.top = pl_loc.top - 6.25 - gc_loc.top + gravity + 'px'
-      // console.log(gravity)    
-
-      var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
-      if (!gamepads) {
-        return;
-      }
-      var gp = gamepads[0];
-
-      // add jump-force (change the gravity)
-      if((d[38] 
-          || (gp && (gp.buttons[0].pressed 
-                     || gp.buttons[1].pressed 
-                     || gp.buttons[2].pressed 
-                     || gp.buttons[3].pressed))) 
-         && gravity == 0) {  
-        dbljump = false
-        gravity = -9
-      } 
-      if((d[38] 
-          || (gp && (gp.buttons[0].pressed 
-                     || gp.buttons[1].pressed 
-                     || gp.buttons[2].pressed 
-                     || gp.buttons[3].pressed))) 
-         && gravity > 0) {
-        if(!dbljump) {
-          gravity = -9 
-        }      
-        dbljump = true
-      } 
-
-      if(gp){
-        var gpa = Math.round(gp.axes[0])
-        if(gpa == 0 || gravity == 0 ) {
-          pl.className = ''
-          pl.style.transform = 'rotate(0deg)'
-        }
-      }      
-
-      // track left/right movement
-      if((d[37] || (gp && gpa == -1) ) && x > gc_loc.x) {
-        if(!pl_xy3.classList.contains('ground')) { 
-          x -= x_speed
-          pl.className = ''
-          pl.classList.add('goleft')
-        } else {
-          if(gravity > 0) {
-            dbljump = false
-            gravity = 1
-            pl.style.transform = 'rotate(90deg)'
-          }
-          pl.className = ''
-        }
-      } 
-
-      // console.log(x_speed)
-      if((d[39] || (gp && gpa == 1) ) && x + pl_loc.width < gc_loc.x + gc_loc.width) {
-        if(!pl_xy4.classList.contains('ground')) {        
-          x += x_speed
-          pl.className = ''
-          pl.classList.add('goright')
-        } else {
-          if(gravity > 0) {
-            dbljump = false
-            gravity = 1
-            pl.style.transform = 'rotate(-90deg)'
-          } 
-          pl.className = ''
-        }
-      } 
-
-      pl.style.left = x - gc_loc.left + 'px'
-      // pl.style.left = x + x_speed - gc_loc.left + 'px'
-
-      // set different interactions based on tile type
-      if(pl_xy5.classList.contains('ground')) {
-        gravity = 8
-      } 
-
-      if(pl_center.classList.contains('lava')) {
-        // console.log('lava')
-        pl.style.top = (tile_size*levels[level_num].start.split(',')[1]) + 'px'
-        pl.style.left = (tile_size*levels[level_num].start.split(',')[0]) + 'px'
-        pl_loc = pl.getBoundingClientRect()
-        x = pl_loc.left
-        deaths++
-        dc.innerHTML = 'DEATHS<br>'+ deaths
-      }
-
-      if(pl_center.classList.contains('portal1')) {
-        let p2 = document.querySelector('.portal2')
-        let p2_loc = p2.getBoundingClientRect()
-        pl.style.top = p2_loc.top - gc_loc.top + 'px'
-        pl.style.left = p2_loc.left - gc_loc.left + 'px'
-        pl_loc = pl.getBoundingClientRect()
-        x = pl_loc.left
-      }
-
-      if(pl_center.classList.contains('nextlevel')) {
-        buildGame()
-      }
-
-      timer++
-      function secondsToTime(e){
-        var h = Math.floor(e / 3600).toString().padStart(2,'0'),
-            m = Math.floor(e % 3600 / 60).toString().padStart(2,'0'),
-            s = Math.floor(e % 60).toString().padStart(2,'0');
-
-        return h + ':' + m + ':' + s;
-        //return `${h}:${m}:${s}`;
-      }
-      tc.innerHTML = 'TIME<br>' + secondsToTime(timer)      
-
-      playerTrail()
-      setTimeout(updatePlayer, 1000/45) // update player 30-60 times a second
-    }  
-  }
-
-  updatePlayer()
-
-  // add trail behind player b/c it's fun
-  function playerTrail() {
-    if(player == 'player') {
-      let x = pl.getBoundingClientRect().x
-      let y = pl.getBoundingClientRect().y
-      let b = document.createElement('div')
-      b.className = 'trailBall'
-      b.style.left = x + 11 - gc_loc.left + 'px'
-      b.style.top = y + 5 - gc_loc.top + 'px'
-      b.onanimationend = function(){
-        b.remove()
-      }
-      gc.appendChild(b)  
-    }
-
-    if(player == 'player2') {
-      let x = pl.getBoundingClientRect().x
-      let y = pl.getBoundingClientRect().y
-      let b = document.createElement('div')
-      b.className = 'trailBall'
-      let xx = Math.floor(Math.random()*15) + 5
-      b.style.left = x + xx - gc_loc.left + 'px'
-      b.style.top = y - 3 - gc_loc.top + 'px'
-      b.onanimationend = function(){
-        b.remove()
-      }
-      gc.appendChild(b)  
-    }
-
-  }
-
-  // key tracking
-  if(level_num > 0){
-    window.addEventListener('keydown', function(e) { 
-      d[e.which] = true;
-    })
-    window.addEventListener('keyup', function(e) {   
-      d[e.which] = false; 
-      pl.className = ''
-      pl.style.transform = 'rotate(0deg)'
-    })
-    window.addEventListener("gamepadconnected", function(e) {
-      var gp = navigator.getGamepads()[e.gamepad.index];
-      // console.log("A " + gp.id + " was successfully detected! There are a total of " + gp.buttons.length + " buttons.")
-    });
-  } else {
-    timer = 0
-    deaths = 0
-  }
+function random( min, max ) {
+  return Math.round( min + ( Math.random() * ( max - min ) ) );
 }
 
-window.addEventListener('load', buildGame)
-window.focus()
+function randomChoice(array){
+  return array[ Math.round( random( 0, array.length - 1 ) ) ];
+}
+
+var InfiniteRunner = Sketch.create({
+  fullscreen: false,
+  width: 640,
+  height: 360,
+  container: document.getElementById('container')
+});
+
+/*******************/
+/*****VECTOR2*******/
+/******************/
+
+function Vector2(x, y, width, height){
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
+  this.previousX = 0;
+  this.previousY = 0;
+};
+
+Vector2.prototype.setPosition = function(x, y) {
+
+  this.previousX = this.x;
+  this.previousY = this.y;
+
+  this.x = x;
+  this.y = y;
+
+};
+
+Vector2.prototype.setX = function(x) {
+
+  this.previousX = this.x;
+  this.x = x;
+
+};
+
+Vector2.prototype.setY = function(y) {
+
+  this.previousY = this.y;
+  this.y = y;
+
+};
+
+
+Vector2.prototype.insercects = function(obj){
+
+  if(obj.x < this.x + this.width && obj.y < this.y + this.height &&
+     obj.x + obj.width > this.x && obj.y + obj.height > this.y ){
+    return true;
+  }
+
+  return false;
+};
+
+Vector2.prototype.insercectsLeft = function(obj){
+
+  if(obj.x < this.x + this.width && obj.y < this.y + this.height ){
+    return true;
+  }
+
+  return false;
+};
+
+/****************/
+/*****PLAYER****/
+/**************/
+
+function Player(options){
+
+  this.setPosition(options.x, options.y);
+  this.width = options.width;
+  this.height = options.height;
+  this.velocityX = 0;
+  this.velocityY = 0;
+  this.jumpSize = -13;
+  this.color = '#181818';
+
+}
+
+Player.prototype = new Vector2;
+
+Player.prototype.update = function() {
+  this.velocityY += 1;
+  this.setPosition(this.x + this.velocityX, this.y + this.velocityY);
+
+  if(this.y > InfiniteRunner.height || this.x + this.width < 0){
+    this.x = 150;
+    this.y = 50;
+    this.velocityX = 0;
+    this.velocityY = 0;
+    InfiniteRunner.jumpCount = 0;
+    InfiniteRunner.aceleration = 0;
+    InfiniteRunner.acelerationTweening = 0;
+    InfiniteRunner.scoreColor = '#181818';
+    InfiniteRunner.platformManager.maxDistanceBetween = 350;
+    InfiniteRunner.platformManager.updateWhenLose();
+  }
+
+  if((InfiniteRunner.keys.UP || InfiniteRunner.keys.SPACE || InfiniteRunner.keys.W || InfiniteRunner.dragging) && this.velocityY < -8){
+    this.velocityY += -0.75;
+  }
+
+};
+
+Player.prototype.draw = function() {
+  InfiniteRunner.fillStyle = this.color;
+  InfiniteRunner.fillRect(this.x, this.y, this.width, this.height);
+};
+
+/*******************/
+/*****platform****/
+/******************/
+
+function Platform(options){
+  this.x = options.x;
+  this.y = options.y;
+  this.width = options.width;
+  this.height = options.height;
+  this.previousX = 0;
+  this.previousY = 0;
+  this.color = options.color;
+}
+
+Platform.prototype = new Vector2;
+
+Platform.prototype.draw = function() {
+  InfiniteRunner.fillStyle = this.color;
+  InfiniteRunner.fillRect(this.x, this.y, this.width, this.height);
+};
+
+/*******************PLATFORM MANAGER*************/
+
+function PlatformManager(){
+  this.maxDistanceBetween = 300;
+  this.colors = ['#2ca8c2', '#98cb4a', '#f76d3c', '#f15f74','#5481e6'];
+
+  this.first = new Platform({x: 300, y: InfiniteRunner.width / 2, width: 400, height: 70})
+  this.second = new Platform({x: (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween), y: random(this.first.y - 128, InfiniteRunner.height - 80), width: 400, height: 70})
+  this.third = new Platform({x: (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween), y: random(this.second.y - 128, InfiniteRunner.height - 80), width: 400, height: 70})
+
+  this.first.height = this.first.y + InfiniteRunner.height;
+  this.second.height = this.second.y + InfiniteRunner.height;
+  this.third.height = this.third.y + InfiniteRunner.height;
+  this.first.color = randomChoice(this.colors);
+  this.second.color = randomChoice(this.colors);
+  this.third.color = randomChoice(this.colors);
+
+  this.colliding = false;
+
+  this.platforms = [this.first, this.second, this.third];
+}
+
+PlatformManager.prototype.update = function() {
+
+  this.first.x -= 3 + InfiniteRunner.aceleration;
+  if(this.first.x + this.first.width < 0 ){
+    this.first.width = random(450, InfiniteRunner.width + 200);
+    this.first.x = (this.third.x + this.third.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+    this.first.y = random(this.third.y - 32, InfiniteRunner.height - 80);
+    this.first.height = this.first.y + InfiniteRunner.height + 10;
+    this.first.color = randomChoice(this.colors);
+  }
+
+  this.second.x -= 3 + InfiniteRunner.aceleration;
+  if(this.second.x + this.second.width < 0 ){
+    this.second.width = random(450, InfiniteRunner.width + 200);
+    this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+    this.second.y = random(this.first.y - 32, InfiniteRunner.height - 80);
+    this.second.height = this.second.y + InfiniteRunner.height + 10;
+    this.second.color = randomChoice(this.colors);
+  }
+
+  this.third.x -= 3 + InfiniteRunner.aceleration;
+  if(this.third.x + this.third.width < 0 ){
+    this.third.width = random(450, InfiniteRunner.width + 200);
+    this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+    this.third.y = random(this.second.y - 32, InfiniteRunner.height - 80);
+    this.third.height = this.third.y + InfiniteRunner.height + 10;
+    this.third.color = randomChoice(this.colors);
+  }
+
+};
+
+PlatformManager.prototype.updateWhenLose = function() {
+
+  this.first.x = 300;
+  this.first.color = randomChoice(this.colors);
+  this.first.y = InfiniteRunner.width / random(2,3);
+  this.second.x = (this.first.x + this.first.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+  this.third.x = (this.second.x + this.second.width) + random(this.maxDistanceBetween - 150, this.maxDistanceBetween);
+
+};
+
+/*******************PARTICLE SYSTEM*************/
+
+function Particle(options){
+  this.x = options.x;
+  this.y = options.y;
+  this.size = 10;
+  this.velocityX = options.velocityX || random(-(InfiniteRunner.aceleration * 3) + -8,-(InfiniteRunner.aceleration * 3));
+  this.velocityY = options.velocityY || random(-(InfiniteRunner.aceleration * 3) + -8,-(InfiniteRunner.aceleration * 3));
+  this.color = options.color;
+}
+
+Particle.prototype.update = function() {
+  this.x += this.velocityX;
+  this.y += this.velocityY;
+  this.size *= 0.89;
+};
+
+Particle.prototype.draw = function() {
+  InfiniteRunner.fillStyle = this.color;
+  InfiniteRunner.fillRect(this.x, this.y, this.size, this.size);
+};
+
+/************************************************/
+
+InfiniteRunner.setup = function () {
+
+  this.jumpCount = 0;
+  this.aceleration = 0;
+  this.acelerationTweening = 0;
+
+  this.player = new Player({x: 150, y: 30, width: 32, height: 32});
+
+  this.platformManager = new PlatformManager();
+
+  this.particles = [];
+  this.particlesIndex = 0;
+  this.particlesMax = 20;
+  this.collidedPlatform = null;
+  this.scoreColor = '#181818';
+  this.jumpCountRecord = 0;
+
+};
+
+InfiniteRunner.update = function() {
+
+  this.player.update();
+
+  switch(this.jumpCount){
+    case 10:
+      this.acelerationTweening = 1;
+      this.platformManager.maxDistanceBetween = 430;
+      this.scoreColor = '#076C00';
+      break;
+    case 25:
+      this.acelerationTweening = 2;
+      this.platformManager.maxDistanceBetween = 530;
+      this.scoreColor = '#0300A9';
+      break;
+    case 40:
+      this.acelerationTweening = 3;
+      this.platformManager.maxDistanceBetween = 580;
+      this.scoreColor = '#9F8F00';
+      break;
+  }
+
+  this.aceleration += (this.acelerationTweening - this.aceleration) * 0.01;
+
+  for (i = 0; i < this.platformManager.platforms.length; i++) {
+    if(this.player.insercects(this.platformManager.platforms[i])){
+      this.collidedPlatform = this.platformManager.platforms[i];
+      if (this.player.y < this.platformManager.platforms[i].y) {
+        this.player.y = this.platformManager.platforms[i].y;
+        this.player.velocityY = 0;
+      }
+
+      this.player.x = this.player.previousX;
+      this.player.y = this.player.previousY;
+
+      this.particles[(this.particlesIndex++)%this.particlesMax] = new Particle({
+        x: this.player.x,
+        y: this.player.y + this.player.height,
+        color: this.collidedPlatform.color
+      });
+
+      if(this.player.insercectsLeft(this.platformManager.platforms[i])){
+        this.player.x = this.collidedPlatform.x - 64;
+        for (i = 0; i < 10; i++) {
+          this.particles[(this.particlesIndex++)%this.particlesMax] = new Particle({
+            x: this.player.x + this.player.width,
+            y: random(this.player.y, this.player.y + this.player.height),
+            velocityY: random(-30,30),
+            color: randomChoice(['#181818','#181818', this.collidedPlatform.color])
+          });
+        };
+        this.player.velocityY = -10 + -(this.aceleration * 4);
+        this.player.velocityX = -20 + -(this.aceleration * 4);
+        // this.jumpCount = 0;
+        // this.aceleration = 0;
+        // this.acelerationTweening = 0;
+        // this.scoreColor = '#181818';
+        // this.platformManager.maxDistanceBetween = 350;
+        // this.platformManager.updateWhenLose();
+
+
+      } else {
+
+        if(this.dragging || this.keys.SPACE || this.keys.UP || this.keys.W){
+          this.player.velocityY = this.player.jumpSize;
+          this.jumpCount++;
+          if(this.jumpCount > this.jumpCountRecord){
+            this.jumpCountRecord = this.jumpCount;
+          }
+        }
+
+      }
+
+    }
+  };
+
+  for (i = 0; i < this.platformManager.platforms.length; i++) {
+    this.platformManager.update();
+  };
+
+  for (i = 0; i < this.particles.length; i++) {
+    this.particles[i].update();
+  };
+
+};
+
+InfiniteRunner.draw = function(){
+  this.player.draw();
+
+  for (i = 0; i < this.platformManager.platforms.length; i++) {
+    this.platformManager.platforms[i].draw();
+  };
+
+  for (i = 0; i < this.particles.length; i++) {
+    this.particles[i].draw();
+  };
+
+  this.font = '12pt Arial';
+  this.fillStyle = '#181818';
+  this.fillText('RECORD: '+this.jumpCountRecord, this.width - (150 + (this.aceleration * 4)), 33 - (this.aceleration * 4));
+  this.fillStyle = this.scoreColor;
+  this.font = (12 + (this.aceleration * 3))+'pt Arial';
+  this.fillText('JUMPS: '+this.jumpCount, this.width - (150 + (this.aceleration * 4)), 50);
+
+};
+
+InfiniteRunner.resize = function() {
+
+};

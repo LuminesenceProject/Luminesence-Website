@@ -20,3 +20,28 @@ function toggleTheme() {
 }
 
 document.getElementById('themeButton').onclick = toggleTheme;
+
+
+// client updater
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var updateDate = 2022-9-7;
+var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
+
+var updateScreen = document.getElementById("updateScreen");
+updateScreen.style.display = 'none';
+
+document.getElementById("close").addEventListener("click", close);
+function close() {
+  updateScreen.style.display = 'none';
+  return;
+}
+
+if (currentDate < updateDate) {
+  updateScreen.style.display = 'block';
+}
+
+if (currentDate < updateDate - 10) {
+  document.getElementById("close").style.display = 'none';
+  updateScreen.style.display = 'block';
+}

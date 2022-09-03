@@ -195,7 +195,6 @@ main {
   --bg-primary: #e6fafd;
   --bg-secondary: #fefefe;
   color: black;
-  background-color: lightblue;
 }
 
 .theme-icon {
@@ -424,3 +423,42 @@ main {
     }
   
   }
+
+/* update alert */
+
+#updateScreen {
+  background-color: #1f2223;
+  color: #fff;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.ud-screen {
+  background-color: #5385c1;
+  color: white;
+  transition: 0.5s;
+  border: 0;
+  font-size: 1.3em;
+  font-family: "Roboto", sans-serif;
+  padding: 15px 25px;
+  position: relative;
+  z-index: 101;
+}
+.ud-screen :hover{
+  background-color: #6692c8;
+}
+.ud-screen :focus {
+  outline: 0;
+}
+
+@media screen and (max-width: 500px) {
+  svg {
+    width: 90vw;
+    height: 90vw;
+  }
+}
