@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  transition: 0.3s cubic-bezier(0.6, 0, 0.2, 1);
+}
+body {
+  transition: 0s;
+  background-color: #bbc;
+}
+.canvas-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 720px;
+  width: 720px;
+}
+#cnv {
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-height: 800px) {
+  .canvas-container {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+@media screen and (max-width: 900px) {
+  .canvas-container {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}

@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap");
+/**
+ * Playable Pong *
+*/
+/* 1=fast 10=slow*/
+body {
+  overflow: hidden;
+  font-family: 'Montserrat Alternates', sans-serif;
+  background: #000;
+  margin: 0;
+  padding: 0;
+  color: #0f0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body:before {
+  /* scanline effect - full screen */
+  content: "";
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 40, 40, 0.25) 50%);
+  background-size: 100% 4px;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+body * {
+  /* blur glow */
+  text-shadow: 0px 0px 3px rgba(90, 255, 90, 0.9), 0px 0px 3px rgba(90, 255, 90, 0.9), 0px 0px 7px rgba(90, 255, 90, 0.9);
+}
+
+h1 {
+  text-align: center;
+  font: 400 60px 'Impact';
+  letter-spacing: 5px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  line-height: 1em;
+  color: #0afa0a;
+  font-weight: bold;
+  font-size: 70px;
+  text-shadow: 0px 0px 0 #35bb35, 0px 1px 0 #47a947, 0px 2px 0 #589858, 0px 3px 0 #6a866a, 0px 4px 0 #7b757b, 0px 5px 0 #8c648c, 0px 6px 5px rgba(0, 0, 0, 0.25), 0px 6px 1px rgba(0, 0, 0, 0.5), 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  text-align: center;
+  font: 400 24px "";
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+footer p {
+  font-size: 12px;
+}
+
+#court {
+  margin: 29px auto;
+  width: 600px;
+  height: 301px;
+  position: relative;
+  border: 4px dotted #3f3;
+  text-shadow: 0px 0px 7px rgba(90, 255, 90, 0.9), 0px 0px 7px rgba(90, 255, 90, 0.9);
+  cursor: url(https://i.imgur.com/OGNRZH1.gif), text;
+}
+
+#court:before {
+  /* net */
+  left: 50%;
+  content: "";
+  width: 10px;
+  height: 300px;
+  position: absolute;
+  border-left: 4px dashed #3f3;
+}
+
+/* ------ ball components ------- */
+#ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: #3f3;
+  border-radius: 50%;
+  cursor: url(https://i.imgur.com/OGNRZH1.gif), text;
+  box-shadow: 0px 0px 7px rgba(90, 255, 90, 0.9), 0px 0px 7px rgba(90, 255, 90, 0.9);
+  animation: fadein 2s 1 linear;
+  transform: translate3d(10px, 0, 0);
+}
+
+#horizontal {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 45%;
+  cursor: url(https://i.imgur.com/OGNRZH1.gif), text;
+}
+
+#player2 {
+  /* player 2 */
+  background: #3f3;
+  position: absolute;
+  width: 7px;
+  height: 44px;
+  right: 4px;
+  margin-top: -12px;
+}
+
+/* ------ ball animation ------- */
+input:checked + input:hover ~ #horizontal #ball {
+  /* ready: pulse ball  */
+  animation: pulse 0.5s infinite;
+}
+
+input:hover:checked ~ #horizontal {
+  animation: updown 2.85s infinite linear;
+}
+
+input:hover:checked ~ #horizontal #ball {
+  animation: leftright 4.05s infinite linear;
+  background: cyan;
+}
+
+input:hover:checked ~ #horizontal #player2 {
+  animation: twitchy 4.05s infinite linear;
+}
+
+/* ------ The Scoring System------- */
+ul {
+  position: absolute;
+  right: 30%;
+  list-style: none;
+  height: 40px;
+  width: 80px;
+  overflow: hidden;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  top: 20px;
+  text-align: center;
+}
+
+ul li {
+  position: absolute;
+  top: -50px;
+  width: 80px;
+}
+
+/* position score lists */
+ul#pl1 {
+  left: 25%;
+}
+
+ul#pl2 {
+  left: 64%;
+  width: 180px;
+  text-align: left;
+}
+
+ul#pl1 li:nth-of-type(1) {
+  top: 0px;
+}
+
+input:nth-of-type(1):checked ~ ul#pl2 li:nth-of-type(1),
+input:nth-of-type(2):checked ~ ul#pl2 li:nth-of-type(2),
+input:nth-of-type(3):checked ~ ul#pl2 li:nth-of-type(3),
+input:nth-of-type(4):checked ~ ul#pl2 li:nth-of-type(4),
+input:nth-of-type(5):checked ~ ul#pl2 li:nth-of-type(5),
+input:nth-of-type(6):checked ~ ul#pl2 li:nth-of-type(6),
+input:nth-of-type(2):hover:checked ~ ul#pl2 li:nth-of-type(1),
+input:nth-of-type(3):hover:checked ~ ul#pl2 li:nth-of-type(2),
+input:nth-of-type(4):hover:checked ~ ul#pl2 li:nth-of-type(3),
+input:nth-of-type(5):hover:checked ~ ul#pl2 li:nth-of-type(4),
+input:nth-of-type(6):hover:checked ~ ul#pl2 li:nth-of-type(5) {
+  top: 0px;
+  /* show the score (LI) associated with each input */
+  transition: top 0.75s;
+}
+
+input:nth-of-type(1):hover:checked ~ ul#pl2 li:nth-of-type(1),
+input:nth-of-type(2):hover:checked ~ ul#pl2 li:nth-of-type(2),
+input:nth-of-type(3):hover:checked ~ ul#pl2 li:nth-of-type(3),
+input:nth-of-type(4):hover:checked ~ ul#pl2 li:nth-of-type(4),
+input:nth-of-type(5):hover:checked ~ ul#pl2 li:nth-of-type(5),
+input:nth-of-type(6):hover:checked ~ ul#pl2 li:nth-of-type(6) {
+  top: -50px;
+  /* delay the next score offscreen WHILE the hover is active */
+}
+
+/* ------ Scoring switches ------- */
+input {
+  /* hide all */
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  appearance: none;
+  position: absolute;
+  top: -100px;
+  left: -10px;
+  cursor: url(https://i.imgur.com/OGNRZH1.gif), text;
+}
+
+input:checked + input {
+  left: -20px;
+  top: 36%;
+  width: 70px;
+  height: 50px;
+  z-index: 99;
+}
+
+input:hover:checked {
+  /* uncomment the next line to get an idea how we're faking collision detection with CSS hover - yes it's a huge hack ;) */
+  /*background: rgba(0, 0, 200, 0.3);*/
+  left: -20px;
+  top: 36%;
+  width: 100px;
+  height: 100px;
+  outline: 0px none;
+  animation: updown 2.85s infinite linear, targetzone 4.05s infinite linear;
+  z-index: 99;
+}
+
+input:hover:checked + input {
+  /* keep the NEXT targetzone hidden till previous hover state ends */
+  left: 0px;
+  top: -100px;
+  width: 50px;
+  height: 50px;
+}
+
+/* ------ reset score button ------- */
+input#rd0 {
+  /* reset scores*/
+  left: 550px;
+  appearance: normal;
+  width: 50px;
+  height: 50px;
+}
+
+input#rd0:hover:checked {
+  animation: none;
+}
+
+input#rd0:before {
+  /* reset scores*/
+  content: "Reset";
+  color: white;
+  font-size: 12px;
+  height: 25px;
+}
+
+/* ------ The Animations ------- */
+@keyframes updown {
+  0%, 50%, 100% {
+    /*  the middle  */
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    /*  the top  */
+    transform: translate3d(0, 142px, 0);
+  }
+  75% {
+    /* the bottom */
+    transform: translate3d(0, -136px, 0);
+  }
+}
+@keyframes leftright {
+  0%, 100% {
+    /* left side */
+    transform: translate3d(10px, 0, 0);
+    width: 10px;
+    /*squash ball*/
+    height: 25px;
+  }
+  5%, 48%, 55%, 99% {
+    /* unsquash ball */
+    width: 20px;
+    height: 20px;
+  }
+  50% {
+    /* right side */
+    transform: translate3d(580px, 0, 0);
+    width: 10px;
+    /*squash ball*/
+    height: 35px;
+  }
+}
+@keyframes targetzone {
+  /* ball in general play */
+  0%, 96% {
+    width: 800px;
+    height: 700px;
+    margin: -50% 0 0 -50%;
+  }
+  /* ball about to pass player 1's baseline */
+  96.1%, 100% {
+    width: 150px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    margin: 10% 0 0 -50px;
+  }
+}
+@keyframes pulse {
+  /* pulse the ball -- 'READY!' */
+  0%, 100% {
+    opacity: .2;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  /* fades new ball in after each point */
+  0% {
+    height: 0;
+  }
+  90% {
+    height: 0;
+  }
+  100% {
+    height: 20px;
+  }
+}
+@keyframes twitchy {
+  /* make player twitch like a real player  */
+  0%,
+  100% {
+    transform: translate3d(0, 40px, 0);
+  }
+  20% {
+    transform: translate3d(0, -25px, 0);
+  }
+  44% {
+    transform: translate3d(0, 25px, 0);
+  }
+  46% {
+    transform: translate3d(0, -15px, 0);
+  }
+  48% {
+    transform: translate3d(0, 15px, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  70% {
+    transform: translate3d(0, 60px, 0);
+  }
+  85% {
+    transform: translate3d(0, -30px, 0);
+  }
+}
