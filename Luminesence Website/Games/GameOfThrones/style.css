@@ -37,7 +37,6 @@ label>span{
 .log{
   font-size: 80%;
   border-bottom: solid 1px #444;
-  overflow: scroll;
 }
 
 .family{

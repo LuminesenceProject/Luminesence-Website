@@ -25,7 +25,7 @@ document.getElementById('themeButton').onclick = toggleTheme;
 // client updater
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-9-7;
+var updateDate = 2022-9-12;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");

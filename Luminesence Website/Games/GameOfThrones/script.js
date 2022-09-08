@@ -13,9 +13,10 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     }
   }
   $scope.taxCD = 0;
+  $scope.taxModifier = 1;
   $scope.collectTaxes = function() {
     if ($scope.taxCD === 0) {
-      var taxes = Math.round(Math.random() * 300);
+      var taxes = Math.round(Math.random() * 300 * $scope.taxModifier);
 
       $scope.family.steel += taxes;
 
@@ -30,9 +31,34 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       $scope.family.steel -= amt * 10;
       $scope.family.soldiers += amt;
 
+
       $scope.log("You hired " + amt + " soldiers");
     } else {
       $scope.log("Not enough funds to hire soldiers");
+    }
+  }
+   $scope.hireDragon = function(amt) {
+    amt = Math.floor(amt);
+    if ($scope.family.steel >= amt * 50000) {
+      $scope.family.steel -= amt * 50000;
+      $scope.family.dragons += amt;
+	$scope.family.armymodifier = $scope.family.armymodifier+$scope.family.dragons*4;
+      $scope.log("You found " + amt + " dragon");
+    } else {
+      $scope.log("Not enough funds to find a dragon");
+    }
+  }
+  $scope.hireFamily = function() {
+    if ($scope.family.steel >= 10000) {
+      $scope.family.steel -= 10000;
+      $scope.log("You recruited a retainer");
+      $scope.family.members.push({
+      name: "Retainer of house",
+      alive: true,
+      location: "Home"
+    });
+    } else {
+      $scope.log("Not enough funds to recruit family");
     }
   }
   $scope.checkFamilyName = function() {
@@ -40,7 +66,66 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       $scope.family.name += "-wannabe";
     }
   }
-  $scope.places = [{
+  /*$scope.places = {
+	//name: "",
+    //house: "",
+	//castles: []
+  }
+  
+  $scope.places.castles.push({
+    name: "Winterfell",
+    house: "Stark"
+	 });
+  $scope.places.castles.push({
+    name: 'castles Black',
+    house: 'Night\'s Watch'
+	 });
+	$scope.places.castles.push({
+    name: 'The Dreadfort',
+    house: 'Bolton'
+	 });
+  $scope.places.castles.push({
+    name: 'King\'s Landing',
+    house: 'Baratheon'
+	 });
+  $scope.places.castles.push({
+    name: 'Casterly Rock',
+    house: 'Lannister'
+	 });
+  $scope.places.castles.push({
+    name: 'Braavos',
+    house: 'Braavos'
+	 });
+  $scope.places.castles.push({
+    name: 'Iron Islands',
+    house: 'Greyjoy'
+	 });
+  $scope.places.castles.push({
+    name: 'Riverlands',
+    house: 'Tully'
+	 });
+  $scope.places.castles.push({
+    name: 'Vale of Arryn',
+    house: 'Arryn'
+	 });
+  $scope.places.castles.push({
+    name: 'Lannisport',
+    house: 'Lannister'
+	 });
+  $scope.places.castles.push({
+    name: 'High Garden',
+    house: 'Tyrell'
+});
+  $scope.places.castles.push({
+    name: 'Dorne',
+    house: 'Martell'
+ });	
+  $scope.places.castles.push({
+    name: 'White Harbour',
+    house: 'Stark'
+  });
+    */
+$scope.places = [{
     name: 'Winterfell',
     house: 'Stark'
   }, {
@@ -60,7 +145,8 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     house: 'Braavos'
   }, {
     name: 'Iron Islands',
-    house: 'Greyjoy'
+    house: 'Greyjoy',
+    color: "grey"
   }, {
     name: 'Riverlands',
     house: 'Tully'
@@ -80,11 +166,12 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     name: 'White Harbour',
     house: 'Stark'
   }];
-
   $scope.family = {
     name: "",
     steel: 1000,
     soldiers: 20,
+	armymodifier: 1,
+	dragons: 0,
     members: [],
     day: 0,
     enemies: [],
@@ -100,6 +187,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     });
 
   }
+
   $scope.houses = [
     "stark",
     "lannister",
@@ -112,7 +200,8 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     "arryn",
     "tyrell",
     "clegane",
-    "frey"
+    "frey",
+    "Lumi"
   ]
 
   $scope.lords = [
@@ -132,7 +221,8 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     "Margery Tyrell",
     "Ollena Tyrell",
     "Selyse Baratheon",
-    "Balon Greyjoy"
+    "Balon Greyjoy",
+    "Real Man"
   ]
 
   $scope.people = [
@@ -173,10 +263,11 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     "Wylla",
     "Allister Thorne",
     "Loras Tyrell",
-    "Kevan Lannister"
+    "Kevan Lannister",
+    "JSTDAM"
   ]
 
-  $scope.run = function() {
+ $scope.run = function() {
     $timeout(function() {
       var event = $scope.events[Math.floor(Math.random() * $scope.events.length)];
       console.log(event);
@@ -194,7 +285,6 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   $scope.continue = function() {
     if ($scope.paused) {
       $scope.paused = false;
-
       $scope.run();
     }
   }
@@ -238,7 +328,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     }
   }
 
-  $scope.updateState = function() {
+ $scope.updateState = function() {
     var someFamilyIsAlive = false;
     var somebodyIsAlive = $scope.people.length > 0;
     if ($scope.taxCD > 0) {
@@ -291,25 +381,62 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     price: 30000,
     successRate: 0.95
   }]
+  $scope.diplomacy = [{
+    name: "No gifts",
+    price: 20,
+    successRate: 0.01
+  }, {
+    name: "A fine wine",
+    price: 500,
+    successRate: 0.12
+  }, {
+    name: "Chest of gold",
+    price: 1000,
+    successRate: 0.25
+  }, {
+    name: "A hamlet",
+    price: 2000,
+    successRate: 0.4
+  }, {
+    name: "A village",
+    price: 2500,
+    successRate: 0.5
+  }, {
+    name: "A small city",
+    price: 30000,
+    successRate: 0.95
+  }]
   $scope.showAssassinOptions = false;
+  $scope.showDiploOptions = false;
   $scope.assassinationTarget = "";
   $scope.assassinationCD = 0;
+  $scope.diploCD = 0;
   $scope.cancelAssassination = function() {
     $scope.showAssassinOptions = false;
     $scope.continue();
   }
+    $scope.cancelDiplo = function() {
+    $scope.showDiploOptions = false;
+    $scope.continue();
+  }
   $scope.confirmAssassination = function(person) {
     if ($scope.assassinationCD === 0 && $scope.stage >= 0) {
-      if ($scope.stage < 1 && person === "Joffrey Baratheon") {
-        $scope.log("He's a twat, yes, but still a kid. Can't assassinate him yet.")
-      } else {
         $scope.assassinationTarget = person;
-        $scope.pause();
+		$scope.pause();
         $scope.showAssassinOptions = true;
       }
 
     }
-  }
+  
+	$scope.confirmDiplo = function(person) {
+    if ($scope.diploCD === 0 && $scope.stage >= 0) {
+        $scope.diploTarget = person;
+		$scope.pause();
+        $scope.showDiploOptions = true;
+      }
+
+    }
+  
 
   $scope.orderKill = function(assassin, person) {
     if ($scope.family.steel >= assassin.price) {
@@ -328,6 +455,22 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
 
   }
 
+  $scope.orderDiplo = function(diplomacy, person) {
+    if ($scope.family.steel >= diplomacy.price) {
+      $scope.family.steel -= diplomacy.price;
+      $scope.showDiploOptions = false;
+      var roll = Math.random();
+      if (roll < diplomacy.successRate ) {
+        $scope.family.allies.push(person);
+        $scope.log("Sent a gift, " + diplomacy.name + " to get an alliance with " + person + ", and the attempt was successful");
+      } else {
+        $scope.log("Unfortunately, " + diplomacy.name + " has failed to get an alliance with " + person);
+      }
+      $scope.continue();
+	  $scope.diploCD = 25;
+    }
+
+  }
   $scope.killPerson = function(person) {
     if ($scope.family.allies.indexOf(person) >= 0) {
       $scope.family.allies.splice($scope.family.allies.indexOf(person), 1);
@@ -363,7 +506,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     if (Math.random() < 0.05) {
       if ($scope.family.soldiers > 0) {
         var enemies = Math.floor(Math.random() * $scope.family.soldiers + 10);
-        $scope.family.soldiers -= Math.floor(enemies * Math.random() * 0.5);
+        $scope.family.soldiers -= Math.floor(enemies * Math.random() * 0.5 / $scope.armymodifier);
 
         var invader = $scope.people[Math.floor(Math.random() * $scope.people.length)];
 
@@ -445,11 +588,12 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   }
   $scope.events.push(allianceWith);
 
-  var invadePlace = function() {
-    if (Math.random() < 0.2 && $scope.stage > 0) {
+   var invadePlace = function() {
+    var randomchance = Math.random()*1500/($scope.family.soldiers*$scope.family.armymodifier);
+    if (randomchance() < 0.2 && $scope.stage > 0) {
       var randPlace = $scope.places[Math.floor(Math.random() * $scope.places.length)];
       if (randPlace.house != $scope.family.name && randPlace.name != "Castle Black") {
-        if (Math.random() < 0.2 && $scope.family.soldiers > 400) {
+        if (randomchance() < 0.2 && $scope.family.soldiers > 400) {
           var newMen = Math.round(Math.random() * 100) + 5;
           var newSteel = Math.round(Math.random() * 3000) + 100;
 
@@ -461,7 +605,15 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
           randPlace.house = $scope.family.name;
           $scope.family.steel += newSteel;
           $scope.family.soldiers += newMen;
-        } else if ($scope.family.soldiers > 400) {
+        } else if (randomchance() < 0.5 && randomchance() > 0.2 &&  $scope.family.soldiers > 400) {
+          var soldiersDied = Math.floor(Math.random() * $scope.family.soldiers * 0.5);
+          var leader = $scope.randomFamily(true);
+          $scope.log(leader.name + " marched against " + randPlace.name + " and captured it despite fairly heavy losses, " + soldiersDied + " soldiers died.");
+
+          $scope.family.soldiers -= soldiersDied;
+        }
+        
+        else if ($scope.family.soldiers > 400) {
           var soldiersDied = Math.floor(Math.random() * $scope.family.soldiers * 0.8);
 
           var leader = $scope.randomFamily(true);
@@ -528,8 +680,8 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   var visitsNightsWatch = function() {
     if (Math.random() < 0.02 && $scope.stage == 2 && $scope.nightsWatchRecruiting) {
       var person = $scope.randomFamily(true);
-      person.location = "Castle Black";
-      $scope.log(person.name + " journeyed to Castle Black to learn about the Night's Watch. They speak of White Walkers, but they're extinct... right?");
+      person.location = "castles Black";
+      $scope.log(person.name + " journeyed to castles Black to learn about the Night's Watch. They speak of White Walkers, but they're extinct... right?");
       $scope.nightsWatchRecruiting = false;
     }
   }
@@ -560,7 +712,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     if (!$scope.ollied && Math.random() < 0.13) {
       var person = null;
       angular.forEach($scope.family.members, function(member) {
-        if (member.alive && member.location == "Castle Black") {
+        if (member.alive && member.location == "castles Black") {
           person = member;
         }
       });
@@ -647,7 +799,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     if ($scope.stage > 1 && Math.random() < 0.3 && $scope.people.length > 1) {
       var person = $scope.people[Math.floor(Math.random() * $scope.people.length)];
 
-      var place = $scope.places[Math.floor(Math.random() * $scope.places.length)];
+      var place = $scope.places.castles[Math.floor(Math.random() * $scope.places.length)];
 
       var personHouse = "";
       angular.forEach($scope.houses, function(house) {
@@ -657,9 +809,9 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
         }
       });
 
-      if (personHouse && personHouse !== place.house) {
-        place.house = personHouse;
-        $scope.log(person + " attacked " + place.name + " and took control of it.");
+      if (personHouse && personHouse !== place.castles.house) {
+        place.castles.house = personHouse;
+        $scope.log(person + " attacked " + place.castles.name + " and took control of it.");
       }
     }
 

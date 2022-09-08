@@ -13,7 +13,8 @@
 <body ng-controller="MainCtrl">
   <div ng-hide="started">
     <h2>Game of Thrones Simulator</h2>
-    <h5>A story-based minigame. You run a House, and try to survive.</h5>
+    <h5>A story-based minigame by <a href="https://www.reddit.com/u/dSolver" target="_blank">dSolver</a>. You run a House, and try to survive.</h5>
+    </br>
     <hr>
     <div style="padding: 1em">
       <h6>Step One: Build your House:</h6>
@@ -74,10 +75,11 @@
     <h3>House {{family.name}} - Day {{family.day}}</h3>
     <div class="row">
       <div class="small-6 columns">
-        Funds: {{family.steel}} Gold
+        Funds: {{family.steel}} Gold Dragons
         <br>
         <button ng-click="collectTaxes()" ng-disabled="taxCD">Collect Taxes</button>
       </div>
+      <div><a href="#" class="button" ng-click="hireFamily()" ng-disabled="family.steel < 10000">Hire Retainer (10000)</a></div>
       <div class="small-6 columns">
         <div>Soldiers: {{family.soldiers}}</div>
         <div class="button-bar">
@@ -88,6 +90,9 @@
             <li><a class="button" ng-click="hireSoldiers(family.steel/10)">Max [{{family.steel/10 | number:0}}]</a></li>
           </ul>
         </div>
+		<div>Dragons: {{family.dragons}}</div>
+		<div>Find dragons:</div>
+		<a href="#" class="button" ng-click="hireDragon(1)" ng-disabled="family.steel < 50000">1  (50 000 Gold)</a>
       </div>
     </div>
     <div class="row">
@@ -120,15 +125,27 @@
           <h5>Allies</h5>
           <div ng-repeat="person in family.allies track by $index">{{person}}</div>
         </div>
+        <div class="box">
+          <h5>Alive</h5>
+          <div ng-repeat="person in people track by $index"  class="deletable" ng-click="confirmDiplo(person)">{{person}}</div>
+        </div>
       </div>
     </div>
   </div>
   <div ng-show="showAssassinOptions" class= "modal">
-    So you wish to kill {{assassinationTarget}}? Who do you wish to hire?
+    So you wish to interact with {{assassinationTarget}}? What do you want to do?
     <hr>
     <div class="button-group">
+		<p>Hire to kill:</p>
       <button class="button tiny" ng-repeat="assassin in assassins" ng-click="orderKill(assassin, assassinationTarget)" ng-disabled="assassin.price > family.steel">{{assassin.name}} ({{assassin.price}} Gold)</button>
       <button class="button tiny" ng-click="cancelAssassination()">Cancel</button>
+    </div>
+  </div>
+  <div ng-show="showDiploOptions" class= "modal">
+	<div class="button-group">
+	<p>Gift to make alliance:</p>
+      <button class="button tiny" ng-repeat="diplomacy in diplomacy" ng-click="orderDiplo(diplomacy, diploTarget)" ng-disabled="diplomacy.price > family.steel">{{diplomacy.name}} ({{diplomacy.price}} Gold)</button>
+      <button class="button tiny" ng-click="cancelDiplo()">Cancel</button>
     </div>
   </div>
   <div ng-show="gameOver" class="modal">
@@ -139,8 +156,8 @@
 </html>
 <!-- partial -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src='//blockchain.info//Resources/wallet/pay-now-button.js'></script><script  src="./script.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+<script src="script.js"></script>
 
 </body>
 </html>
