@@ -23,9 +23,16 @@ document.getElementById('themeButton').onclick = toggleTheme;
 
 
 // client updater
+
+//list for website.
+//client version on update screen
+//newest version on update screen
+//current updates avalible
+
+var version = "1.0";
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-9-12;
+var updateDate = 2022-15-12;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");

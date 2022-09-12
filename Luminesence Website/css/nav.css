@@ -438,6 +438,14 @@ main {
   z-index: 100;
 }
 
+.features-list {
+  color: #8f9296;
+}
+
+.features-list li {
+  color: #8f9296;
+}
+
 .ud-screen {
   background-color: #5385c1;
   color: white;
