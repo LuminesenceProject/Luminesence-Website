@@ -28,11 +28,11 @@ document.getElementById('themeButton').onclick = toggleTheme;
 //client version on update screen
 //newest version on update screen
 //current updates avalible
-
-var version = "1.0";
+ 
+var version = "1.2";
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-28-22;
+var updateDate = 2022-9-26;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");
@@ -46,6 +46,7 @@ function close() {
 
 if (currentDate < updateDate) {
   updateScreen.style.display = 'block';
+  const themeMap = {};
 }
 
 if (currentDate < updateDate - 10) {
