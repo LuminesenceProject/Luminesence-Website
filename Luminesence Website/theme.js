@@ -32,7 +32,7 @@ document.getElementById('themeButton').onclick = toggleTheme;
 var version = "1.0";
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-15-12;
+var updateDate = 2022-28-22;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");

@@ -40,9 +40,6 @@ p {
 }
 
 .card {
-  font-family: "Poppins", sans-serif;
-}
-.card {
   height: 215px;
   position: relative;
   overflow: hidden;
@@ -51,6 +48,7 @@ p {
   display: grid;
   grid-template-rows: 1fr 1fr;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: "Poppins", sans-serif;
 }
 
 img {
