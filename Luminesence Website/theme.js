@@ -77,7 +77,9 @@ btn5.id = 'btn5'
 let btn6 = document.createElement('button')
 btn6.id = 'btn6'
 let btn7 = document.createElement('button')
-btn6.id = 'btn7'
+btn7.id = 'btn7'
+let consolebtn = document.createElement('button')
+consolebtn.id = 'consolebtn'
 
 ds1.style.display = 'none'
 let author = document.createElement('h2')
@@ -100,6 +102,7 @@ mainframe.append(btn4)
 mainframe.append(btn5)
 mainframe.append(btn6)
 mainframe.append(btn7)
+mainframe.append(consolebtn)
 
 title.textContent = 'Luminesence'
 author.textContent = 'A hack interface'
@@ -108,12 +111,17 @@ btn2.textContent = 'Tab Cloak'
 btn3.textContent = 'Darkmode Page'
 btn4.textContent = 'Themes'
 btn5.textContent = 'Autoclicker'
-btn6.textContent = 'Troll'
+btn7.textContent = 'Troll'
+consolebtn.textContent = 'Console'
 btn7.addEventListener('click', function () {
-  !function () { for (var t = '/', o = 0; o < 20; o++)history.pushState(0, 0, t += o.toString()) }();
-  ds1.style.display = ''
-  ds1.textContent = 'Activated History Flooder'
+
 });
+
+btn1.onclick = function flood() {
+  ds1.style.display = ''
+  ds1.textContent = 'Activated Flood'
+  javascript:var num=prompt('How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats');done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert('Flooding Successful!\n '+window.location.href+' \nIs Now In Your History '+num+(num==1?' time.':' Times. \nMade by Schoolcheats'))}
+}
 
 btn5.onclick = function autoclicker() {
   var autoBtn = document.createElement('button');  
@@ -172,10 +180,7 @@ btn6.onclick = function hide() {
 }
 
 btn7.onclick = function troll() {
-  onbeforeunload = function(){localStorage.x=1};
-  setTimeout(function(){
-    while(1)location.reload(1)
-  }, 1000)
+  javascript:(function(){function d(f){ctx.fillStyle='colorStr';ctx.fillRect(0,0,a,b/20);ctx.fillRect(0,0,a/30,b);ctx.fillRect(0,19*b/20,a,b/20);ctx.fillRect(29*a/30,0,a/30,b)}function e(){ctx.clearRect(0,0,a,b/20);ctx.clearRect(0,0,a/30,b);ctx.clearRect(0,19*b/20,a,b/20);ctx.clearRect(29*a/30,0,a/30,b)}var c=document.createElement('canvas'),a=window.innerWidth,b=window.innerHeight;c.width=a;c.height=b;document.body.appendChild(c);c.style.position='absolute';c.style.top='0px';c.style.left='0px';ctx=c.getContext('2d');d('black');setTimeout(function(){e();setTimeout(function(){d('black');setTimeout(function(){e();setTimeout(function(){d('black');setTimeout(function(){window.open('https:////dev.92spoons.com/sub/YouHaveBeenHacked.html','_blank');document.body.removeChild(c)},100)},100)},100)},100)},100)})();
 }
 
 btn2.onclick = function tabcloak() {
@@ -219,47 +224,155 @@ btn4.onclick = function themes() {
     ds1.textContent = 'Activated Themes. Selected Theme: ' + color
   ds1.style.display = ''
 }
+consolebtn.onclick = () => {
 
-const dragElement = (element, dragzone) => {
-  let pos1 = 0,
-    pos2 = 0,
-    pos3 = 0,
-    pos4 = 0;
-  const dragMouseUp = () => {
-    document.onmouseup = null;
-    document.onmousemove = null;
+  let stylething = document.createElement('style')
+  document.head.appendChild(stylething)
+  let main = document.createElement('div')
+  main.id = 'main'
+  document.body.appendChild(main)
+  main.appendChild(style)
+  let goback = document.createElement('button')
+  goback.id = 'goback'
+  let console = document.createElement('input')
+  let box = document.createElement('div')
+  console.id = 'console'
+  box.id = 'box'
+  main.appendChild(console)
+  main.appendChild(box)
+  console.placeholder = 'Enter a command (crwn info for help)'
+  goback.style.display = ''
+  goback.textContent = 'Go back'
+  main.appendChild(goback)
 
-    element.classList.remove('drag');
-  };
+  goback.onclick = () => {
+    main.style.display = 'none'
+    possible.style.display = 'none'
+  }
 
-  const dragMouseMove = (event) => {
+  stylething.textContent = `
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+#console {
+  width: 300px !important;
+  border-style: none;
+  height: 50px !important;
+  background-color: black;
+  color: green;
+  font-family: 'Open Sans';
+}
+#console::placeholder {
+  color: green;
+  font-family: 'Open Sans';
+}
+#goback {
+z-index: 999999 !important;
+}
+#box {
+  color: green;
+  width: 294px !important ;
+  height: 300px !important;
+  background-color: black;
+  margin: 50px;;
+  padding: 5px;
+  padding-left: 200px;
+  font-family: 'Open Sans';
+  border-style: none;
+ overflow-y: scroll; /* Show vertical scrollbar */
+}
+`
 
-    event.preventDefault();
-    pos1 = pos3 - event.clientX;
-    pos2 = pos4 - event.clientY;
-    pos3 = event.clientX;
-    pos4 = event.clientY;
-    element.style.top = `${element.offsetTop - pos2}px`;
-    element.style.left = `${element.offsetLeft - pos1}px`;
-  };
 
-  const dragMouseDown = (event) => {
-    event.preventDefault();
 
-    pos3 = event.clientX;
-    pos4 = event.clientY;
 
-    element.classList.add('drag');
+  console.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
 
-    document.onmouseup = dragMouseUp;
-    document.onmousemove = dragMouseMove;
-  };
-};
+      let output = document.createElement('p')
+      output.textContent = console.value
+      box.appendChild(output)
 
-const dragable = document.getElementById('mainframe'),
-  dragzone = document.getElementById('mainframe');
 
-dragElement(dragable, dragzone);
+      if (console.value.includes('crwn')) {
+        output.value = console.value
+      }
+      else {
+        output.textContent = 'Unknown command ~ ' + console.value + '~'
+        output.style.color = 'red'
+      }
+      if (console.value == 'crwn console blue') {
+        output.textContent = 'Changed console theme to blue'
+        box.style.backgroundColor = 'blue'
+
+      }
+      else if (console.value == 'crwn console green') {
+        output.value = console.value
+        output.textContent = 'Changed console theme to green'
+        box.style.backgroundColor = 'green'
+      }
+      else if (console.value == 'crwn custom theme') {
+        let bozo = prompt('Enter Image URL')
+        output.value = console.value
+        document.body.style.backgroundImage = 'url(' + bozo + ')';
+        output.textContent = 'Added custom theme to page'
+      }
+
+      else if (console.value == 'crwn new') {
+        output.textContent = "if (console.value == ~command- name-here~ { code here } else {output.textContent ~Unknown command~ ' + console.value + ''' output.style.color = 'red'}"
+
+
+      }
+      else if (console.value == 'crwn edit') {
+        javascript: document.body.contentEditable = true; document.designMode = 'on'; void 0;
+        output.textContent = 'Edit Mode turned on.'
+
+      }
+      else if (console.value == 'crwn create cmd') {
+        let name = prompt('Name your command')
+        let prefix = 'crwn'
+        let func = prompt('Paste your JS code. Do crwn new for the basic command creation guide.')
+
+        let store = prefix + ' ' + name
+        eval(func);
+        output.textContent = 'Executed ' + store
+      }
+
+      else if (console.value == 'crwn proxify site') {
+        let proxify = prompt('Enter site URL')
+        var code2 = ' width=100% height=100%>'; var proxyDomain = 'https://palladium-2.anirudhiscool.repl.co/service/gateway/?url='; var codeIP1 = code1.concat(proxyDomain); var codeIP2 = codeIP1.concat(proxify); var codeIP3 = codeIP2.concat(code2); document.write(codeIP3);
+      }
+
+      else if (console.value == 'crwn install pall') {
+        output.textContent = 'Downloaded palladium proxy. Using repl.co domain.'
+        let proxyDomain = 'https://palladium-2.anirudhiscool.repl.co/service/gateway/?url=';
+      } 
+      
+      else if (console.value == 'crwn install snake') {
+        output.textContent = 'Snake installed.'
+        javascript:Q=64;m=b=Q*Q;a=[P=l=u=d=p=S=w=0];u=89;f=(h=j=t=(b+Q)/2)-1;(B=(D=document).body).appendChild(x=D.createElement('p'));(X=x.style).position='fixed';X.left=X.top=0;X.background='#FFF';x.innerHTML='<p></p><canvas>';v=(s=x.childNodes)[0];(s=s[1]).width=s.height=5*Q;c=s.getContext('2d'); onkeydown=onblur=F=function(e,g){g?a[f]?(w+=m,f=Math.random(l+=8)*(R=Q-2)*R|(u=0),F(f+=Q+1+2*(f/R|0),g)):F(f):0>e?(l?--l:(y=t,t=a[t]-2,F(y)),S+=(w*=0.8)/4,m=999/(u++ +10),a[h+=[-1,-Q,1,Q][d=p]]?B.removeChild(x,alert('Game Over')):(F(h),F(e,j=h),v.innerHTML=P?(setTimeout(F,50,e,0),S|0):'Press P')):-e?(y=(a[e]=e<Q|e>=Q*Q-Q|!(e%Q)|e%Q==Q-1|2*(e==h))+(e==f),e==h&&(a[j]=2+h),c.fillStyle='hsl('+99*!a[e]+','+2*m+'%,'+50*y+'%)',c.fillRect(e%Q*5,5*(e/Q|0),5,5)):isNaN(y=e.keyCode-37)|43==y?(P=y&&!P)&&F(-1): p=!P|y&-4|!(y^2^d)?p:y;return!1};for(;--b;F(b));void F(-1);
+      }
+
+      else if (console.value == 'crwn delete css') {
+        mainframe.style.display = 'none'
+        javascript:(function(){var i,l,styles = document.styleSheets;for(i=0,l=styles.length;i<l;i++){styles[i].disabled = true;}})()
+      }
+
+      else if (console.value == 'crwn calc') {
+        javascript:eval('function calc(){_o=prompt(_t,_z);if(_o!=\'\'&&_o!=null&&_o.toUpperCase()==_o.toLowerCase())_z=eval(_o);}');_t='JAVASCRIPTER.NET Calculator - Input the expression to be calculated:';_z='';calc();while(_o!=''&&_o!=null&&_o.toUpperCase()==_o.toLowerCase())calc()
+      }
+
+      else if (console.value == 'crwn info') {
+        output.textContent = 'List of all the commands: crwn console green/blue, crwn custom theme - makes custom theme, crwn new, crwn edit, crwn create cmd, crwn proxify site, crwn install pall, crwn install snake, crwn delete css, crwn calc.  '
+      }
+
+      else {
+        output.textContent = 'Unknown command  ' + console.value + ''
+        output.style.color = 'red'
+      }
+    }
+  });
+
+}
 
 
 
@@ -287,10 +400,6 @@ btn3.onclick = function darkmode() {
     document.querySelectorAll('h6').forEach(h6 => h6.style.color = 'white');
     return true
 }
-
-var result = toggle();
-
-localStorage.toggle = true;
 }
 
 style.textContent = `
@@ -303,8 +412,11 @@ style.textContent = `
   animation-duration: 2s;
   text-align: center;
   margin: 0px auto;
-  position: relative;
+  position: fixed;
   overflow: auto;
+  top: 2rem;
+  z-index: 10000; 
+  left: 25%;
 }
 
 #title, #author {
@@ -315,7 +427,7 @@ style.textContent = `
 
 
 
-#btn1, #btn2, #btn3, #btn4, #btn5 {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn7, #consolebtn {
   appearance: none;
   backface-visibility: hidden;
   background-color: #27ae60;
@@ -350,14 +462,14 @@ style.textContent = `
 
 
 
-#btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover {
+#btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn7:hover, #consolebtn:hover {
   background-color: #1e8449;
   opacity: 1;
   transform: translateY(0);
   transition-duration: .35s;
 }
 
-#btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active {
+#btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active, #btn7:active, #consolebtn:active {
   transform: translateY(2px);
   transition-duration: .35s;
 }
@@ -370,7 +482,7 @@ style.textContent = `
 @keyframes slidein {
   0% {
     opacity: 0%
-  }
+  } 
 
   100% {
     opactiy: 100%
