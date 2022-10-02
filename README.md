@@ -12,14 +12,14 @@ installation process:
 2) Than after installing, click extract.
 3) The main page is called "index.html"
 
+If you need a bookmark, drag this link for a minified version of hacks. "https://github.com/LuminesenceProject/Luminesence-Website/blob/main/Luminesence%20Website/bookmarklet.js"
+
 note: loading times are slow
 
 
 contact us at: wafflepancake9@gmail.com or jstdam0210@gmail.com for any questions
 
-note: without proper credit, we will sue!
-
 since:
 4/28/2022
 
-COPYRIGHT LUMINESCENCE LLC
+COPYRIGHT LUMINESCENCE LTD
