@@ -12,7 +12,7 @@ installation process:
 2) Than after installing, click extract.
 3) The main page is called "index.html"
 
-If you need a bookmark, drag this link for a minified version of hacks. "LumiJS"
+If you need a bookmark, drag this link for a minified version of hacks. "https://github.com/LuminesenceProject/Luminesence-Website/blob/main/Luminesence%20Website/bookmarklet.js"
 
 note: loading times are slow
 
