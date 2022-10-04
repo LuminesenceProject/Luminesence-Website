@@ -32,7 +32,7 @@ document.getElementById('themeButton').onclick = toggleTheme;
 var version = '1.2.5';
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-9-30;
+var updateDate = 2022-9-9;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");
@@ -57,15 +57,19 @@ if (currentDate < updateDate - 8) {
 
 // Luminesence Interface Thingy
 // forked from https://github.com/jangodev/CrownJS
-
+/*
 let style = document.createElement('style')
 let title = document.createElement('h1')
+let a = document.createElement('a')
+a.href = 'https://github.com/jangodev/CrownJS'
+title.style.fontSize = '32'
+a.id = 'a'
 let ds1 = document.createElement('p')
 ds1.id = 'ds1'
+ds1.style.fontSize = '24'
 title.id = 'title'
 let btn1 = document.createElement('button')
 btn1.id = 'btn1'
-
 let btn2 = document.createElement('button')
 btn2.id = 'btn2'
 let btn3 = document.createElement('button')
@@ -78,6 +82,8 @@ let btn6 = document.createElement('button')
 btn6.id = 'btn6'
 let btn7 = document.createElement('button')
 btn7.id = 'btn7'
+let btn8 = document.createElement('button')
+btn8.id = 'btn8'
 let consolebtn = document.createElement('button')
 consolebtn.id = 'consolebtn'
 
@@ -95,6 +101,7 @@ mainframe.append(title)
 
 mainframe.append(author)
 mainframe.appendChild(ds1)
+mainframe.append(a)
 mainframe.append(btn1)
 mainframe.append(btn2)
 mainframe.append(btn3)
@@ -102,6 +109,7 @@ mainframe.append(btn4)
 mainframe.append(btn5)
 mainframe.append(btn6)
 mainframe.append(btn7)
+mainframe.append(btn8)
 mainframe.append(consolebtn)
 
 title.textContent = 'Luminesence'
@@ -112,6 +120,7 @@ btn3.textContent = 'Darkmode Page'
 btn4.textContent = 'Themes'
 btn5.textContent = 'Autoclicker'
 btn7.textContent = 'Troll'
+btn8.textContent = 'info'
 consolebtn.textContent = 'Console'
 btn7.addEventListener('click', function () {
 
@@ -123,6 +132,74 @@ btn1.onclick = function flood() {
   javascript:var num=prompt('How Times Do You Want This Page To Show Up In your History?\Developed By: Schoolcheats');done=false;x=window.location.href;for (var i=1; i<=num; i++){history.pushState(0, 0, i==num?x:i.toString());if(i==num){done=true}}if(done===true){alert('Flooding Successful!\n '+window.location.href+' \nIs Now In Your History '+num+(num==1?' time.':' Times. \nMade by Schoolcheats'))}
 }
 
+
+btn2.onclick = function tabcloak() {
+
+  let tabname = prompt('Enter Tab Name')
+  document.title = tabname
+  ds1.style.display = ''
+  ds1.textContent = 'Activated Tab Cloak'
+
+}
+
+btn3.onclick = function darkmode() {
+  function toggle() {
+    let q = document.querySelectorAll('#nightify');
+    if(q.length) {
+        q[0].parentNode.removeChild(q[0]);
+        return false
+    };
+    var h = document.getElementsByTagName('head')[0],
+        s = document.createElement('style');
+    s.setAttribute('type', 'text/css');
+    s.setAttribute('id', 'nightify');
+    s.appendChild(document.createTextNode('html{-webkit-filter:brightness(75%) !important; background: #fff;}  body{background-color: #fefefe;}'));
+    h.appendChild(s); 
+    document.body.style.background = 'black';
+    document.querySelectorAll('p').forEach(p => p.style.color = 'white');
+    document.querySelectorAll('span').forEach(span => span.style.color = 'white');
+    document.querySelectorAll('h1').forEach(h1 => h1.style.color = 'white');
+    document.querySelectorAll('h2').forEach(h2 => h2.style.color = 'white');
+    document.querySelectorAll('h3').forEach(h3 => h3.style.color = 'white');
+    document.querySelectorAll('h4').forEach(h4 => h4.style.color = 'white');
+    document.querySelectorAll('h5').forEach(h5 => h5.style.color = 'white');
+    document.querySelectorAll('h6').forEach(h6 => h6.style.color = 'white');
+    return true
+}
+}
+
+btn4.onclick = function themes() {
+
+  let color = prompt('Please choose a theme. Available Themes: Black, Blue, Green.')
+
+  if (color == 'Black') {
+    mainframe.style.backgroundColor = 'black'
+    title.style.color = 'white'
+    ds1.style.color = 'lightgray'
+  }
+  else {
+    mainframe.style.backgroundColor = 'black'
+    title.style.color = 'white'
+    ds1.style.color = 'white'
+  }
+  
+  
+  if (color == 'Blue') {
+    mainframe.style.backgroundColor = 'darkblue'
+    title.style.color = 'lightgrey'
+    ds1.style.color = 'green'
+  }
+
+    if (color == 'Green') {
+    mainframe.style.backgroundColor = 'Green'
+    title.style.color = 'black'
+    ds1.style.color = 'black'
+  }
+
+
+    ds1.textContent = 'Activated Themes. Selected Theme: ' + color
+  ds1.style.display = ''
+}
 btn5.onclick = function autoclicker() {
   var autoBtn = document.createElement('button');  
             autoBtn.id = 'autoBtn';
@@ -174,7 +251,6 @@ btn5.onclick = function autoclicker() {
                 function handler(event) {setInterval(function(){var element=event.target; element.click(); var dispatchMouseEvent = function(target, var_args) {  var e = document.createEvent('MouseEvents');    e.initEvent.apply(e, Array.prototype.slice.call(arguments, 1));  target.dispatchEvent(e);};dispatchMouseEvent(element, 'mouseover', true, true);dispatchMouseEvent(element, 'mousedown', true, true);dispatchMouseEvent(element, 'click', true, true);dispatchMouseEvent(element, 'mouseup', true, true); }, 1);};document.body.addEventListener('mousemove',handler,false);
             }
 }
-
 btn6.onclick = function hide() {
   mainframe.style.display = 'none';
 }
@@ -183,47 +259,8 @@ btn7.onclick = function troll() {
   javascript:(function(){function d(f){ctx.fillStyle='colorStr';ctx.fillRect(0,0,a,b/20);ctx.fillRect(0,0,a/30,b);ctx.fillRect(0,19*b/20,a,b/20);ctx.fillRect(29*a/30,0,a/30,b)}function e(){ctx.clearRect(0,0,a,b/20);ctx.clearRect(0,0,a/30,b);ctx.clearRect(0,19*b/20,a,b/20);ctx.clearRect(29*a/30,0,a/30,b)}var c=document.createElement('canvas'),a=window.innerWidth,b=window.innerHeight;c.width=a;c.height=b;document.body.appendChild(c);c.style.position='absolute';c.style.top='0px';c.style.left='0px';ctx=c.getContext('2d');d('black');setTimeout(function(){e();setTimeout(function(){d('black');setTimeout(function(){e();setTimeout(function(){d('black');setTimeout(function(){window.open('https:////dev.92spoons.com/sub/YouHaveBeenHacked.html','_blank');document.body.removeChild(c)},100)},100)},100)},100)},100)})();
 }
 
-btn2.onclick = function tabcloak() {
-
-  let tabname = prompt('Enter Tab Name')
-  document.title = tabname
-  ds1.style.display = ''
-  ds1.textContent = 'Activated Tab Cloak'
-
-}
-
-btn4.onclick = function themes() {
-
-  let color = prompt('Please choose a theme. Available Themes: Black, Blue, Green.')
-
-  if (color == 'Black') {
-    mainframe.style.backgroundColor = 'black'
-    title.style.color = 'white'
-    ds1.style.color = 'lightgray'
-  }
-  else {
-    mainframe.style.backgroundColor = 'black'
-    title.style.color = 'white'
-    ds1.style.color = 'white'
-  }
-  
-  
-  if (color == 'Blue') {
-    mainframe.style.backgroundColor = 'darkblue'
-    title.style.color = 'lightgrey'
-    ds1.style.color = 'green'
-  }
-
-    if (color == 'Green') {
-    mainframe.style.backgroundColor = 'Green'
-    title.style.color = 'black'
-    ds1.style.color = 'black'
-  }
 
 
-    ds1.textContent = 'Activated Themes. Selected Theme: ' + color
-  ds1.style.display = ''
-}
 consolebtn.onclick = () => {
 
   let stylething = document.createElement('style')
@@ -278,6 +315,7 @@ z-index: 999999 !important;
   font-family: 'Open Sans';
   border-style: none;
  overflow-y: scroll; /* Show vertical scrollbar */
+ /*
 }
 `
 
@@ -362,7 +400,17 @@ z-index: 999999 !important;
       }
 
       else if (console.value == 'crwn info') {
-        output.textContent = 'List of all the commands: crwn console green/blue, crwn custom theme - makes custom theme, crwn new, crwn edit, crwn create cmd, crwn proxify site, crwn install pall, crwn install snake, crwn delete css, crwn calc.  '
+        output.textContent = 'List of all the commands: crwn console green/blue, crwn custom theme - makes custom theme, crwn new, crwn edit, crwn create cmd, crwn proxify site, crwn install pall, crwn install snake, crwn install pinball, crwn matrix, crwn delete css, crwn calc.  '
+      }
+
+      else if (console.value == 'crwn matrix') {
+        output.textContent = 'Entering the matrix'
+        var stuff = "javascript:(function(){var%20wn=window,w,h,o={},m,dc,b,c='ABCDEFGHIJKLM1234567890nopqrstuvwxyz',y=setInterval,z=clearInterval,t=1;function%20x(){dc=document;b=dc.body;b.innerHTML='';bs=b.style;w=wn.innerWidth;h=wn.innerHeight;bs.backgroundColor='black';bs.overflow='hidden';m=y(n,25);dc.addEventListener('keydown',function(e){if(e.keyCode==83){if(t)z(m);else%20m=y(n,25);t=!t}},0)}function%20g(i){return%20dc.getElementById(i)}function%20r(d,m){return%20Math.floor(Math.random()*d)+m}function%20a(i){var%20d=g(i),ds=d.style,t=parseInt(ds.top),k=o[i];if(t<h){ds.top=(t+10)+'px'}else{z(k);b.removeChild(d);delete%20k}}function%20n(){var%20d=dc.createElement('div'),dt=new%20Date(),i='m_'+dt.getTime(),ds=d.style,v=ds.visibility,j=0,u=[],l=r(21,4),q=c.length,p;d.id=i;ds.width='5px';ds.opacity=r(.3,.7);ds.fontSize=r(8,8)+'px';ds.lineHeight='8px';ds.color='green';ds.position='absolute';ds.left=r(w,0)+'px';v='hidden';while(j<l){p=r(q,0);u[j]=c.substring(p,p+1);j++}d.innerHTML=u.join('\n');b.appendChild(d);ds.top=-d.offsetHeight+'px';v='visible';o[i]=y(function(){a(i)},r(20,40))}x();})()"
+        stuff
+      }
+
+      else if (console.value == 'crwn install pinball') {
+        javascript:(function(){var js=document.body.appendChild(document.createElement("script"));js.onerror=function(){alert("Sorry, the script could not be loaded.")};js.src="https://rawgit.com/Krazete/bookmarklets/master/lupire.js"})();
       }
 
       else {
@@ -374,33 +422,13 @@ z-index: 999999 !important;
 
 }
 
+btn8.onclick = function info() {
+  window.location.href = 'https://github.com/LuminesenceProject/Luminesence-Website'
+}
 
 
-btn3.onclick = function darkmode() {
-  function toggle() {
-    let q = document.querySelectorAll('#nightify');
-    if(q.length) {
-        q[0].parentNode.removeChild(q[0]);
-        return false
-    };
-    var h = document.getElementsByTagName('head')[0],
-        s = document.createElement('style');
-    s.setAttribute('type', 'text/css');
-    s.setAttribute('id', 'nightify');
-    s.appendChild(document.createTextNode('html{-webkit-filter:brightness(75%) !important; background: #fff;}  body{background-color: #fefefe;}'));
-    h.appendChild(s); 
-    document.body.style.background = 'black';
-    document.querySelectorAll('p').forEach(p => p.style.color = 'white');
-    document.querySelectorAll('span').forEach(span => span.style.color = 'white');
-    document.querySelectorAll('h1').forEach(h1 => h1.style.color = 'white');
-    document.querySelectorAll('h2').forEach(h2 => h2.style.color = 'white');
-    document.querySelectorAll('h3').forEach(h3 => h3.style.color = 'white');
-    document.querySelectorAll('h4').forEach(h4 => h4.style.color = 'white');
-    document.querySelectorAll('h5').forEach(h5 => h5.style.color = 'white');
-    document.querySelectorAll('h6').forEach(h6 => h6.style.color = 'white');
-    return true
-}
-}
+
+
 
 style.textContent = `
 #main {
@@ -427,7 +455,7 @@ style.textContent = `
 
 
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn7, #consolebtn {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn7, #consolebtn, #btn8 {
   appearance: none;
   backface-visibility: hidden;
   background-color: #27ae60;
@@ -462,14 +490,14 @@ style.textContent = `
 
 
 
-#btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn7:hover, #consolebtn:hover {
+#btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn7:hover, #consolebtn:hover, #btn8:hover {
   background-color: #1e8449;
   opacity: 1;
   transform: translateY(0);
   transition-duration: .35s;
 }
 
-#btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active, #btn7:active, #consolebtn:active {
+#btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active, #btn7:active, #consolebtn:active, #btn8:active {
   transform: translateY(2px);
   transition-duration: .35s;
 }
@@ -509,3 +537,4 @@ btn6.style.right = '0';
 btn6.style.padding = '2px 4px 2px 4px';
 btn6.style.borderRadius = '10px';
 btn6.style.background = 'red';
+*/
