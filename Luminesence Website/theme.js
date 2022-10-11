@@ -29,10 +29,10 @@ document.getElementById('themeButton').onclick = toggleTheme;
 //newest version on update screen
 //current updates avalible
  
-var version = '1.2.5';
+var version = '1.3.6';
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var updateDate = 2022-9-9;
+var updateDate = 2022-9-20;
 var currentDate = today.getFullYear() - (today.getMonth()+1) - today.getDate();
 
 var updateScreen = document.getElementById("updateScreen");
@@ -84,6 +84,10 @@ let btn7 = document.createElement('button')
 btn7.id = 'btn7'
 let btn8 = document.createElement('button')
 btn8.id = 'btn8'
+let btn9 = document.createElement('button')
+btn9.id = 'btn9'
+let btn10 = document.createElement('button')
+btn10.id = 'btn10'
 let consolebtn = document.createElement('button')
 consolebtn.id = 'consolebtn'
 
@@ -110,6 +114,8 @@ mainframe.append(btn5)
 mainframe.append(btn6)
 mainframe.append(btn7)
 mainframe.append(btn8)
+mainframe.append(btn9)
+mainframe.append(btn10)
 mainframe.append(consolebtn)
 
 title.textContent = 'Luminesence'
@@ -120,11 +126,10 @@ btn3.textContent = 'Darkmode Page'
 btn4.textContent = 'Themes'
 btn5.textContent = 'Autoclicker'
 btn7.textContent = 'Troll'
-btn8.textContent = 'info'
+btn8.textContent = 'Info'
 consolebtn.textContent = 'Console'
-btn7.addEventListener('click', function () {
-
-});
+btn9.textContent = 'Notepad'
+btn10.textContent = 'Ponies'
 
 btn1.onclick = function flood() {
   ds1.style.display = ''
@@ -284,18 +289,18 @@ consolebtn.onclick = () => {
 
   goback.onclick = () => {
     main.style.display = 'none'
-    possible.style.display = 'none'
   }
 
   stylething.textContent = `
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 #console {
-  width: 300px !important;
+  width: 500px !important;
   border-style: none;
   height: 50px !important;
   background-color: black;
   color: green;
   font-family: 'Open Sans';
+  margin: auto auto;
 }
 #console::placeholder {
   color: green;
@@ -314,8 +319,7 @@ z-index: 999999 !important;
   padding-left: 200px;
   font-family: 'Open Sans';
   border-style: none;
- overflow-y: scroll; /* Show vertical scrollbar */
- /*
+ overflow-y: scroll; 
 }
 `
 
@@ -325,7 +329,7 @@ z-index: 999999 !important;
   console.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
-
+      var extra = "";
       let output = document.createElement('p')
       output.textContent = console.value
       box.appendChild(output)
@@ -369,10 +373,13 @@ z-index: 999999 !important;
         let name = prompt('Name your command')
         let prefix = 'crwn'
         let func = prompt('Paste your JS code. Do crwn new for the basic command creation guide.')
-
         let store = prefix + ' ' + name
+        extra = store;
         eval(func);
+        window.localStorage.setItem('store', store.toString());
+        window.localStorage.setItem('func', func.toString());
         output.textContent = 'Executed ' + store
+
       }
 
       else if (console.value == 'crwn proxify site') {
@@ -400,7 +407,7 @@ z-index: 999999 !important;
       }
 
       else if (console.value == 'crwn info') {
-        output.textContent = 'List of all the commands: crwn console green/blue, crwn custom theme - makes custom theme, crwn new, crwn edit, crwn create cmd, crwn proxify site, crwn install pall, crwn install snake, crwn install pinball, crwn matrix, crwn delete css, crwn calc.  '
+        output.textContent = 'List of all the commands: crwn console green/blue, crwn custom theme - makes custom theme, crwn new, crwn edit, crwn create cmd, crwn proxify site, crwn install pall, crwn install snake, crwn install pinball, crwn matrix, crwn delete css, crwn calc ' + localStorage.getItem('store')
       }
 
       else if (console.value == 'crwn matrix') {
@@ -411,6 +418,10 @@ z-index: 999999 !important;
 
       else if (console.value == 'crwn install pinball') {
         javascript:(function(){var js=document.body.appendChild(document.createElement("script"));js.onerror=function(){alert("Sorry, the script could not be loaded.")};js.src="https://rawgit.com/Krazete/bookmarklets/master/lupire.js"})();
+      }
+
+      else if (console.value == localStorage.getItem('store')) {
+        eval(window.localStorage.getItem('func'))
       }
 
       else {
@@ -426,7 +437,100 @@ btn8.onclick = function info() {
   window.location.href = 'https://github.com/LuminesenceProject/Luminesence-Website'
 }
 
+btn9.onclick = function note() {
+  javascript:(
+    function hi() {  
+      var parentID = 'a3q_parent';
+      var dID = 'a3q_customNotes';  
+      var buttonID = 'a3q_close_button';  
+      var run = 'a3q_run_button';
+      var saveThrottleSpeed = 100;  
+      var lastSave = Date.now();  
+      var waitCallback;  
+      function a3q_Save(force) {    
+        force = force || false;    
+        clearTimeout(waitCallback);    
+        if (force || Date.now() - lastSave >= saveThrottleSpeed) {      
+          lastSave = Date.now();        
+          localStorage.setItem('a3q_note', a3q_GetContents());    
+        } else {      
+          waitCallback = setTimeout(function() {        
+            a3q_Save();      }, saveThrottleSpeed - Date.now());    }  };  
+            function a3q_Load() {    
+              return localStorage.getItem('a3q_note') || '';  
+            };  
+            function a3q_GetContents() {    
+              return document.getElementById(dID).innerHTML;
+              };  
+              function a3q_Unload() {    
+                a3q_Save(true);    
+                d.removeEventListener('onkeyup', a3q_Save);    
+                d.parentNode.removeChild(d);    
+                e.removeEventListener('onkeyup', a3q_Save);    
+                e.parentNode.removeChild(e);  
+                c.removeEventListener('onclick', c.onclick);    
+                c.parentNode.removeChild(c);  };  
+                var d = document.getElementById(dID); 
+                 var c = document.getElementById(buttonID);  
+                 var e = document.getElementById(run)
+                 if (d) {    
+                  a3q_Unload();  
+                } else {    
+                  var d = document.createElement('textarea');    
+                  d.id = dID;    d.innerHTML = a3q_Load();    
+                  d.style.backgroundColor = '#333';    
+                  d.style.color = '#ccc';    
+                  d.style.border = '1px solid #ccc';   
+                  d.style.position = 'fixed';    
+                  d.style.width = '20%';    
+                  d.style.height = '20%';    
+                  d.style.right = '2%';    
+                  d.style.bottom = '2%';    
+                  d.style.padding = '2px';    
+                  d.style.zIndex = 10000;    
+                  d.contentEditable = true;    
+                  document.body.appendChild(d);    
+                  d.focus();    
+                  var lastRun = Date.now();    
+                  d.onkeyup = a3q_Save;    
+                  var c = document.createElement('button');    
+                  var e = document.createElement('button');
+                  c.style.position = 'fixed';    
+                  c.id = buttonID;    
+                  c.style.zIndex = 10000;    
+                  c.style.bottom = '2%';    
+                  c.style.right = '2%';    
+                  c.innerHTML = 'Close';    
+                  c.style.backgroundColor = '#333';    
+                  c.style.color = '#ccc';    
+                  c.onclick = function() {      
+                    a3q_Unload();    
+                  };    
+                  document.body.appendChild(e);  
+                  e.style.position = 'fixed';    
+                  e.style.float = 'left';
+                  e.id = run;    
+                  e.style.zIndex = 10000;    
+                  e.style.bottom = '2%';    
+                  e.style.left = '78%';    
+                  e.innerHTML = 'Run';    
+                  e.style.backgroundColor = '#333';    
+                  e.style.color = '#ccc';    
+                  e.onclick = function() {      
+                     var a3q_note = document.getElementById("a3q_customNotes").value;
+                      if (a3q_note == !null) {
+                        document.getElementById("a3q_customNotes").style.color = "red";
+                        a3q_note = "Please enter a proper value";
+                      }
+                      eval(a3q_note);
+                  };    
+                  document.body.appendChild(c);  
+            }})();
+}
 
+btn10.onclick = function ponies() {
+  javascript:(function (srcs,cfg) { var cbcount = 1; var callback = function () { -- cbcount; if (cbcount === 0) { BrowserPonies.setBaseUrl(cfg.baseurl); if (!BrowserPoniesBaseConfig.loaded) { BrowserPonies.loadConfig(BrowserPoniesBaseConfig); BrowserPoniesBaseConfig.loaded = true; } BrowserPonies.loadConfig(cfg); if (!BrowserPonies.running()) BrowserPonies.start(); } }; if (typeof(BrowserPoniesConfig) === "undefined") { window.BrowserPoniesConfig = {}; } if (typeof(BrowserPoniesBaseConfig) === "undefined") { ++ cbcount; BrowserPoniesConfig.onbasecfg = callback; } if (typeof(BrowserPonies) === "undefined") { ++ cbcount; BrowserPoniesConfig.oninit = callback; } var node = (document.body || document.documentElement || document.getElementsByTagName('head')[0]); for (var id in srcs) { if (document.getElementById(id)) continue; if (node) { var s = document.createElement('script'); s.type = 'text/javascript'; s.id = id; s.src = srcs[id]; node.appendChild(s); } else { document.write('\u003cscript type="text/javscript" src="'+ srcs[id]+'" id="'+id+'"\u003e\u003c/script\u003e'); } } callback();})({"browser-ponies-script":"https://panzi.github.io/Browser-Ponies/browserponies.js","browser-ponies-config":"https://panzi.github.io/Browser-Ponies/basecfg.js"},{"baseurl":"https://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1}});void(0)
+}
 
 
 
@@ -455,7 +559,7 @@ style.textContent = `
 
 
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn7, #consolebtn, #btn8 {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn7, #consolebtn, #btn8, #btn9, #btn10 {
   appearance: none;
   backface-visibility: hidden;
   background-color: #27ae60;
@@ -490,51 +594,51 @@ style.textContent = `
 
 
 
-#btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn7:hover, #consolebtn:hover, #btn8:hover {
-  background-color: #1e8449;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
-}
-
-#btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active, #btn7:active, #consolebtn:active, #btn8:active {
-  transform: translateY(2px);
-  transition-duration: .35s;
-}
-
-#ds1 {
-  color: yellow;
-  font-family: 'Helvetica';
-  font-family: 10px;
-}
-@keyframes slidein {
-  0% {
-    opacity: 0%
-  } 
-
-  100% {
-    opactiy: 100%
+  #btn1:hover,#btn2:hover,#btn1:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn7:hover, #consolebtn:hover, #btn8:hover, #btn9:hover, #btn10:hover {
+    background-color: #1e8449;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
   }
-}
 
-#btn6 {
-  position = 'absolute';
-  zIndex = '10000';
-  top = '0';
-  right = '0';
-  padding = '10px 10px 10px 10px';
-  borderRadius = '10px';
-}
+  #btn1:active, #btn2:active, #btn3:active, #btn4:active, #btn5:active, #btn7:active, #consolebtn:active, #btn8:active, #btn9:active, #btn10:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+  }
 
-`
+  #ds1 {
+    color: yellow;
+    font-family: 'Helvetica';
+    font-family: 10px;
+  }
+  @keyframes slidein {
+    0% {
+      opacity: 0%
+    } 
+
+    100% {
+      opactiy: 100%
+    }
+  }
+
+  #btn6 {
+    position = 'absolute';
+    zIndex = '10000';
+    top = '0';
+    right = '0';
+    padding = '10px 10px 10px 10px';
+    borderRadius = '10px';
+  }
+
+  `
 
 
-btn6.innerHTML = 'X';  
-btn6.style.position = 'absolute';
-btn6.style.zIndex = '10000';
-btn6.style.top = '0';
-btn6.style.right = '0';
-btn6.style.padding = '2px 4px 2px 4px';
-btn6.style.borderRadius = '10px';
-btn6.style.background = 'red';
+  btn6.innerHTML = 'X';  
+  btn6.style.position = 'absolute';
+  btn6.style.zIndex = '10000';
+  btn6.style.top = '0';
+  btn6.style.right = '0';
+  btn6.style.padding = '2px 4px 2px 4px';
+  btn6.style.borderRadius = '10px';
+  btn6.style.background = 'red';
 */
