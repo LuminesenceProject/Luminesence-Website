@@ -1,0 +1,14 @@
+{
+  "name": "Luminesence-Website",
+  "version": "1.0.0",
+  "description": "fun",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "mariobememes",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
